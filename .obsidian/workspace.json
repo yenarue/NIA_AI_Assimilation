@@ -200,6 +200,8 @@
   },
   "active": "4f89a25b7ff2b4d7",
   "lastOpenFiles": [
+    "eval \"$(ssh-agent -s)\".pub",
+    "eval \"$(ssh-agent -s)\"",
     "output/figures/figure_notes_selected.md",
     "output/figures/figure_summary_stats_selected.csv",
     "output/figures/fig_selected_2_proc_high_by_it_org_type.png",
@@ -212,7 +214,6 @@
     "merged",
     "working/merged/append_log.txt",
     "working/merged/nia_2019_2024_extended.csv",
-    "working/merged/nia_2020_2024_merged.csv",
     "작업등대.md",
     "log.md",
     "brief.md"
