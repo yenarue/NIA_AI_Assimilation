@@ -200,6 +200,12 @@
   },
   "active": "4f89a25b7ff2b4d7",
   "lastOpenFiles": [
+    "output/figures/figure_notes_selected.md",
+    "output/figures/figure_summary_stats_selected.csv",
+    "output/figures/fig_selected_2_proc_high_by_it_org_type.png",
+    "output/figures/fig_selected_1_ai_use_by_it_org_type.png",
+    "output/figures",
+    "code/05_make_selected_figures.py",
     "merged/append_log.txt",
     "merged/nia_2019_2024_extended.csv",
     "merged/nia_2020_2024_merged.csv",
@@ -207,10 +213,6 @@
     "working/merged/append_log.txt",
     "working/merged/nia_2019_2024_extended.csv",
     "working/merged/nia_2020_2024_merged.csv",
-    "code/04_append_cleaned_files.py",
-    "raw/~$nia_2020_codebook.xlsx",
-    "raw/~$nia_2021_codebook.xlsx",
-    "raw/~$nia_2022_codebook.xlsx",
     "작업등대.md",
     "log.md",
     "brief.md"
