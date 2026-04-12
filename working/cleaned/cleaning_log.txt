@@ -1,0 +1,296 @@
+NIA cleaned 파일 생성 로그
+================================================================================================
+연도: 2019
+source file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2019_renamed.csv
+matched codebook file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2019_codebook.xlsx
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2019_cleaned.csv
+row count before / after: 13456 -> 13456
+변수 분류 요약:
+  - weight_raw: continuous_numeric
+  - industry_raw: nominal_categorical
+  - industry_size_raw: nominal_categorical
+  - firm_size_raw: ordinal_likert_or_ordered_category
+  - it_org_any_raw: binary_yes_no
+  - it_org_internal_raw: binary_yes_no
+  - it_org_mixed_raw: binary_yes_no
+  - it_org_outsource_raw: binary_yes_no
+  - it_invest_share_raw: continuous_numeric
+  - ai_use_raw: binary_yes_no
+  - proc_efficiency_raw: ordinal_likert_or_ordered_category
+  - proc_cost_raw: ordinal_likert_or_ordered_category
+표준 변수 생성 결과: year, weight, industry, industry_size, firm_size, it_org_any, it_org_internal, it_org_mixed, it_org_outsource, it_org_type, it_invest_share, ai_use, proc_improve, innov_outcome, decision_improve
+누락 컬럼: (없음)
+raw -> cleaned 매핑 / 처리:
+  - it_org_any==0 & 하위3문항 모두 결측인 9723건에 대해 하위 3문항을 0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_internal가 결측인 2512건에 대해 it_org_internal=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_mixed가 결측인 2116건에 대해 it_org_mixed=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_outsource가 결측인 2203건에 대해 it_org_outsource=0으로 채웠습니다.
+  - 2019년 proc_improve는 proc_efficiency_raw와 proc_cost_raw가 둘 다 있으면 평균 후 반올림하고, 하나만 있으면 해당 값을 사용해 생성했습니다.
+binary 매핑 규칙:
+  - Q33: 1(예) -> 1
+  - Q33: 2(아니오) -> 0
+  - Q33A1: 1(해당) -> 1
+  - Q33A2: 1(해당) -> 1
+  - Q33A3: 1(해당) -> 1
+  - Q50: 1(예) -> 1
+  - Q50: 2(아니오, 그러나 인공지능 기술 및 서비스에 대해 알고 있음) -> 0
+  - Q50: 3 -> 0
+결측 처리 규칙:
+  - 공통 결측 규칙: "", 공백, ".", "-", "--", "NA", "N/A", "None", "null", "unknown" -> 결측
+  - Q33A1: 0(비해당) -> 결측
+  - Q33A2: 0(비해당) -> 결측
+  - Q33A3: 0(비해당) -> 결측
+  - Q32: 998(거절) -> 결측
+  - Q32: 999(모름) -> 결측
+warnings:
+  - 없음
+unresolved cases:
+  - 없음
+------------------------------------------------------------------------------------------------
+연도: 2020
+source file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2020_renamed.csv
+matched codebook file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2020_codebook.xlsx
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2020_cleaned.csv
+row count before / after: 12099 -> 12099
+변수 분류 요약:
+  - weight_raw: continuous_numeric
+  - industry_raw: nominal_categorical
+  - industry_size_raw: nominal_categorical
+  - firm_size_raw: ordinal_likert_or_ordered_category / 경고=비결측 값 없음
+  - it_org_any_raw: binary_yes_no
+  - it_org_internal_raw: binary_yes_no
+  - it_org_mixed_raw: binary_yes_no
+  - it_org_outsource_raw: binary_yes_no
+  - it_invest_share_raw: continuous_numeric
+  - ai_use_raw: binary_yes_no
+  - proc_improve_raw: ordinal_likert_or_ordered_category
+  - decision_improve_raw: ordinal_likert_or_ordered_category
+  - innov_outcome_raw: ordinal_likert_or_ordered_category
+표준 변수 생성 결과: year, weight, industry, industry_size, firm_size, it_org_any, it_org_internal, it_org_mixed, it_org_outsource, it_org_type, it_invest_share, ai_use, proc_improve, innov_outcome, decision_improve
+누락 컬럼: firm_size_raw
+raw -> cleaned 매핑 / 처리:
+  - it_org_any==0 & 하위3문항 모두 결측인 5904건에 대해 하위 3문항을 0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_internal가 결측인 4613건에 대해 it_org_internal=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_mixed가 결측인 4137건에 대해 it_org_mixed=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_outsource가 결측인 3132건에 대해 it_org_outsource=0으로 채웠습니다.
+  - proc_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 proc_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - innov_outcome_raw는 raw 1~5 리커트 값을 그대로 유지하여 innov_outcome에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - decision_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 decision_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+binary 매핑 규칙:
+  - Q41: 1(예) -> 1
+  - Q41: 2(아니오) -> 0
+  - Q41A1: 1(해당) -> 1
+  - Q41A2: 1(해당) -> 1
+  - Q41A3: 1(해당) -> 1
+  - Q33: 1(예) -> 1
+  - Q33: 2(아니오, 그러나 인공지능 기술 및 서비스에 대해 알고 있음) -> 0
+  - Q33: 3 -> 0
+결측 처리 규칙:
+  - 공통 결측 규칙: "", 공백, ".", "-", "--", "NA", "N/A", "None", "null", "unknown" -> 결측
+  - Q41A1: 0(비해당) -> 결측
+  - Q41A2: 0(비해당) -> 결측
+  - Q41A3: 0(비해당) -> 결측
+  - Q40: 998(거절) -> 결측
+  - Q40: 999(모름) -> 결측
+warnings:
+  - 2020년 firm_size_raw가 없어 firm_size를 전체 결측으로 생성했습니다.
+unresolved cases:
+  - 없음
+------------------------------------------------------------------------------------------------
+연도: 2021
+source file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2021_renamed.csv
+matched codebook file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2021_codebook.xlsx
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2021_cleaned.csv
+row count before / after: 11951 -> 11951
+변수 분류 요약:
+  - weight_raw: continuous_numeric
+  - industry_raw: nominal_categorical
+  - industry_size_raw: nominal_categorical
+  - firm_size_raw: ordinal_likert_or_ordered_category
+  - it_org_any_raw: binary_yes_no
+  - it_org_internal_raw: binary_yes_no
+  - it_org_mixed_raw: binary_yes_no
+  - it_org_outsource_raw: binary_yes_no
+  - it_invest_share_raw: continuous_numeric
+  - it_invest_share_cat_raw: ordinal_likert_or_ordered_category
+  - ai_use_raw: binary_yes_no
+  - proc_improve_raw: ordinal_likert_or_ordered_category
+  - decision_improve_raw: ordinal_likert_or_ordered_category
+  - innov_outcome_raw: ordinal_likert_or_ordered_category
+표준 변수 생성 결과: year, weight, industry, industry_size, firm_size, it_org_any, it_org_internal, it_org_mixed, it_org_outsource, it_org_type, it_invest_share, ai_use, proc_improve, innov_outcome, decision_improve
+누락 컬럼: (없음)
+raw -> cleaned 매핑 / 처리:
+  - it_org_any==0 & 하위3문항 모두 결측인 5884건에 대해 하위 3문항을 0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_internal가 결측인 4196건에 대해 it_org_internal=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_mixed가 결측인 3012건에 대해 it_org_mixed=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_outsource가 결측인 4056건에 대해 it_org_outsource=0으로 채웠습니다.
+  - proc_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 proc_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - innov_outcome_raw는 raw 1~5 리커트 값을 그대로 유지하여 innov_outcome에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - decision_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 decision_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+binary 매핑 규칙:
+  - Q44: 1(예) -> 1
+  - Q44: 2(아니오) -> 0
+  - Q44A1: 1(해당) -> 1
+  - Q44A2: 1(해당) -> 1
+  - Q44A3: 1(해당) -> 1
+  - Q36: 1(예) -> 1
+  - Q36: 2(아니오, 그러나 인공지능 기술 및 서비스에 대해 알고 있음) -> 0
+  - Q36: 3 -> 0
+결측 처리 규칙:
+  - 공통 결측 규칙: "", 공백, ".", "-", "--", "NA", "N/A", "None", "null", "unknown" -> 결측
+  - Q44A1: 0(비해당) -> 결측
+  - Q44A2: 0(비해당) -> 결측
+  - Q44A3: 0(비해당) -> 결측
+  - Q43: 998(거절) -> 결측
+  - Q43: 999(모름) -> 결측
+warnings:
+  - 없음
+unresolved cases:
+  - 없음
+------------------------------------------------------------------------------------------------
+연도: 2022
+source file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2022_renamed.csv
+matched codebook file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2022_codebook.xlsx
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2022_cleaned.csv
+row count before / after: 12142 -> 12142
+변수 분류 요약:
+  - weight_raw: continuous_numeric
+  - industry_raw: nominal_categorical
+  - industry_size_raw: nominal_categorical
+  - firm_size_raw: ordinal_likert_or_ordered_category
+  - it_org_any_raw: binary_yes_no
+  - it_org_internal_raw: binary_yes_no
+  - it_org_mixed_raw: binary_yes_no
+  - it_org_outsource_raw: binary_yes_no
+  - it_invest_share_raw: continuous_numeric
+  - it_invest_share_cat_raw: ordinal_likert_or_ordered_category
+  - ai_use_raw: binary_yes_no
+  - proc_improve_raw: ordinal_likert_or_ordered_category
+  - decision_improve_raw: ordinal_likert_or_ordered_category
+  - innov_outcome_raw: ordinal_likert_or_ordered_category
+표준 변수 생성 결과: year, weight, industry, industry_size, firm_size, it_org_any, it_org_internal, it_org_mixed, it_org_outsource, it_org_type, it_invest_share, ai_use, proc_improve, innov_outcome, decision_improve
+누락 컬럼: (없음)
+raw -> cleaned 매핑 / 처리:
+  - it_org_any==0 & 하위3문항 모두 결측인 5667건에 대해 하위 3문항을 0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_internal가 결측인 4428건에 대해 it_org_internal=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_mixed가 결측인 3501건에 대해 it_org_mixed=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_outsource가 결측인 4466건에 대해 it_org_outsource=0으로 채웠습니다.
+  - proc_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 proc_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - innov_outcome_raw는 raw 1~5 리커트 값을 그대로 유지하여 innov_outcome에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - decision_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 decision_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+binary 매핑 규칙:
+  - Q44: 1(예) -> 1
+  - Q44: 2(아니오) -> 0
+  - Q44A1: 1(해당) -> 1
+  - Q44A2: 1(해당) -> 1
+  - Q44A3: 1(해당) -> 1
+  - Q36: 1(예) -> 1
+  - Q36: 2(아니오, 그러나 인공지능 기술 및 서비스에 대해 알고 있음) -> 0
+  - Q36: 3 -> 0
+결측 처리 규칙:
+  - 공통 결측 규칙: "", 공백, ".", "-", "--", "NA", "N/A", "None", "null", "unknown" -> 결측
+  - Q44A1: 0(비해당) -> 결측
+  - Q44A2: 0(비해당) -> 결측
+  - Q44A3: 0(비해당) -> 결측
+  - Q43: 999(모름) -> 결측
+warnings:
+  - 없음
+unresolved cases:
+  - 없음
+------------------------------------------------------------------------------------------------
+연도: 2023
+source file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2023_renamed.csv
+matched codebook file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2023_codebook.xlsx
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2023_cleaned.csv
+row count before / after: 12247 -> 12247
+변수 분류 요약:
+  - weight_raw: continuous_numeric
+  - industry_raw: nominal_categorical
+  - industry_size_raw: nominal_categorical
+  - firm_size_raw: ordinal_likert_or_ordered_category
+  - it_org_any_raw: binary_yes_no
+  - it_org_internal_raw: binary_yes_no
+  - it_org_mixed_raw: binary_yes_no
+  - it_org_outsource_raw: binary_yes_no
+  - it_invest_share_raw: continuous_numeric
+  - it_invest_share_cat_raw: ordinal_likert_or_ordered_category
+  - ai_use_raw: binary_yes_no
+  - proc_improve_raw: ordinal_likert_or_ordered_category
+  - decision_improve_raw: ordinal_likert_or_ordered_category
+  - innov_outcome_raw: ordinal_likert_or_ordered_category
+표준 변수 생성 결과: year, weight, industry, industry_size, firm_size, it_org_any, it_org_internal, it_org_mixed, it_org_outsource, it_org_type, it_invest_share, ai_use, proc_improve, innov_outcome, decision_improve
+누락 컬럼: (없음)
+raw -> cleaned 매핑 / 처리:
+  - it_org_any==0 & 하위3문항 모두 결측인 5781건에 대해 하위 3문항을 0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_internal가 결측인 4225건에 대해 it_org_internal=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_mixed가 결측인 2934건에 대해 it_org_mixed=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_outsource가 결측인 4302건에 대해 it_org_outsource=0으로 채웠습니다.
+  - proc_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 proc_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - innov_outcome_raw는 raw 1~5 리커트 값을 그대로 유지하여 innov_outcome에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - decision_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 decision_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+binary 매핑 규칙:
+  - Q34: 1(보유) -> 1
+  - Q34: 2(미보유) -> 0
+  - Q34_1_1: 1(해당) -> 1
+  - Q34_1_2: 1(해당) -> 1
+  - Q34_1_3: 1(해당) -> 1
+  - Q28: 1(예) -> 1
+  - Q28: 2(아니오) -> 0
+결측 처리 규칙:
+  - 공통 결측 규칙: "", 공백, ".", "-", "--", "NA", "N/A", "None", "null", "unknown" -> 결측
+  - Q34_1_1: 0(비해당) -> 결측
+  - Q34_1_2: 0(비해당) -> 결측
+  - Q34_1_3: 0(비해당) -> 결측
+warnings:
+  - 없음
+unresolved cases:
+  - 없음
+------------------------------------------------------------------------------------------------
+연도: 2024
+source file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2024_renamed.csv
+matched codebook file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_codebook.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2024_cleaned.csv
+row count before / after: 12203 -> 12203
+변수 분류 요약:
+  - weight_raw: continuous_numeric
+  - industry_raw: nominal_categorical
+  - industry_size_raw: nominal_categorical
+  - firm_size_raw: ordinal_likert_or_ordered_category
+  - it_org_any_raw: binary_yes_no
+  - it_org_internal_raw: binary_yes_no
+  - it_org_mixed_raw: binary_yes_no
+  - it_org_outsource_raw: binary_yes_no
+  - it_invest_share_raw: continuous_numeric
+  - it_invest_share_cat_raw: ordinal_likert_or_ordered_category / 경고=비결측 값 없음
+  - ai_use_raw: binary_yes_no
+  - proc_improve_raw: ordinal_likert_or_ordered_category
+  - decision_improve_raw: ordinal_likert_or_ordered_category
+  - innov_outcome_raw: ordinal_likert_or_ordered_category
+표준 변수 생성 결과: year, weight, industry, industry_size, firm_size, it_org_any, it_org_internal, it_org_mixed, it_org_outsource, it_org_type, it_invest_share, ai_use, proc_improve, innov_outcome, decision_improve
+누락 컬럼: it_invest_share_cat_raw
+raw -> cleaned 매핑 / 처리:
+  - it_org_any==0 & 하위3문항 모두 결측인 5853건에 대해 하위 3문항을 0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_internal가 결측인 4230건에 대해 it_org_internal=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_mixed가 결측인 2496건에 대해 it_org_mixed=0으로 채웠습니다.
+  - it_org_any==1 이고 it_org_outsource가 결측인 4978건에 대해 it_org_outsource=0으로 채웠습니다.
+  - proc_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 proc_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - innov_outcome_raw는 raw 1~5 리커트 값을 그대로 유지하여 innov_outcome에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+  - decision_improve_raw는 raw 1~5 리커트 값을 그대로 유지하여 decision_improve에 대입했습니다. 코드북상 명백한 결측코드만 제거했습니다.
+binary 매핑 규칙:
+  - Q34: 1(보유) -> 1
+  - Q34: 2(미보유) -> 0
+  - Q34_1_1: 1(해당) -> 1
+  - Q34_1_2: 1(해당) -> 1
+  - Q34_1_3: 1(해당) -> 1
+  - Q28: 1(예) -> 1
+  - Q28: 2(아니오) -> 0
+결측 처리 규칙:
+  - 공통 결측 규칙: "", 공백, ".", "-", "--", "NA", "N/A", "None", "null", "unknown" -> 결측
+  - Q34_1_1: 0(비해당) -> 결측
+  - Q34_1_2: 0(비해당) -> 결측
+  - Q34_1_3: 0(비해당) -> 결측
+warnings:
+  - 없음
+unresolved cases:
+  - 없음
+------------------------------------------------------------------------------------------------

@@ -1,0 +1,62 @@
+NIA subset extraction log
+================================================================================
+Year: 2019
+Source file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2019_raw.csv
+Output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/nia_2019_subset.csv
+Encoding used: utf-8
+Requested columns: Q33, Q33A1, Q33A2, Q33A3, Q32, Q50, Q58A1, Q58A2, D_SIZE, D_IND, D_INDSIZE, WT
+Extracted columns found: Q33, Q33A1, Q33A2, Q33A3, Q32, Q50, Q58A1, Q58A2, D_SIZE, D_IND, D_INDSIZE, WT
+Missing columns: (none)
+Output row count: 13456
+Output column count: 13
+--------------------------------------------------------------------------------
+Year: 2020
+Source file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2020_raw.csv
+Output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/nia_2020_subset.csv
+Encoding used: utf-8-sig
+Requested columns: Q41, Q41A1, Q41A2, Q41A3, Q40, Q33, Q42A1, Q42A3, Q42A5, D_IND, D_INDSIZE1, WT, D_SIZE
+Extracted columns found: Q41, Q41A1, Q41A2, Q41A3, Q40, Q33, Q42A1, Q42A3, Q42A5, D_IND, D_INDSIZE1, WT
+Missing columns: D_SIZE
+Output row count: 12099
+Output column count: 13
+--------------------------------------------------------------------------------
+Year: 2021
+Source file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2021_raw.csv
+Output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/nia_2021_subset.csv
+Encoding used: utf-8-sig
+Requested columns: Q44, Q44A1, Q44A2, Q44A3, Q43, REQ43, Q36, Q45A1, Q45A3, Q45A5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Extracted columns found: Q44, Q44A1, Q44A2, Q44A3, Q43, REQ43, Q36, Q45A1, Q45A3, Q45A5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Missing columns: (none)
+Output row count: 11951
+Output column count: 15
+--------------------------------------------------------------------------------
+Year: 2022
+Source file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2022_raw.csv
+Output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/nia_2022_subset.csv
+Encoding used: utf-8
+Requested columns: Q44, Q44A1, Q44A2, Q44A3, Q43, REQ43, Q36, Q45A1, Q45A3, Q45A5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Extracted columns found: Q44, Q44A1, Q44A2, Q44A3, Q43, REQ43, Q36, Q45A1, Q45A3, Q45A5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Missing columns: (none)
+Output row count: 12142
+Output column count: 15
+--------------------------------------------------------------------------------
+Year: 2023
+Source file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2023_raw.csv
+Output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/nia_2023_subset.csv
+Encoding used: utf-8
+Requested columns: Q34, Q34_1_1, Q34_1_2, Q34_1_3, Q33, REQ33, Q28, Q35_1, Q35_3, Q35_5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Extracted columns found: Q34, Q34_1_1, Q34_1_2, Q34_1_3, Q33, REQ33, Q28, Q35_1, Q35_3, Q35_5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Missing columns: (none)
+Output row count: 12247
+Output column count: 15
+--------------------------------------------------------------------------------
+Year: 2024
+Source file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_raw.csv
+Output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/nia_2024_subset.csv
+Encoding used: utf-8
+Requested columns: Q34, Q34_1_1, Q34_1_2, Q34_1_3, Q33, REQ33, Q28, Q35_1, Q35_3, Q35_5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Extracted columns found: Q34, Q34_1_1, Q34_1_2, Q34_1_3, Q33, Q28, Q35_1, Q35_3, Q35_5, D_SIZE, D_IND, D_INDSIZE, RIM_WT
+Missing columns: REQ33
+Output row count: 12203
+Output column count: 14
+--------------------------------------------------------------------------------
