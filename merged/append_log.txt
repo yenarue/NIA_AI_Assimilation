@@ -1,0 +1,52 @@
+NIA cleaned_v2 파일 append 로그
+================================================================================================
+Main merged dataset
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/merged_v2/nia_2020_2024_merged.csv
+years included: 2020, 2021, 2022, 2023, 2024
+input files used:
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2020_cleaned.csv (rows=12099)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2021_cleaned.csv (rows=11951)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2022_cleaned.csv (rows=12142)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2023_cleaned.csv (rows=12247)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2024_cleaned.csv (rows=12203)
+total row count expected: 60642
+total row count actual: 60642
+row count validation passed: True
+year distribution: {np.int64(2020): 12099, np.int64(2021): 11951, np.int64(2022): 12142, np.int64(2023): 12247, np.int64(2024): 12203}
+missing standardized columns added artificially:
+  - (none)
+data type harmonization applied before append:
+  - 2020: year -> Int64, source_file -> string
+  - 2021: year -> Int64, source_file -> string
+  - 2022: year -> Int64, source_file -> string
+  - 2023: year -> Int64, source_file -> string
+  - 2024: year -> Int64, source_file -> string
+duplicate column names: (none)
+missing output columns after append: (none)
+------------------------------------------------------------------------------------------------
+Extended/reference dataset
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/merged_v2/nia_2019_2024_extended.csv
+years included: 2019, 2020, 2021, 2022, 2023, 2024
+input files used:
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2019_cleaned.csv (rows=13456)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2020_cleaned.csv (rows=12099)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2021_cleaned.csv (rows=11951)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2022_cleaned.csv (rows=12142)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2023_cleaned.csv (rows=12247)
+  - /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2024_cleaned.csv (rows=12203)
+total row count expected: 74098
+total row count actual: 74098
+row count validation passed: True
+year distribution: {np.int64(2019): 13456, np.int64(2020): 12099, np.int64(2021): 11951, np.int64(2022): 12142, np.int64(2023): 12247, np.int64(2024): 12203}
+missing standardized columns added artificially:
+  - (none)
+data type harmonization applied before append:
+  - 2019: year -> Int64, source_file -> string
+  - 2020: year -> Int64, source_file -> string
+  - 2021: year -> Int64, source_file -> string
+  - 2022: year -> Int64, source_file -> string
+  - 2023: year -> Int64, source_file -> string
+  - 2024: year -> Int64, source_file -> string
+duplicate column names: (none)
+missing output columns after append: (none)
+------------------------------------------------------------------------------------------------
