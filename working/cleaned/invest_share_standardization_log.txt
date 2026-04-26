@@ -1,0 +1,92 @@
+정보화 투자비중 표준화 로그
+================================================================================================
+연도: 2019
+input file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2019_cleaned.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2019_cleaned.csv
+사용한 원천 raw 열: it_invest_share_raw
+사용한 원천 cat 열: (없음)
+cat_raw 사용 여부: False
+raw 직접 재코딩 여부: True
+특수코드 결측 처리 규칙: 997, 998, 999 -> 결측
+raw 특수코드 결측 처리 건수: 0
+cat 특수코드 결측 처리 건수: 0
+std4 value counts: 1=0, 2=12289, 3=285, 4=178, missing=704
+pct non-missing count: 0
+notes: 2019~2020은 원값을 범주 코드로 간주하여 std4에 직접 매핑함
+warnings: raw 숫자 변환 실패 704건
+------------------------------------------------------------------------------------------------
+연도: 2020
+input file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2020_cleaned.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2020_cleaned.csv
+사용한 원천 raw 열: it_invest_share_raw
+사용한 원천 cat 열: (없음)
+cat_raw 사용 여부: False
+raw 직접 재코딩 여부: True
+특수코드 결측 처리 규칙: 997, 998, 999 -> 결측
+raw 특수코드 결측 처리 건수: 0
+cat 특수코드 결측 처리 건수: 0
+std4 value counts: 1=11312, 2=562, 3=154, 4=43, missing=28
+pct non-missing count: 0
+notes: 2019~2020은 원값을 범주 코드로 간주하여 std4에 직접 매핑함
+warnings: raw 숫자 변환 실패 28건
+------------------------------------------------------------------------------------------------
+연도: 2021
+input file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2021_cleaned.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2021_cleaned.csv
+사용한 원천 raw 열: it_invest_share_raw
+사용한 원천 cat 열: it_invest_share_cat_raw
+cat_raw 사용 여부: True
+raw 직접 재코딩 여부: False
+특수코드 결측 처리 규칙: 997, 998, 999 -> 결측
+raw 특수코드 결측 처리 건수: 0
+cat 특수코드 결측 처리 건수: 0
+std4 value counts: 1=10874, 2=648, 3=306, 4=122, missing=1
+pct non-missing count: 11950
+notes: cat_raw 우선 사용
+warnings: raw 숫자 변환 실패 1건 | cat_raw 숫자 변환 실패 1건
+------------------------------------------------------------------------------------------------
+연도: 2022
+input file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2022_cleaned.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2022_cleaned.csv
+사용한 원천 raw 열: it_invest_share_raw
+사용한 원천 cat 열: it_invest_share_cat_raw
+cat_raw 사용 여부: True
+raw 직접 재코딩 여부: False
+특수코드 결측 처리 규칙: 997, 998, 999 -> 결측
+raw 특수코드 결측 처리 건수: 0
+cat 특수코드 결측 처리 건수: 0
+std4 value counts: 1=10812, 2=821, 3=355, 4=154, missing=0
+pct non-missing count: 12142
+notes: cat_raw 우선 사용
+warnings: (없음)
+------------------------------------------------------------------------------------------------
+연도: 2023
+input file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2023_cleaned.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2023_cleaned.csv
+사용한 원천 raw 열: it_invest_share_raw
+사용한 원천 cat 열: it_invest_share_cat_raw
+cat_raw 사용 여부: True
+raw 직접 재코딩 여부: False
+특수코드 결측 처리 규칙: 997, 998, 999 -> 결측
+raw 특수코드 결측 처리 건수: 0
+cat 특수코드 결측 처리 건수: 0
+std4 value counts: 1=10327, 2=952, 3=453, 4=515, missing=0
+pct non-missing count: 12247
+notes: cat_raw 우선 사용
+warnings: (없음)
+------------------------------------------------------------------------------------------------
+연도: 2024
+input file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2024_cleaned.csv
+output file: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/cleaned_v2/nia_2024_cleaned.csv
+사용한 원천 raw 열: it_invest_share_raw
+사용한 원천 cat 열: (없음)
+cat_raw 사용 여부: False
+raw 직접 재코딩 여부: True
+특수코드 결측 처리 규칙: 997, 998, 999 -> 결측
+raw 특수코드 결측 처리 건수: 0
+cat 특수코드 결측 처리 건수: 0
+std4 value counts: 1=10434, 2=898, 3=673, 4=198, missing=0
+pct non-missing count: 12203
+notes: cat_raw 부재 또는 전부 결측이어서 raw 퍼센트에서 std4 직접 재코딩
+warnings: (없음)
+------------------------------------------------------------------------------------------------
