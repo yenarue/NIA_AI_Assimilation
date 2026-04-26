@@ -1,0 +1,154 @@
+NIA 2024 subset 추출 로그
+
+[파일 경로]
+- input file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_raw.csv
+- output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/subset/nia_2024_subset.csv
+- codebook file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_codebook.csv
+
+[컬럼 추출 결과]
+- requested columns:
+- Q34
+- Q34_1_1
+- Q34_1_2
+- Q34_1_3
+- Q32
+- Q32_1
+- Q32_2
+- Q32_3
+- Q32_4
+- Q32_5
+- Q32_6
+- Q32_7
+- Q32_8
+- Q33
+- REQ33
+- Q28
+- Q28_1
+- Q28_2
+- Q28_3
+- Q28_4
+- Q28_5
+- Q28_6
+- Q28_7
+- Q28_8
+- Q28_9
+- Q28_10
+- Q28_10_ETC
+- Q29_1
+- Q29_2
+- Q29_3
+- Q29_4
+- Q29_5
+- Q29_6
+- Q29_7
+- Q29_8
+- Q29_9
+- Q29_10
+- Q29_10_ETC
+- Q30_1
+- Q30_2
+- Q30_3
+- Q30_4
+- Q30_5
+- Q30_6
+- Q30_6_ETC
+- Q35_1
+- Q35_3
+- Q35_5
+- Q35_2
+- Q35_4
+- Q35_6
+- D_SIZE
+- D_IND
+- D_INDSIZE
+- RIM_WT
+- extracted columns:
+- Q34
+- Q34_1_1
+- Q34_1_2
+- Q34_1_3
+- Q32
+- Q32_1
+- Q32_2
+- Q32_3
+- Q32_4
+- Q32_5
+- Q32_6
+- Q32_7
+- Q32_8
+- Q33
+- Q28
+- Q28_1
+- Q28_2
+- Q28_3
+- Q28_4
+- Q28_5
+- Q28_6
+- Q28_7
+- Q28_8
+- Q28_9
+- Q28_10
+- Q28_10_ETC
+- Q29_1
+- Q29_2
+- Q29_3
+- Q29_4
+- Q29_5
+- Q29_6
+- Q29_7
+- Q29_8
+- Q29_9
+- Q29_10
+- Q29_10_ETC
+- Q30_1
+- Q30_2
+- Q30_3
+- Q30_4
+- Q30_5
+- Q30_6
+- Q30_6_ETC
+- Q35_1
+- Q35_3
+- Q35_5
+- Q35_2
+- Q35_4
+- Q35_6
+- D_SIZE
+- D_IND
+- D_INDSIZE
+- RIM_WT
+- missing columns:
+- REQ33
+
+[행/열 개수]
+- original row count: 12203
+- output row count: 12203
+- original column count: 219
+- output column count: 55
+
+[인코딩]
+- 사용한 인코딩(input): cp949
+- 저장 인코딩(output): utf-8
+- 코드북 인코딩(참고): utf-8-sig
+
+[year 열]
+- year column 추가 여부: 예
+
+[코드북 교차 확인(참고)]
+- 코드북에서 찾지 못한 요청 컬럼:
+- Q33
+- Q28_10_ETC
+- Q29_10_ETC
+- Q30_6_ETC
+- RIM_WT
+
+[검증 결과]
+- output row count == original row count: 통과
+- 추출 컬럼 순서가 요청 순서와 일치: 통과
+- missing columns 로그 기록 여부: 통과
+- year 열 추가 여부: 통과
+- 원본 값 변경 없음: 통과
+
+[주의]
+- 이 스크립트는 subset 추출만 수행했습니다.
+- 변수명 rename, 값 recoding, clean 처리, 결측값 규칙 적용, 추가 파생변수 생성은 수행하지 않았습니다.

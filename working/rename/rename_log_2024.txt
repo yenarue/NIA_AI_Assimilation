@@ -1,0 +1,145 @@
+NIA 2024 rename 처리 로그
+
+[파일 경로]
+- 입력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/subset/nia_2024_subset.csv
+- 출력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2024_renamed.csv
+
+[행/열 수]
+- 입력 파일 행 수: 12203
+- 입력 파일 열 수: 55
+- 출력 파일 행 수: 12203
+- 출력 파일 열 수: 58
+
+[요청된 rename 대상 열 목록]
+- Q34
+- Q34_1_1
+- Q34_1_2
+- Q34_1_3
+- Q32
+- Q32_1
+- Q32_2
+- Q32_3
+- Q32_4
+- Q32_5
+- Q32_6
+- Q32_7
+- Q32_8
+- Q33
+- Q28
+- Q28_1
+- Q28_2
+- Q28_3
+- Q28_4
+- Q28_5
+- Q28_6
+- Q28_7
+- Q28_8
+- Q28_9
+- Q28_10
+- Q28_10_ETC
+- Q29_1
+- Q29_2
+- Q29_3
+- Q29_4
+- Q29_5
+- Q29_6
+- Q29_7
+- Q29_8
+- Q29_9
+- Q29_10
+- Q29_10_ETC
+- Q30_1
+- Q30_2
+- Q30_3
+- Q30_4
+- Q30_5
+- Q30_6
+- Q30_6_ETC
+- Q35_1
+- Q35_2
+- Q35_3
+- Q35_4
+- Q35_5
+- Q35_6
+- D_SIZE
+- D_IND
+- D_INDSIZE
+- RIM_WT
+- year
+
+[실제로 rename된 열 목록]
+- Q34 -> it_org_any_raw
+- Q34_1_1 -> it_org_internal_raw
+- Q34_1_2 -> it_org_mixed_raw
+- Q34_1_3 -> it_org_outsource_raw
+- Q32 -> it_invest_any_raw
+- Q32_1 -> it_invest_hardware_raw
+- Q32_2 -> it_invest_software_raw
+- Q32_3 -> it_invest_sys_op_raw
+- Q32_4 -> it_invest_infra_raw
+- Q32_5 -> it_invest_op_salary_raw
+- Q32_6 -> it_invest_new_tech_raw
+- Q32_7 -> it_invest_rnd_raw
+- Q32_8 -> it_invest_tech_train_raw
+- Q33 -> it_invest_share_raw
+- Q28 -> ai_use_raw
+- Q28_1 -> ai_use_doc_info_collect_raw
+- Q28_2 -> ai_use_task_automation_raw
+- Q28_3 -> ai_use_decision_support_raw
+- Q28_4 -> ai_use_speech_to_text_raw
+- Q28_5 -> ai_use_gen_summarize_edit_raw
+- Q28_6 -> ai_use_image_video_recognition_raw
+- Q28_7 -> ai_use_ml_data_analysis_raw
+- Q28_8 -> ai_use_text_language_analysis_raw
+- Q28_9 -> ai_use_autonomous_mobility_raw
+- Q28_10 -> ai_use_other_raw
+- Q28_10_ETC -> ai_use_other_text_raw
+- Q29_1 -> ai_purpose_marketing_sales_raw
+- Q29_2 -> ai_purpose_prod_service_improve_raw
+- Q29_3 -> ai_purpose_biz_process_org_raw
+- Q29_4 -> ai_purpose_logistics_raw
+- Q29_5 -> ai_purpose_security_raw
+- Q29_6 -> ai_purpose_accounting_finance_raw
+- Q29_7 -> ai_purpose_rnd_innovation_raw
+- Q29_8 -> ai_purpose_cost_reduction_raw
+- Q29_9 -> ai_purpose_customer_demand_raw
+- Q29_10 -> ai_purpose_other_raw
+- Q29_10_ETC -> ai_purpose_other_text_raw
+- Q30_1 -> ai_impl_inhouse_dev_raw
+- Q30_2 -> ai_impl_modify_commercial_raw
+- Q30_3 -> ai_impl_modify_open_source_raw
+- Q30_4 -> ai_impl_buy_commercial_raw
+- Q30_5 -> ai_impl_vendor_contract_raw
+- Q30_6 -> ai_impl_other_raw
+- Q30_6_ETC -> ai_impl_other_text_raw
+- Q35_1 -> effect_proc_improve_raw
+- Q35_2 -> effect_internal_cohesion_raw
+- Q35_3 -> effect_decision_improve_raw
+- Q35_4 -> effect_stakeholders_raw
+- Q35_5 -> effect_innov_outcome_raw
+- Q35_6 -> effect_competitiveness_raw
+- D_SIZE -> firm_size_raw
+- D_IND -> industry_raw
+- D_INDSIZE -> industry_size_raw
+- RIM_WT -> weight_raw
+- year -> year
+
+[누락된 열 목록]
+- 없음
+
+[year 열]
+- year 열 유지 여부: 예
+
+[값 변경 확인]
+- 값 변경 없음 확인 여부: 예
+
+[인코딩]
+- 입력 파일 인코딩: utf-8-sig
+- 출력 파일 저장 인코딩: utf-8
+
+[특이사항 / 경고사항]
+- 출력 파일 열 이름 또는 열 순서가 예상과 다릅니다.
+
+[주의]
+- 이 스크립트는 열 이름 변경만 수행했습니다.
+- 값 recoding, 결측 처리, 파생변수 생성, 변수 조합, clean 처리는 수행하지 않았습니다.
