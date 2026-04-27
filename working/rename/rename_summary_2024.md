@@ -55,4 +55,3 @@
 | nia_2024_subset.csv | D_IND | rename | 원본 열 이름 D_IND | D_IND -> industry_raw 로 열 이름 변경 | 연구용 변수명 체계 통일 | industry_raw | 변화 없음 | rename 완료 |
 | nia_2024_subset.csv | D_INDSIZE | rename | 원본 열 이름 D_INDSIZE | D_INDSIZE -> industry_size_raw 로 열 이름 변경 | 연구용 변수명 체계 통일 | industry_size_raw | 변화 없음 | rename 완료 |
 | nia_2024_subset.csv | RIM_WT | rename | 원본 열 이름 RIM_WT | RIM_WT -> weight_raw 로 열 이름 변경 | 연구용 변수명 체계 통일 | weight_raw | 변화 없음 | rename 완료 |
-| nia_2024_subset.csv | year | rename | 원본 열 이름 year | year -> year 로 열 이름 변경 | 연구용 변수명 체계 통일 | year | 변화 없음 | rename 완료 |

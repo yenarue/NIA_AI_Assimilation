@@ -85,7 +85,6 @@ RENAME_MAPPING = OrderedDict(
         ("D_IND", "industry_raw"),
         ("D_INDSIZE", "industry_size_raw"),
         ("RIM_WT", "weight_raw"),
-        ("year", "year"),
     ]
 )
 
@@ -124,8 +123,10 @@ def apply_rename_mapping(
     rename_mapping: OrderedDict[str, str],
 ) -> tuple[pd.DataFrame, list[str], list[str]]:
     """입력에 존재하는 매핑 대상 열만 rename합니다."""
-    existing_source_columns = [source for source in rename_mapping if source in df.columns]
-    missing_source_columns = [source for source in rename_mapping if source not in df.columns]
+    # year는 rename 대상이 아니라 보존 대상입니다. 매핑표에 실수로 들어가도 제외합니다.
+    rename_sources = [source for source in rename_mapping if source != "year"]
+    existing_source_columns = [source for source in rename_sources if source in df.columns]
+    missing_source_columns = [source for source in rename_sources if source not in df.columns]
     applicable_mapping = {
         source: rename_mapping[source]
         for source in existing_source_columns
@@ -153,7 +154,7 @@ def reorder_columns(
     ordered_columns.extend(
         rename_mapping[source]
         for source in existing_source_columns
-        if rename_mapping[source] in df.columns
+        if source != "year" and rename_mapping[source] in df.columns
     )
 
     return df.loc[:, ordered_columns]

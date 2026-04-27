@@ -1,0 +1,107 @@
+NIA 2024 cleaning 처리 로그
+
+[파일 경로]
+- 입력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2024_renamed.csv
+- 출력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2024_cleaned.csv
+
+[행/열 수]
+- 입력 행 수: 12203
+- 입력 열 수: 55
+- 출력 행 수: 12203
+- 출력 열 수: 110
+- 입력 인코딩: utf-8-sig
+- 출력 인코딩: utf-8
+
+[변수군별 처리 규칙]
+- 정보화 전담 인력: it_org_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 it_org_any=0이면 0, it_org_any=1이면 NA.
+- it_org_type: 내부/겸직/외주 하위항목 조합으로 0~4 생성.
+- 정보화 투자: it_invest_any_raw는 1->1, 2->0, 그 외 NA. 하위 투자항목은 1/0 numeric, 공백은 NA.
+- AI 이용 여부: ai_use_raw는 1->1, 2->0, 그 외 NA.
+- AI 세부유형/목적/형태: 공백은 ai_use=0이면 0, ai_use=1이면 NA.
+- 기타 텍스트: 공백/빈 문자열은 NA, 텍스트는 유지. *_other_text clean 열을 생성하고 *_other_text_raw도 뒤쪽에 보존.
+- 효과 변수: 1,2,3,4,5를 numeric으로 유지. midpoint 3은 정상 응답값이며 결측 처리하지 않음.
+- 통제변수: year, industry, industry_size, firm_size는 numeric 유지.
+- 가중치: weight clean 변수는 생성하지 않고 weight_raw를 raw 열로만 보존.
+
+[공백 -> 0 처리한 변수들]
+- it_org_internal_raw: 공백->0 5853건
+- it_org_mixed_raw: 공백->0 5853건
+- it_org_outsource_raw: 공백->0 5853건
+- ai_use_doc_info_collect_raw: 공백->0 7139건
+- ai_use_task_automation_raw: 공백->0 7139건
+- ai_use_decision_support_raw: 공백->0 7139건
+- ai_use_speech_to_text_raw: 공백->0 7139건
+- ai_use_gen_summarize_edit_raw: 공백->0 7139건
+- ai_use_image_video_recognition_raw: 공백->0 7139건
+- ai_use_ml_data_analysis_raw: 공백->0 7139건
+- ai_use_text_language_analysis_raw: 공백->0 7139건
+- ai_use_autonomous_mobility_raw: 공백->0 7139건
+- ai_use_other_raw: 공백->0 7139건
+- ai_purpose_marketing_sales_raw: 공백->0 7139건
+- ai_purpose_prod_service_improve_raw: 공백->0 7139건
+- ai_purpose_biz_process_org_raw: 공백->0 7139건
+- ai_purpose_logistics_raw: 공백->0 7139건
+- ai_purpose_security_raw: 공백->0 7139건
+- ai_purpose_accounting_finance_raw: 공백->0 7139건
+- ai_purpose_rnd_innovation_raw: 공백->0 7139건
+- ai_purpose_cost_reduction_raw: 공백->0 7139건
+- ai_purpose_customer_demand_raw: 공백->0 7139건
+- ai_purpose_other_raw: 공백->0 7139건
+- ai_impl_inhouse_dev_raw: 공백->0 7139건
+- ai_impl_modify_commercial_raw: 공백->0 7139건
+- ai_impl_modify_open_source_raw: 공백->0 7139건
+- ai_impl_buy_commercial_raw: 공백->0 7139건
+- ai_impl_vendor_contract_raw: 공백->0 7139건
+- ai_impl_other_raw: 공백->0 7139건
+
+[공백 -> NA 처리한 변수들]
+- ai_use_other_text_raw: 텍스트 공백->NA 12172건
+- ai_purpose_other_text_raw: 텍스트 공백->NA 12203건
+- ai_impl_other_text_raw: 텍스트 공백->NA 12194건
+
+[그대로 유지한 변수들]
+- effect_proc_improve
+- effect_internal_cohesion
+- effect_decision_improve
+- effect_stakeholders
+- effect_innov_outcome
+- effect_competitiveness
+- year
+- industry
+- industry_size
+- firm_size
+- weight_raw
+
+[it_invest_share 처리 규칙]
+- it_invest_share_raw에서 쉼표, 공백, % 기호를 제거한 뒤 numeric으로 변환.
+- 변환된 numeric 값을 it_invest_share로 그대로 사용.
+- 변환 실패로 NA 처리된 건수: 0
+- it_invest_share_pct 열은 생성하지 않음.
+
+[it_invest_share_std4 처리 규칙]
+- it_invest_share_raw를 numeric으로 변환한 값을 기준으로 생성.
+- 값이 1,2,3,4이면 그대로 유지.
+- 값이 4 초과이면 모두 4로 치환.
+- 값이 결측이면 결측 유지.
+- 4 초과 값을 4로 치환한 건수: 871
+
+[이상치/경고]
+- it_invest_any_raw가 모두 1로만 존재합니다.
+- it_invest_any_raw는 모든 관측치가 1만 존재하여 분산 없음 가능성이 있습니다.
+- 누락된 입력 열: 없음
+
+[검증 결과]
+- row_count_same: 통과
+- it_org_any_zero_children_zero_or_valid: 통과
+- ai_use_zero_blanks_to_zero: 통과
+- text_blanks_to_na: 통과
+- clean_text_columns_created: 통과
+- clean_text_blanks_to_na: 통과
+- effect_values_1_to_5: 통과
+- it_invest_share_numeric: 통과
+- it_invest_share_std4_valid: 통과
+- it_invest_share_std4_cap_applied: 통과
+- no_it_invest_share_pct: 통과
+- raw_columns_preserved_after_clean: 통과
+- output_utf8_readable: 통과
+- row 수 변화 없음 확인: 통과

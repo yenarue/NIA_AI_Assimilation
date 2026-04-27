@@ -1,14 +1,14 @@
 NIA 2024 rename 처리 로그
 
 [파일 경로]
-- 입력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/subset/nia_2024_subset.csv
-- 출력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2024_renamed.csv
+- 입력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/subset/nia_2024_subset.csv
+- 출력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/rename/nia_2024_renamed.csv
 
 [행/열 수]
 - 입력 파일 행 수: 12203
 - 입력 파일 열 수: 55
 - 출력 파일 행 수: 12203
-- 출력 파일 열 수: 58
+- 출력 파일 열 수: 55
 
 [요청된 rename 대상 열 목록]
 - Q34
@@ -65,7 +65,6 @@ NIA 2024 rename 처리 로그
 - D_IND
 - D_INDSIZE
 - RIM_WT
-- year
 
 [실제로 rename된 열 목록]
 - Q34 -> it_org_any_raw
@@ -122,7 +121,6 @@ NIA 2024 rename 처리 로그
 - D_IND -> industry_raw
 - D_INDSIZE -> industry_size_raw
 - RIM_WT -> weight_raw
-- year -> year
 
 [누락된 열 목록]
 - 없음
@@ -138,7 +136,7 @@ NIA 2024 rename 처리 로그
 - 출력 파일 저장 인코딩: utf-8
 
 [특이사항 / 경고사항]
-- 출력 파일 열 이름 또는 열 순서가 예상과 다릅니다.
+- 특이사항 없음
 
 [주의]
 - 이 스크립트는 열 이름 변경만 수행했습니다.

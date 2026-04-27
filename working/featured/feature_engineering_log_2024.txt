@@ -1,0 +1,75 @@
+NIA 2024 feature engineering 로그
+
+[파일 경로]
+- 입력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/cleaned/nia_2024_cleaned.csv
+- 출력 파일 경로: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/featured/nia_2024_featured.csv
+
+[행/열 수]
+- 입력 행 수: 12203
+- 입력 열 수: 110
+- 출력 행 수: 12203
+- 출력 열 수: 116
+- 입력 인코딩: utf-8-sig
+- 출력 인코딩: utf-8
+
+[생성한 파생변수 목록]
+- it_org_type
+- it_invest_sum
+- it_invest_high
+- ai_use_sum
+- ai_impl_sum
+- ai_purpose_sum
+- effect_average
+
+[각 파생변수 생성 규칙]
+- it_org_type: internal/mixed/outsource 세 변수를 조합. 2개 이상 1이면 4를 최우선 적용, 모두 0이면 0.
+- it_invest_sum: 투자 하위항목 8개가 모두 존재할 때만 합계 계산.
+- it_invest_high: it_invest_share <= 3이면 0, it_invest_share >= 4이면 1. it_invest_share_std4는 사용하지 않음.
+- ai_use_sum: AI 이용 세부유형 10개가 모두 존재할 때만 합계 계산.
+- ai_impl_sum: AI 이용형태 6개가 모두 존재할 때만 합계 계산.
+- ai_purpose_sum: AI 이용목적 10개가 모두 존재할 때만 합계 계산.
+- effect_average: 효과 변수 6개가 모두 존재할 때만 평균 계산. 반올림하지 않음.
+
+[결측 처리 규칙]
+- 파생변수 계산에 필요한 입력값 중 하나라도 결측이면 해당 파생변수는 NA로 둠.
+- it_org_type은 세 이진변수 조합으로 계산하되, 세 값 중 필요한 값이 결측이면 NA.
+- it_invest_sum 결측 처리 건수: 0
+- ai_use_sum 결측 처리 건수: 0
+- ai_impl_sum 결측 처리 건수: 0
+- ai_purpose_sum 결측 처리 건수: 0
+- effect_average 결측 처리 건수: 0
+- it_invest_high에서 3초과 4미만이라 규칙상 NA 처리된 건수: 0
+
+[기존 동일 이름 파생변수 처리]
+- it_org_type: 기존 열과 재계산 결과 일치
+
+[파생변수 배치]
+- it_org_type: it_org_any 우측에 배치
+- it_invest_sum: it_invest_any 우측에 배치
+- it_invest_high: it_invest_share_std4 우측에 배치
+- ai_use_sum: ai_use 우측에 배치
+- ai_purpose_sum: ai_purpose_marketing_sales 좌측에 배치
+- effect_average: effect_competitiveness 우측에 배치
+- ai_impl_sum: ai_impl_inhouse_dev_raw 좌측에 배치
+
+[값 범위 검증 결과]
+- row_count_same: 통과
+- it_org_type_valid: 통과
+- it_invest_sum_range: 통과
+- it_invest_high_valid: 통과
+- ai_use_sum_range: 통과
+- ai_impl_sum_range: 통과
+- ai_purpose_sum_range: 통과
+- effect_average_range: 통과
+- all_existing_columns_preserved_except_feature_reposition: 통과
+- it_org_type_right_of_it_org_any: 통과
+- it_invest_sum_right_of_it_invest_any: 통과
+- it_invest_high_right_of_it_invest_share_std4: 통과
+- ai_use_sum_right_of_ai_use: 통과
+- ai_impl_sum_left_of_ai_impl_inhouse_dev_raw: 통과
+- ai_purpose_sum_left_of_ai_purpose_marketing_sales: 통과
+- effect_average_right_of_effect_competitiveness: 통과
+- output_utf8_readable: 통과
+
+[특이사항 / 경고사항]
+- it_org_type: 입력 파일에 이미 존재하여 재계산 후 지정 위치로 재배치했습니다. 기존 열과 재계산 결과 일치.
