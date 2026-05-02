@@ -1,0 +1,6 @@
+﻿model,hypothesis,outcome,term,coef,robust_se,t_value,p_value,significance,ci_lower,ci_upper,n,r_squared,adj_r_squared
+Model 1,H1,effect_proc_improve,it_org_any,0.171,0.014,11.912,0.0,***,0.143,0.199,12203,0.09,0.089
+Model 2,H2,ai_use_sum,it_org_any,0.105,0.022,4.699,0.0,***,0.061,0.148,12203,0.122,0.121
+Model 3,H3,effect_proc_improve,it_org_any,0.117,0.016,7.209,0.0,***,0.085,0.148,12203,0.097,0.096
+Model 3,H3,effect_proc_improve,ai_use_sum,0.008,0.009,0.848,0.396,,-0.01,0.025,12203,0.097,0.096
+Model 3,H3,effect_proc_improve,it_org_any:ai_use_sum,0.062,0.011,5.658,0.0,***,0.041,0.084,12203,0.097,0.096
