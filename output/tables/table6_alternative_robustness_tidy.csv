@@ -1,0 +1,11 @@
+﻿model_name,hypothesis,model_type,outcome,term,coef,se,test_stat,p_value,significance,ci_lower,ci_upper,n,fit_metric_1_name,fit_metric_1_value,fit_metric_2_name,fit_metric_2_value,direction_consistent_with_main,significance_consistent_with_main,failure_reason
+Alternative Model 1,H1,Ordered Logit,effect_proc_improve,it_org_any,0.439,0.037,11.916,0.0,***,0.367,0.511,12203,Log-likelihood,-13144.426,AIC,26334.851,일치,일치,
+Alternative Model 2,H3,Ordered Logit,effect_proc_improve,it_org_any,0.277,0.043,6.451,0.0,***,0.193,0.361,12203,Log-likelihood,-13084.048,AIC,26218.096,,,
+Alternative Model 2,H3,Ordered Logit,effect_proc_improve,ai_use_sum,0.007,0.023,0.295,0.768,,-0.038,0.051,12203,Log-likelihood,-13084.048,AIC,26218.096,,,
+Alternative Model 2,H3,Ordered Logit,effect_proc_improve,it_org_any:ai_use_sum,0.203,0.029,6.97,0.0,***,0.146,0.26,12203,Log-likelihood,-13084.048,AIC,26218.096,일치,일치,
+Alternative Model 3,H2,Poisson,ai_use_sum,it_org_any,0.122,0.027,4.441,0.0,***,0.068,0.176,12203,Log-likelihood,-15926.061,AIC,31892.122,일치,일치,
+Alternative Model 4,H2,Negative Binomial,ai_use_sum,it_org_any,0.117,0.029,4.044,0.0,***,0.06,0.174,12203,Log-likelihood,-15141.252,AIC,30324.504,일치,일치,
+Robustness Model 1,H1,OLS HC3,effect_average,it_org_any,0.229,0.011,21.218,0.0,***,0.208,0.25,12203,R-squared,0.181,Adjusted R-squared,0.18,일치,일치,
+Robustness Model 2,H3,OLS HC3,effect_average,it_org_any,0.166,0.012,13.88,0.0,***,0.142,0.189,12203,R-squared,0.193,Adjusted R-squared,0.191,,,
+Robustness Model 2,H3,OLS HC3,effect_average,ai_use_sum,-0.003,0.007,-0.431,0.666,,-0.016,0.01,12203,R-squared,0.193,Adjusted R-squared,0.191,,,
+Robustness Model 2,H3,OLS HC3,effect_average,it_org_any:ai_use_sum,0.073,0.009,8.612,0.0,***,0.057,0.09,12203,R-squared,0.193,Adjusted R-squared,0.191,일치,일치,

@@ -1,0 +1,26 @@
+﻿model_name,variable,vif,note
+확장모형 D,C(firm_size)[T.2],1.842,양호
+확장모형 D,C(firm_size)[T.3],1.667,양호
+확장모형 D,C(firm_size)[T.4],1.34,양호
+확장모형 D,C(industry)[T.2],2.373,양호
+확장모형 D,C(industry)[T.3],1.088,양호
+확장모형 D,C(industry)[T.4],1.687,양호
+확장모형 D,C(industry)[T.5],1.574,양호
+확장모형 D,C(industry)[T.6],1.23,양호
+확장모형 D,C(industry)[T.7],1.179,양호
+확장모형 D,C(industry)[T.8],1.574,양호
+확장모형 D,C(industry)[T.9],1.258,양호
+확장모형 D,C(industry)[T.10],1.107,양호
+확장모형 D,C(industry)[T.11],1.327,양호
+확장모형 D,C(industry)[T.12],1.602,양호
+확장모형 D,C(industry)[T.13],1.119,양호
+확장모형 D,C(industry)[T.14],1.271,양호
+확장모형 D,C(industry)[T.15],1.116,양호
+확장모형 D,C(industry)[T.16],1.1,양호
+확장모형 D,it_org_any,3.745,양호
+확장모형 D,ai_use_sum,7.881,주의
+확장모형 D,it_org_any:ai_use_sum,4.094,양호
+확장모형 D,it_invest_sum,9.178,주의
+확장모형 D,it_invest_high,1.09,양호
+확장모형 D,ai_impl_sum,4.751,양호
+확장모형 D,ai_purpose_sum,4.84,양호

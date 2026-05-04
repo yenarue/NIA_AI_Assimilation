@@ -1,0 +1,6 @@
+﻿모형명,목적,종속변수,핵심 변수,추가 보강 변수,통제변수,사용 여부,제외 사유
+A,정보화 담당 체계 유형별 확장모형,effect_proc_improve,"it_org_internal:ai_use_sum, it_org_mixed:ai_use_sum, it_org_outsource:ai_use_sum",정보화 담당 체계 유형 더미,"C(firm_size), C(industry)",사용,
+B,정보화 투자 범위 추가 모형,effect_proc_improve,it_org_any:ai_use_sum,it_invest_sum,"C(firm_size), C(industry)",사용,
+B2,정보화 투자 범위 및 고투자 기업 추가 모형,effect_proc_improve,it_org_any:ai_use_sum,"it_invest_sum, it_invest_high","C(firm_size), C(industry)",사용,
+C,AI 구현 방식 및 활용 목적 추가 모형,effect_proc_improve,it_org_any:ai_use_sum,"ai_impl_sum, ai_purpose_sum","C(firm_size), C(industry)",사용,
+D,전체 보강 변수 포함 모형,effect_proc_improve,it_org_any:ai_use_sum,"it_invest_sum, it_invest_high, ai_impl_sum, ai_purpose_sum","C(firm_size), C(industry)",사용,

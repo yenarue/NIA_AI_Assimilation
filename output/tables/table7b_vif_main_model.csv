@@ -1,0 +1,22 @@
+﻿model_name,variable,vif,note
+주모형 H3,C(firm_size)[T.2],1.809,양호
+주모형 H3,C(firm_size)[T.3],1.605,양호
+주모형 H3,C(firm_size)[T.4],1.293,양호
+주모형 H3,C(industry)[T.2],1.711,양호
+주모형 H3,C(industry)[T.3],1.043,양호
+주모형 H3,C(industry)[T.4],1.309,양호
+주모형 H3,C(industry)[T.5],1.244,양호
+주모형 H3,C(industry)[T.6],1.134,양호
+주모형 H3,C(industry)[T.7],1.093,양호
+주모형 H3,C(industry)[T.8],1.228,양호
+주모형 H3,C(industry)[T.9],1.117,양호
+주모형 H3,C(industry)[T.10],1.06,양호
+주모형 H3,C(industry)[T.11],1.132,양호
+주모형 H3,C(industry)[T.12],1.388,양호
+주모형 H3,C(industry)[T.13],1.052,양호
+주모형 H3,C(industry)[T.14],1.138,양호
+주모형 H3,C(industry)[T.15],1.043,양호
+주모형 H3,C(industry)[T.16],1.052,양호
+주모형 H3,it_org_any,3.136,양호
+주모형 H3,ai_use_sum,3.937,양호
+주모형 H3,it_org_any:ai_use_sum,4.047,양호

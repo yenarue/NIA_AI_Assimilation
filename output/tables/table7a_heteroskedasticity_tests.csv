@@ -1,0 +1,4 @@
+﻿model,formula,n,dropped_n,bp_lm_stat,bp_lm_pvalue,bp_f_stat,bp_f_pvalue,white_lm_stat,white_lm_pvalue,white_f_stat,white_f_pvalue,judgment,response
+주모형 H1,effect_proc_improve ~ it_org_any + C(firm_size) + C(industry),12203,0,456.109,0.0,24.897,0.0,587.575,0.0,7.665,0.0,이분산 가능성 있음,주요 회귀표에서 HC3 robust SE 사용
+주모형 H3,effect_proc_improve ~ it_org_any * ai_use_sum + C(firm_size) + C(industry),12203,0,462.39,0.0,22.845,0.0,673.143,0.0,5.878,0.0,이분산 가능성 있음,주요 회귀표에서 HC3 robust SE 사용
+강건성 DV 모형,effect_average ~ it_org_any * ai_use_sum + C(firm_size) + C(industry),12203,0,325.521,0.0,15.897,0.0,598.274,0.0,5.191,0.0,이분산 가능성 있음,주요 회귀표에서 HC3 robust SE 사용
