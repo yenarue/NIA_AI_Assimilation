@@ -1,0 +1,7 @@
+﻿진단 항목,대상 모형,결과 요약,판단,보고서 반영 방식
+이분산,"H1, H2 Headline, H3, Integrated",BP 또는 White test에서 p < .05인 모형이 확인됨,이분산 가능성 고려,모든 주모형에 HC3 robust SE 적용
+다중공선성,핵심 변수 VIF,핵심 변수 최대 VIF=5.86 (Integrated Model / ai_use_sum:dmi),일부 변수 주의 필요,핵심 변수 중심 VIF 표 제시
+상호작용항 공선성,Integrated Model,"Integrated 핵심 변수 최대 VIF는 원모형 5.86, 중심화 후 3.12",중심화 후 공선성 완화,평균중심화 VIF를 보조 진단으로 제시
+순서형 DV 적합성,effect_proc_improve,DV가 1~5점 순서형 변수임,OLS 해석 보조 확인 필요,Ordered Logit 보조모형으로 강건성 확인
+평행추세,단면 회귀모형,2024년 단일 연도 기업 단위 단면자료,해당 없음,DID/패널모형이 아니므로 핵심 진단 대상 아님
+과분산,OLS 주모형,종속변수가 count형 변수가 아님,해당 없음,Poisson/NB 과분산 진단은 주모형 대상 아님

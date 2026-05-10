@@ -1,0 +1,9 @@
+﻿가설,모형,종속변수,핵심 변수,계수,HC3 Robust SE,p-value,유의수준,N,R²,Adj. R²,해석 방향,비고
+H1,H1 Baseline,effect_proc_improve,ai_use_sum,0.0521,0.0056,0.0,***,12203,0.1125,0.11,+,AI 활용 범위와 DV의 기본 관련성
+H2 Basic,H2 Basic: AI × IT org,effect_proc_improve,ai_use_sum:it_org_any,0.0638,0.0109,0.0,***,12203,0.1247,0.1221,+,AI 활용 범위와 IT 조직 보유의 기본 결합 관련성
+H2 Headline,H2 Headline: Model D replication,effect_proc_improve,ai_use_sum,-0.0237,0.009,0.0085,**,12203,0.148,0.1454,-,정보화 투자 범위 통제 후 AI 활용 범위의 단독 계수 방향
+H2 Headline,H2 Headline: Model D replication,effect_proc_improve,it_org_any,0.011,0.0175,0.5274,,12203,0.148,0.1454,+,정보화 투자 범위 통제 후 IT 조직 보유의 단독 계수 방향
+H2 Headline,H2 Headline: Model D replication,effect_proc_improve,ai_use_sum:it_org_any,0.0575,0.0107,0.0,***,12203,0.148,0.1454,+,정보화 투자 범위 통제 후 상호작용항 유지 여부 확인
+H3,H3: AI × DMI,effect_proc_improve,ai_use_sum:dmi,0.0004,0.0007,0.6233,,12203,0.1265,0.1239,+,AI 활용 범위와 DMI의 결합 관련성
+Integrated,Integrated Complementarity Model,effect_proc_improve,ai_use_sum:it_org_any,0.0601,0.0119,0.0,***,12203,0.1508,0.1481,+,두 보완재 동시 포함 후 AI × IT 조직 항 유지 여부
+Integrated,Integrated Complementarity Model,effect_proc_improve,ai_use_sum:dmi,-0.0015,0.0008,0.0661,,12203,0.1508,0.1481,-,두 보완재 동시 포함 후 AI × DMI 항 방향

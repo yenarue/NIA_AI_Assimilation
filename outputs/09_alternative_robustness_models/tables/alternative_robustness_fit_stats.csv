@@ -1,0 +1,24 @@
+﻿분석 구분,모형명,모형 유형,N,상태,적합도,AIC,BIC,R²,Adj. R²
+Main OLS 기준,H1 Main OLS,OLS,12203,ok,"R² = 0.112, Adj. R² = 0.110",26682.8023,26942.1326,0.1125,0.11
+Main OLS 기준,H2 Headline Main OLS,OLS,12203,ok,"R² = 0.148, Adj. R² = 0.145",26190.1437,26471.7023,0.148,0.1454
+Main OLS 기준,H3 Main OLS,OLS,12203,ok,"R² = 0.126, Adj. R² = 0.124",26493.1694,26767.3185,0.1265,0.1239
+Main OLS 기준,Integrated Main OLS H2,OLS,12203,ok,"R² = 0.151, Adj. R² = 0.148",26153.7672,26450.1447,0.1508,0.1481
+Main OLS 기준,Integrated Main OLS H3,OLS,12203,ok,"R² = 0.151, Adj. R² = 0.148",26153.7672,26450.1447,0.1508,0.1481
+Ordered Logit,H1 Ordered Logit,Ordered Logit,12203,ok,"Log-likelihood = -12984.5, AIC = 26044.9, BIC = 26326.5",26044.9021,26326.4607,,
+Ordered Logit,H2 Headline Ordered Logit,Ordered Logit,12203,ok,"Log-likelihood = -12728.8, AIC = 25539.5, BIC = 25843.3",25539.5042,25843.2911,,
+Ordered Logit,H3 Ordered Logit,Ordered Logit,12203,ok,"Log-likelihood = -12872.7, AIC = 25825.3, BIC = 26121.7",25825.3149,26121.6924,,
+Ordered Logit,Integrated Ordered Logit H2,Ordered Logit,12203,ok,"Log-likelihood = -12705.4, AIC = 25496.8, BIC = 25815.4",25496.7669,25815.3727,,
+Ordered Logit,Integrated Ordered Logit H3,Ordered Logit,12203,ok,"Log-likelihood = -12705.4, AIC = 25496.8, BIC = 25815.4",25496.7669,25815.3727,,
+Alternative DV OLS,H1 Alternative DV OLS,OLS,12203,ok,"R² = 0.199, Adj. R² = 0.196",20010.0723,20269.4026,0.1986,0.1964
+Alternative DV OLS,H2 Headline Alternative DV OLS,OLS,12203,ok,"R² = 0.265, Adj. R² = 0.263",18965.1171,19246.6757,0.2647,0.2625
+Alternative DV OLS,H3 Alternative DV OLS,OLS,12203,ok,"R² = 0.245, Adj. R² = 0.243",19278.5835,19552.7327,0.2455,0.2433
+Alternative DV OLS,Integrated Alternative DV OLS H2,OLS,12203,ok,"R² = 0.282, Adj. R² = 0.280",18681.7603,18978.1377,0.2819,0.2795
+Alternative DV OLS,Integrated Alternative DV OLS H3,OLS,12203,ok,"R² = 0.282, Adj. R² = 0.280",18681.7603,18978.1377,0.2819,0.2795
+Weighted OLS,H1 Weighted OLS,WLS,12203,ok,"R² = 0.087, Adj. R² = 0.085",34524.3279,34783.6582,0.0872,0.0847
+Weighted OLS,H2 Headline Weighted OLS,WLS,12203,ok,"R² = 0.109, Adj. R² = 0.107",34230.7068,34512.2654,0.1094,0.1067
+Weighted OLS,H3 Weighted OLS,WLS,12203,ok,"R² = 0.104, Adj. R² = 0.102",34298.2254,34572.3746,0.1043,0.1016
+Weighted OLS,Integrated Weighted OLS H2,WLS,12203,ok,"R² = 0.115, Adj. R² = 0.113",34151.8317,34448.2092,0.1154,0.1126
+Weighted OLS,Integrated Weighted OLS H3,WLS,12203,ok,"R² = 0.115, Adj. R² = 0.113",34151.8317,34448.2092,0.1154,0.1126
+Low DMI Subsample,H4 Low DMI OLS,Subsample OLS,5238,ok,"R² = 0.082, Adj. R² = 0.076",11400.3518,11630.0812,0.0823,0.0763
+Low DMI Subsample,H4 Low DMI OLS with investment,Subsample OLS,5238,ok,"R² = 0.087, Adj. R² = 0.081",11374.4551,11610.7481,0.0872,0.0811
+Alternative AI Measure,AI Measure Alternative OLS,OLS,12203,ok,"R² = 0.148, Adj. R² = 0.146",26188.522,26470.0806,0.1481,0.1456

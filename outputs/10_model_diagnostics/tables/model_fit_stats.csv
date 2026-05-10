@@ -1,0 +1,5 @@
+﻿모형,Formula,N,R²,Adj. R²,AIC,BIC,SE
+H1 Baseline,effect_proc_improve ~ ai_use_sum + firm_size + C(industry) + C(region) + C(firm_type),12203,0.11249819808309902,0.11001832782790721,26682.80232710855,26942.132625683167,HC3 robust SE
+H2 Headline / Model D replication,effect_proc_improve ~ ai_use_sum + it_org_any + it_invest_sum + ai_use_sum:it_org_any + firm_size + C(industry) + C(region) + C(firm_type),12203,0.1480337249560919,0.14544245885032747,26190.14370755135,26471.70231743236,HC3 robust SE
+H3,effect_proc_improve ~ ai_use_sum + dmi + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type),12203,0.12646962787602867,0.12388479363334715,26493.169368517512,26767.31854129639,HC3 robust SE
+Integrated Model,effect_proc_improve ~ ai_use_sum + it_org_any + dmi + it_invest_sum + ai_use_sum:it_org_any + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type),12203,0.1508479976865943,0.14812523783374365,26153.767207082765,26450.14469116804,HC3 robust SE

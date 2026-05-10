@@ -1,0 +1,6 @@
+﻿모형,가설/역할,N,R²,Adj. R²,AIC,BIC,HC3 robust SE 적용 여부,Controls 포함 여부,Industry FE 포함 여부,Region FE 포함 여부,Firm type FE 포함 여부,Investment control 포함 여부
+Model 1,H1 Baseline,12203,0.112,0.11,26682.802,26942.133,Yes,Yes,Yes,Yes,Yes,No
+Model 2,H2 Basic: AI × IT org,12203,0.125,0.122,26517.309,26791.458,Yes,Yes,Yes,Yes,Yes,No
+Model 3,H2 Headline: Model D replication,12203,0.148,0.145,26190.144,26471.702,Yes,Yes,Yes,Yes,Yes,Yes
+Model 4,H3: AI × DMI,12203,0.126,0.124,26493.169,26767.319,Yes,Yes,Yes,Yes,Yes,No
+Model 5,Integrated Complementarity Model,12203,0.151,0.148,26153.767,26450.145,Yes,Yes,Yes,Yes,Yes,Yes

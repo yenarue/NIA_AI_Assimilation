@@ -1,0 +1,11 @@
+﻿가설,보조모형 구분,종속변수,핵심 계수,계수,표준오차,p-value,N,적합도,주모형 일치 여부
+H1,Ordered Logit,effect_proc_improve,ai_use_sum,0.1471,0.0152,0.0,12203,"Log-likelihood = -12984.5, AIC = 26044.9, BIC = 26326.5",주모형과 방향·유의성 일치
+H2 Headline,Ordered Logit,effect_proc_improve,ai_use_sum:it_org_any,0.1933,0.0294,0.0,12203,"Log-likelihood = -12728.8, AIC = 25539.5, BIC = 25843.3",주모형과 방향·유의성 일치
+H3,Ordered Logit,effect_proc_improve,ai_use_sum:dmi,0.0047,0.0026,0.0632,12203,"Log-likelihood = -12872.7, AIC = 25825.3, BIC = 26121.7",주모형과 방향·유의성 일치
+H1,Alternative DV,effect_average,ai_use_sum,0.0557,0.0045,0.0,12203,"R² = 0.199, Adj. R² = 0.196",주모형과 방향·유의성 일치
+H2 Headline,Alternative DV,effect_average,ai_use_sum:it_org_any,0.0739,0.0081,0.0,12203,"R² = 0.265, Adj. R² = 0.263",주모형과 방향·유의성 일치
+H3,Alternative DV,effect_average,ai_use_sum:dmi,0.0015,0.0006,0.0072,12203,"R² = 0.245, Adj. R² = 0.243",방향은 일치하나 유의성은 약함
+H2 Headline,Weighted OLS,effect_proc_improve,ai_use_sum:it_org_any,0.0547,0.0154,0.0004,12203,"R² = 0.109, Adj. R² = 0.107",주모형과 방향·유의성 일치
+H3,Weighted OLS,effect_proc_improve,ai_use_sum:dmi,0.0008,0.0016,0.623,12203,"R² = 0.104, Adj. R² = 0.102",주모형과 방향·유의성 일치
+H4 Exploratory,Low DMI Subsample,effect_proc_improve,ai_use_sum,-0.0082,0.0146,0.5765,5238,"R² = 0.082, Adj. R² = 0.076",탐색적 결과
+AI Measure Alternative,Alternative AI Measure,effect_proc_improve,ai_use:it_org_any,0.1561,0.0275,0.0,12203,"R² = 0.148, Adj. R² = 0.146",주모형과 방향·유의성 일치

@@ -1,0 +1,19 @@
+﻿모형,변수,VIF,판단
+H1 Baseline,ai_use_sum,1.181,낮음
+H1 Baseline,firm_size,1.28,낮음
+H2 Headline / Model D replication,ai_use_sum,2.876,낮음
+H2 Headline / Model D replication,it_org_any,1.913,낮음
+H2 Headline / Model D replication,it_invest_sum,1.804,낮음
+H2 Headline / Model D replication,ai_use_sum:it_org_any,3.346,낮음
+H2 Headline / Model D replication,firm_size,1.451,낮음
+H3,ai_use_sum,3.802,낮음
+H3,dmi,2.376,낮음
+H3,ai_use_sum:dmi,4.99,낮음
+H3,firm_size,1.375,낮음
+Integrated Model,ai_use_sum,4.303,낮음
+Integrated Model,it_org_any,2.0,낮음
+Integrated Model,dmi,2.726,낮음
+Integrated Model,it_invest_sum,2.071,낮음
+Integrated Model,ai_use_sum:it_org_any,3.948,낮음
+Integrated Model,ai_use_sum:dmi,5.861,주의
+Integrated Model,firm_size,1.484,낮음

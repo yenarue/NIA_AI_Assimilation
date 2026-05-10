@@ -1,0 +1,35 @@
+﻿변수,term,Model 1: H1 Baseline,Model 2: H2 Basic: AI × IT org,Model 3: H2 Headline: Model D replication,Model 4: H3: AI × DMI,Model 5: Integrated complements
+AI 활용 범위,ai_use_sum,"0.052***
+(0.006)","0.009
+(0.009)","-0.024**
+(0.009)","0.002
+(0.010)","-0.029**
+(0.010)"
+정보화 담당 체계 보유,it_org_any,,"0.116***
+(0.017)","0.011
+(0.017)",,"0.011
+(0.018)"
+디지털 성숙도(DMI),dmi,,,,"0.028***
+(0.002)","0.015***
+(0.002)"
+정보화 투자 범위,it_invest_sum,,,"0.108***
+(0.006)",,"0.094***
+(0.006)"
+AI 활용 범위 × IT 조직,ai_use_sum:it_org_any,,"0.064***
+(0.011)","0.057***
+(0.011)",,"0.060***
+(0.012)"
+AI 활용 범위 × DMI,ai_use_sum:dmi,,,,"0.000
+(0.001)","-0.001
+(0.001)"
+N,fit_stat,12203,12203,12203,12203,12203
+R²,fit_stat,0.112,0.125,0.148,0.126,0.151
+Adj. R²,fit_stat,0.11,0.122,0.145,0.124,0.148
+AIC,fit_stat,26682.802,26517.309,26190.144,26493.169,26153.767
+BIC,fit_stat,26942.133,26791.458,26471.702,26767.319,26450.145
+HC3 robust SE,fit_stat,Yes,Yes,Yes,Yes,Yes
+Controls,fit_stat,Yes,Yes,Yes,Yes,Yes
+Industry FE,fit_stat,Yes,Yes,Yes,Yes,Yes
+Region FE,fit_stat,Yes,Yes,Yes,Yes,Yes
+Firm type FE,fit_stat,Yes,Yes,Yes,Yes,Yes
+Investment control,fit_stat,No,No,Yes,No,Yes

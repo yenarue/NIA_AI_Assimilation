@@ -1,0 +1,24 @@
+﻿가설,분석 구분,모형명,종속변수,핵심 계수,계수,표준오차,p-value,유의수준,N,적합도,방향,주모형 방향과 일치 여부,주모형 유의성과 일치 여부,결론,비고
+H1,Main OLS 기준,H1 Main OLS,effect_proc_improve,ai_use_sum,0.0521,0.0056,0.0,***,12203,"R² = 0.112, Adj. R² = 0.110",+,기준,기준,주모형 기준,비교 기준값
+H2 Headline,Main OLS 기준,H2 Headline Main OLS,effect_proc_improve,ai_use_sum:it_org_any,0.0575,0.0107,0.0,***,12203,"R² = 0.148, Adj. R² = 0.145",+,기준,기준,주모형 기준,비교 기준값
+H3,Main OLS 기준,H3 Main OLS,effect_proc_improve,ai_use_sum:dmi,0.0004,0.0007,0.6233,,12203,"R² = 0.126, Adj. R² = 0.124",+,기준,기준,주모형 기준,비교 기준값
+Integrated H2,Main OLS 기준,Integrated Main OLS H2,effect_proc_improve,ai_use_sum:it_org_any,0.0601,0.0119,0.0,***,12203,"R² = 0.151, Adj. R² = 0.148",+,기준,기준,주모형 기준,비교 기준값
+Integrated H3,Main OLS 기준,Integrated Main OLS H3,effect_proc_improve,ai_use_sum:dmi,-0.0015,0.0008,0.0661,,12203,"R² = 0.151, Adj. R² = 0.148",-,기준,기준,주모형 기준,비교 기준값
+H1,Ordered Logit,H1 Ordered Logit,effect_proc_improve,ai_use_sum,0.1471,0.0152,0.0,***,12203,"Log-likelihood = -12984.5, AIC = 26044.9, BIC = 26326.5",+,일치,일치,주모형과 방향·유의성 일치,순서형 DV 대안모형
+H2 Headline,Ordered Logit,H2 Headline Ordered Logit,effect_proc_improve,ai_use_sum:it_org_any,0.1933,0.0294,0.0,***,12203,"Log-likelihood = -12728.8, AIC = 25539.5, BIC = 25843.3",+,일치,일치,주모형과 방향·유의성 일치,H2 headline의 Ordered Logit 확인
+H3,Ordered Logit,H3 Ordered Logit,effect_proc_improve,ai_use_sum:dmi,0.0047,0.0026,0.0632,,12203,"Log-likelihood = -12872.7, AIC = 25825.3, BIC = 26121.7",+,일치,일치,주모형과 방향·유의성 일치,H3 Ordered Logit 확인
+Integrated H2,Ordered Logit,Integrated Ordered Logit H2,effect_proc_improve,ai_use_sum:it_org_any,0.1851,0.0316,0.0,***,12203,"Log-likelihood = -12705.4, AIC = 25496.8, BIC = 25815.4",+,일치,일치,주모형과 방향·유의성 일치,통합 Ordered Logit의 H2 항
+Integrated H3,Ordered Logit,Integrated Ordered Logit H3,effect_proc_improve,ai_use_sum:dmi,-0.0014,0.0027,0.5947,,12203,"Log-likelihood = -12705.4, AIC = 25496.8, BIC = 25815.4",-,일치,일치,주모형과 방향·유의성 일치,통합 Ordered Logit의 H3 항
+H1,Alternative DV OLS,H1 Alternative DV OLS,effect_average,ai_use_sum,0.0557,0.0045,0.0,***,12203,"R² = 0.199, Adj. R² = 0.196",+,일치,일치,주모형과 방향·유의성 일치,대체 DV에서 H1 방향 확인
+H2 Headline,Alternative DV OLS,H2 Headline Alternative DV OLS,effect_average,ai_use_sum:it_org_any,0.0739,0.0081,0.0,***,12203,"R² = 0.265, Adj. R² = 0.263",+,일치,일치,주모형과 방향·유의성 일치,대체 DV에서 H2 headline 확인
+H3,Alternative DV OLS,H3 Alternative DV OLS,effect_average,ai_use_sum:dmi,0.0015,0.0006,0.0072,**,12203,"R² = 0.245, Adj. R² = 0.243",+,일치,불일치,방향은 일치하나 유의성은 약함,대체 DV에서 H3 확인
+Integrated H2,Alternative DV OLS,Integrated Alternative DV OLS H2,effect_average,ai_use_sum:it_org_any,0.0676,0.009,0.0,***,12203,"R² = 0.282, Adj. R² = 0.280",+,일치,일치,주모형과 방향·유의성 일치,대체 DV 통합모형 H2 항
+Integrated H3,Alternative DV OLS,Integrated Alternative DV OLS H3,effect_average,ai_use_sum:dmi,-0.0006,0.0006,0.3523,,12203,"R² = 0.282, Adj. R² = 0.280",-,일치,일치,주모형과 방향·유의성 일치,대체 DV 통합모형 H3 항
+H1,Weighted OLS,H1 Weighted OLS,effect_proc_improve,ai_use_sum,0.056,0.0084,0.0,***,12203,"R² = 0.087, Adj. R² = 0.085",+,일치,일치,주모형과 방향·유의성 일치,가중치 적용 H1
+H2 Headline,Weighted OLS,H2 Headline Weighted OLS,effect_proc_improve,ai_use_sum:it_org_any,0.0547,0.0154,0.0004,***,12203,"R² = 0.109, Adj. R² = 0.107",+,일치,일치,주모형과 방향·유의성 일치,가중치 적용 H2 headline
+H3,Weighted OLS,H3 Weighted OLS,effect_proc_improve,ai_use_sum:dmi,0.0008,0.0016,0.623,,12203,"R² = 0.104, Adj. R² = 0.102",+,일치,일치,주모형과 방향·유의성 일치,가중치 적용 H3
+Integrated H2,Weighted OLS,Integrated Weighted OLS H2,effect_proc_improve,ai_use_sum:it_org_any,0.0517,0.016,0.0012,**,12203,"R² = 0.115, Adj. R² = 0.113",+,일치,일치,주모형과 방향·유의성 일치,가중치 적용 통합모형 H2 항
+Integrated H3,Weighted OLS,Integrated Weighted OLS H3,effect_proc_improve,ai_use_sum:dmi,-0.0003,0.0016,0.8425,,12203,"R² = 0.115, Adj. R² = 0.113",-,일치,일치,주모형과 방향·유의성 일치,가중치 적용 통합모형 H3 항
+H4 Exploratory,Low DMI Subsample,H4 Low DMI OLS,effect_proc_improve,ai_use_sum,-0.0082,0.0146,0.5765,,5238,"R² = 0.082, Adj. R² = 0.076",-,기준 없음,기준 없음,탐색적 결과,Low DMI 집단 AI 활용 범위 단독 관련성
+H4 Exploratory,Low DMI Subsample,H4 Low DMI OLS with investment,effect_proc_improve,ai_use_sum,-0.0176,0.0145,0.2242,,5238,"R² = 0.087, Adj. R² = 0.081",-,기준 없음,기준 없음,탐색적 결과,Low DMI 집단 투자 통제 포함
+AI Measure Alternative,Alternative AI Measure,AI Measure Alternative OLS,effect_proc_improve,ai_use:it_org_any,0.1561,0.0275,0.0,***,12203,"R² = 0.148, Adj. R² = 0.146",+,일치,일치,주모형과 방향·유의성 일치,AI 이용 여부 × IT 조직 보유 보조 확인
