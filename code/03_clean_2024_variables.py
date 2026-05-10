@@ -6,6 +6,7 @@
 - 입력 renamed 파일은 덮어쓰지 않습니다.
 - midpoint(3)는 결측 처리하지 않고, effect_* 변수는 1~5 값을 유지합니다.
 - it_invest_share_pct 및 _ord 계열 파생열은 생성하지 않습니다.
+- it_invest_share_std4는 it_invest_share_recoded_raw 값을 그대로 매핑합니다.
 """
 
 from __future__ import annotations
@@ -28,11 +29,18 @@ CONTROL_MAPPING = {
     "industry_raw": "industry",
     "industry_size_raw": "industry_size",
     "firm_size_raw": "firm_size",
+    "region_raw": "region",
+    "firm_type_raw": "firm_type",
+    "weight_raw": "weight",
 }
 
 YESNO_MAPPING = {
     "it_org_any_raw": "it_org_any",
     "it_invest_any_raw": "it_invest_any",
+    "mgmt_sys_any_raw": "mgmt_sys_any",
+    "iot_use_any_raw": "iot_use_any",
+    "cloud_use_any_raw": "cloud_use_any",
+    "data_analysis_use_any_raw": "data_analysis_use_any",
     "ai_use_raw": "ai_use",
 }
 
@@ -51,6 +59,51 @@ IT_INVEST_CHILD_MAPPING = {
     "it_invest_new_tech_raw": "it_invest_new_tech",
     "it_invest_rnd_raw": "it_invest_rnd",
     "it_invest_tech_train_raw": "it_invest_tech_train",
+}
+
+MGMT_SYS_DETAIL_MAPPING = {
+    "mgmt_sys_erp_raw": "mgmt_sys_erp",
+    "mgmt_sys_crm_raw": "mgmt_sys_crm",
+    "mgmt_sys_scm_raw": "mgmt_sys_scm",
+    "mgmt_sys_other_raw": "mgmt_sys_other",
+}
+
+IOT_USE_DETAIL_MAPPING = {
+    "iot_use_security_raw": "iot_use_security",
+    "iot_use_customer_service_raw": "iot_use_customer_service",
+    "iot_use_payment_raw": "iot_use_payment",
+    "iot_use_production_process_raw": "iot_use_production_process",
+    "iot_use_logistics_inventory_raw": "iot_use_logistics_inventory",
+    "iot_use_energy_management_raw": "iot_use_energy_management",
+    "iot_use_smart_building_office_raw": "iot_use_smart_building_office",
+    "iot_use_other_raw": "iot_use_other",
+}
+
+CLOUD_USE_DETAIL_MAPPING = {
+    "cloud_use_email_raw": "cloud_use_email",
+    "cloud_use_office_software_raw": "cloud_use_office_software",
+    "cloud_use_finance_accounting_app_raw": "cloud_use_finance_accounting_app",
+    "cloud_use_erp_raw": "cloud_use_erp",
+    "cloud_use_crm_raw": "cloud_use_crm",
+    "cloud_use_security_software_raw": "cloud_use_security_software",
+    "cloud_use_collaboration_software_raw": "cloud_use_collaboration_software",
+    "cloud_use_database_hosting_raw": "cloud_use_database_hosting",
+    "cloud_use_file_storage_raw": "cloud_use_file_storage",
+    "cloud_use_computing_capacity_raw": "cloud_use_computing_capacity",
+    "cloud_use_app_dev_test_deploy_raw": "cloud_use_app_dev_test_deploy",
+    "cloud_use_other_raw": "cloud_use_other",
+}
+
+DATA_ANALYSIS_DETAIL_MAPPING = {
+    "data_analysis_public_data_raw": "data_analysis_public_data",
+    "data_analysis_transaction_data_raw": "data_analysis_transaction_data",
+    "data_analysis_customer_data_raw": "data_analysis_customer_data",
+    "data_analysis_social_media_data_raw": "data_analysis_social_media_data",
+    "data_analysis_web_data_raw": "data_analysis_web_data",
+    "data_analysis_sensor_data_raw": "data_analysis_sensor_data",
+    "data_analysis_location_data_raw": "data_analysis_location_data",
+    "data_analysis_satellite_data_raw": "data_analysis_satellite_data",
+    "data_analysis_other_raw": "data_analysis_other",
 }
 
 AI_USE_DETAIL_MAPPING = {
@@ -98,12 +151,20 @@ EFFECT_MAPPING = {
 }
 
 TEXT_RAW_COLUMNS = [
+    "mgmt_sys_other_text_raw",
+    "iot_use_other_text_raw",
+    "cloud_use_other_text_raw",
+    "data_analysis_other_text_raw",
     "ai_use_other_text_raw",
     "ai_purpose_other_text_raw",
     "ai_impl_other_text_raw",
 ]
 
 TEXT_CLEAN_MAPPING = {
+    "mgmt_sys_other_text_raw": "mgmt_sys_other_text",
+    "iot_use_other_text_raw": "iot_use_other_text",
+    "cloud_use_other_text_raw": "cloud_use_other_text",
+    "data_analysis_other_text_raw": "data_analysis_other_text",
     "ai_use_other_text_raw": "ai_use_other_text",
     "ai_purpose_other_text_raw": "ai_purpose_other_text",
     "ai_impl_other_text_raw": "ai_impl_other_text",
@@ -114,6 +175,9 @@ CLEAN_COLUMN_ORDER = [
     "industry",
     "industry_size",
     "firm_size",
+    "region",
+    "firm_type",
+    "weight",
     "it_org_any",
     "it_org_internal",
     "it_org_mixed",
@@ -130,6 +194,47 @@ CLEAN_COLUMN_ORDER = [
     "it_invest_tech_train",
     "it_invest_share",
     "it_invest_share_std4",
+    "mgmt_sys_any",
+    "mgmt_sys_erp",
+    "mgmt_sys_crm",
+    "mgmt_sys_scm",
+    "mgmt_sys_other",
+    "mgmt_sys_other_text",
+    "iot_use_any",
+    "iot_use_security",
+    "iot_use_customer_service",
+    "iot_use_payment",
+    "iot_use_production_process",
+    "iot_use_logistics_inventory",
+    "iot_use_energy_management",
+    "iot_use_smart_building_office",
+    "iot_use_other",
+    "iot_use_other_text",
+    "cloud_use_any",
+    "cloud_use_email",
+    "cloud_use_office_software",
+    "cloud_use_finance_accounting_app",
+    "cloud_use_erp",
+    "cloud_use_crm",
+    "cloud_use_security_software",
+    "cloud_use_collaboration_software",
+    "cloud_use_database_hosting",
+    "cloud_use_file_storage",
+    "cloud_use_computing_capacity",
+    "cloud_use_app_dev_test_deploy",
+    "cloud_use_other",
+    "cloud_use_other_text",
+    "data_analysis_use_any",
+    "data_analysis_public_data",
+    "data_analysis_transaction_data",
+    "data_analysis_customer_data",
+    "data_analysis_social_media_data",
+    "data_analysis_web_data",
+    "data_analysis_sensor_data",
+    "data_analysis_location_data",
+    "data_analysis_satellite_data",
+    "data_analysis_other",
+    "data_analysis_other_text",
     "ai_use",
     "ai_use_doc_info_collect",
     "ai_use_task_automation",
@@ -280,13 +385,6 @@ def make_it_org_type(df: pd.DataFrame) -> pd.Series:
     return result
 
 
-def cap_std4(series: pd.Series) -> pd.Series:
-    """numeric 값을 기준으로 4 초과는 모두 4로 상한 처리합니다."""
-    result = series.astype("Float64").copy()
-    result.loc[result > 4] = 4
-    return result
-
-
 def clean_text_raw_columns(raw_df: pd.DataFrame) -> pd.DataFrame:
     """기타 텍스트 raw 열의 공백/빈 문자열을 NA로 처리합니다."""
     result = raw_df.copy()
@@ -348,7 +446,7 @@ def build_cleaning_summary(
     blank_zero_stats: dict[str, dict[str, int]],
     text_blank_counts: dict[str, int],
     invest_any_no_variance: bool,
-    capped_count: int,
+    invest_share_std4_invalid: int,
 ) -> pd.DataFrame:
     """요청 형식의 cleaning summary 표를 생성합니다."""
     rows: list[dict[str, str]] = []
@@ -378,6 +476,11 @@ def build_cleaning_summary(
 
     for mapping, parent, label in [
         (IT_ORG_CHILD_MAPPING, "it_org_any_raw", "상위문항 기반 처리"),
+        (IT_INVEST_CHILD_MAPPING, "it_invest_any_raw", "상위문항 기반 처리"),
+        (MGMT_SYS_DETAIL_MAPPING, "mgmt_sys_any_raw", "상위문항 기반 처리"),
+        (IOT_USE_DETAIL_MAPPING, "iot_use_any_raw", "상위문항 기반 처리"),
+        (CLOUD_USE_DETAIL_MAPPING, "cloud_use_any_raw", "상위문항 기반 처리"),
+        (DATA_ANALYSIS_DETAIL_MAPPING, "data_analysis_use_any_raw", "상위문항 기반 처리"),
         (AI_USE_DETAIL_MAPPING, "ai_use_raw", "상위문항 기반 처리"),
         (AI_PURPOSE_MAPPING, "ai_use_raw", "상위문항 기반 처리"),
         (AI_IMPL_MAPPING, "ai_use_raw", "상위문항 기반 처리"),
@@ -404,17 +507,6 @@ def build_cleaning_summary(
         note="0=모두 0, 1=internal only, 2=mixed only, 3=outsource only, 4=둘 이상",
     )
 
-    for raw, clean in IT_INVEST_CHILD_MAPPING.items():
-        add_summary_row(
-            rows,
-            variable=clean,
-            before="0/1/공백 혼재",
-            action=f"{raw}: 1->1, 0->0, 공백/그 외 NA",
-            reason="투자 하위항목을 0/1 분석 변수로 변환",
-            after="0/1/NA numeric",
-            note="공백은 NA",
-        )
-
     add_summary_row(
         rows,
         variable="it_invest_share",
@@ -427,11 +519,11 @@ def build_cleaning_summary(
     add_summary_row(
         rows,
         variable="it_invest_share_std4",
-        before="it_invest_share_raw numeric",
-        action="1,2,3,4는 유지하고 4 초과 값은 모두 4로 치환",
-        reason="4 초과 값을 상한 4로 표준화",
+        before="it_invest_share_recoded_raw",
+        action="it_invest_share_recoded_raw를 numeric으로 변환해 그대로 매핑",
+        reason="코드북의 REQ33 4범주 recoding 값을 표준화 변수로 사용",
         after="1/2/3/4/NA numeric",
-        note=f"4 초과->4 {capped_count}건",
+        note=f"1~4 외 값->NA {invest_share_std4_invalid}건",
     )
 
     for raw, clean in EFFECT_MAPPING.items():
@@ -495,7 +587,7 @@ def write_korean_log(
     kept_vars: list[str],
     invest_any_no_variance: bool,
     invest_share_failed: int,
-    capped_count: int,
+    invest_share_std4_invalid: int,
     validation: dict[str, bool],
     warnings: list[str],
 ) -> None:
@@ -538,13 +630,17 @@ def write_korean_log(
         "[변수군별 처리 규칙]",
         "- 정보화 전담 인력: it_org_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 it_org_any=0이면 0, it_org_any=1이면 NA.",
         "- it_org_type: 내부/겸직/외주 하위항목 조합으로 0~4 생성.",
-        "- 정보화 투자: it_invest_any_raw는 1->1, 2->0, 그 외 NA. 하위 투자항목은 1/0 numeric, 공백은 NA.",
+        "- 정보화 투자: it_invest_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 it_invest_any=0이면 0, it_invest_any=1이면 NA.",
+        "- 경영정보시스템: mgmt_sys_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 mgmt_sys_any=0이면 0, mgmt_sys_any=1이면 NA.",
+        "- 사물인터넷(IoT): iot_use_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 iot_use_any=0이면 0, iot_use_any=1이면 NA.",
+        "- 클라우드 컴퓨팅: cloud_use_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 cloud_use_any=0이면 0, cloud_use_any=1이면 NA.",
+        "- 데이터 분석 및 서비스: data_analysis_use_any_raw는 1->1, 2->0, 그 외 NA. 하위항목 공백은 data_analysis_use_any=0이면 0, data_analysis_use_any=1이면 NA.",
         "- AI 이용 여부: ai_use_raw는 1->1, 2->0, 그 외 NA.",
         "- AI 세부유형/목적/형태: 공백은 ai_use=0이면 0, ai_use=1이면 NA.",
         "- 기타 텍스트: 공백/빈 문자열은 NA, 텍스트는 유지. *_other_text clean 열을 생성하고 *_other_text_raw도 뒤쪽에 보존.",
         "- 효과 변수: 1,2,3,4,5를 numeric으로 유지. midpoint 3은 정상 응답값이며 결측 처리하지 않음.",
-        "- 통제변수: year, industry, industry_size, firm_size는 numeric 유지.",
-        "- 가중치: weight clean 변수는 생성하지 않고 weight_raw를 raw 열로만 보존.",
+        "- 통제변수: year, industry, industry_size, firm_size, region, firm_type은 numeric 유지.",
+        "- 가중치: weight_raw를 numeric으로 변환해 weight clean 변수를 생성하고, weight_raw도 raw 열로 보존.",
         "",
         "[공백 -> 0 처리한 변수들]",
         "\n".join(blank_zero_lines) if blank_zero_lines else "- 없음",
@@ -562,11 +658,10 @@ def write_korean_log(
         "- it_invest_share_pct 열은 생성하지 않음.",
         "",
         "[it_invest_share_std4 처리 규칙]",
-        "- it_invest_share_raw를 numeric으로 변환한 값을 기준으로 생성.",
+        "- it_invest_share_recoded_raw를 numeric으로 변환한 값을 기준으로 생성.",
         "- 값이 1,2,3,4이면 그대로 유지.",
-        "- 값이 4 초과이면 모두 4로 치환.",
         "- 값이 결측이면 결측 유지.",
-        f"- 4 초과 값을 4로 치환한 건수: {capped_count}",
+        f"- 1~4 외 값이어서 NA 처리한 건수: {invest_share_std4_invalid}",
         "",
         "[이상치/경고]",
         "\n".join(f"- {warning}" for warning in warnings) if warnings else "- 없음",
@@ -592,7 +687,12 @@ def main() -> None:
         + list(YESNO_MAPPING)
         + list(IT_ORG_CHILD_MAPPING)
         + list(IT_INVEST_CHILD_MAPPING)
+        + ["it_invest_share_recoded_raw"]
         + ["it_invest_share_raw"]
+        + list(MGMT_SYS_DETAIL_MAPPING)
+        + list(IOT_USE_DETAIL_MAPPING)
+        + list(CLOUD_USE_DETAIL_MAPPING)
+        + list(DATA_ANALYSIS_DETAIL_MAPPING)
         + list(AI_USE_DETAIL_MAPPING)
         + list(AI_PURPOSE_MAPPING)
         + list(AI_IMPL_MAPPING)
@@ -610,18 +710,28 @@ def main() -> None:
     blank_zero_stats: dict[str, dict[str, int]] = {}
     blank_to_na_vars: dict[str, int] = {}
 
-    for raw, clean in IT_ORG_CHILD_MAPPING.items():
-        if raw in stripped_df.columns:
-            clean_df[clean], stats = fill_blank_as_zero_when_not_applicable(stripped_df[raw], clean_df["it_org_any"])
-            blank_zero_stats[raw] = stats
-            blank_to_na_vars[raw] = stats["blank_to_na_warning"]
-        else:
-            clean_df[clean] = empty_series(stripped_df.index, "Int64")
+    child_groups = [
+        (IT_ORG_CHILD_MAPPING, "it_org_any"),
+        (IT_INVEST_CHILD_MAPPING, "it_invest_any"),
+        (MGMT_SYS_DETAIL_MAPPING, "mgmt_sys_any"),
+        (IOT_USE_DETAIL_MAPPING, "iot_use_any"),
+        (CLOUD_USE_DETAIL_MAPPING, "cloud_use_any"),
+        (DATA_ANALYSIS_DETAIL_MAPPING, "data_analysis_use_any"),
+        (AI_USE_DETAIL_MAPPING, "ai_use"),
+        (AI_PURPOSE_MAPPING, "ai_use"),
+        (AI_IMPL_MAPPING, "ai_use"),
+    ]
+
+    for mapping, parent_clean in child_groups:
+        for raw, clean in mapping.items():
+            if raw in stripped_df.columns:
+                clean_df[clean], stats = fill_blank_as_zero_when_not_applicable(stripped_df[raw], clean_df[parent_clean])
+                blank_zero_stats[raw] = stats
+                blank_to_na_vars[raw] = stats["blank_to_na_warning"]
+            else:
+                clean_df[clean] = empty_series(stripped_df.index, "Int64")
 
     clean_df["it_org_type"] = make_it_org_type(clean_df)
-
-    for raw, clean in IT_INVEST_CHILD_MAPPING.items():
-        clean_df[clean] = clean_zero_one(stripped_df[raw]) if raw in stripped_df.columns else empty_series(stripped_df.index, "Int64")
 
     invest_share_numeric = (
         to_numeric_safe(stripped_df["it_invest_share_raw"])
@@ -629,16 +739,16 @@ def main() -> None:
         else empty_series(stripped_df.index)
     )
     clean_df["it_invest_share"] = invest_share_numeric.astype("Float64")
-    clean_df["it_invest_share_std4"] = cap_std4(invest_share_numeric)
-
-    for mapping in [AI_USE_DETAIL_MAPPING, AI_PURPOSE_MAPPING, AI_IMPL_MAPPING]:
-        for raw, clean in mapping.items():
-            if raw in stripped_df.columns:
-                clean_df[clean], stats = fill_blank_as_zero_when_not_applicable(stripped_df[raw], clean_df["ai_use"])
-                blank_zero_stats[raw] = stats
-                blank_to_na_vars[raw] = stats["blank_to_na_warning"]
-            else:
-                clean_df[clean] = empty_series(stripped_df.index, "Int64")
+    invest_share_std4_numeric = (
+        to_numeric_safe(stripped_df["it_invest_share_recoded_raw"])
+        if "it_invest_share_recoded_raw" in stripped_df.columns
+        else empty_series(stripped_df.index)
+    )
+    invest_share_std4_expected = invest_share_std4_numeric.astype("Float64").where(
+        invest_share_std4_numeric.isin([1, 2, 3, 4]),
+        pd.NA,
+    )
+    clean_df["it_invest_share_std4"] = invest_share_std4_expected.astype("Int64")
 
     for raw, clean in TEXT_CLEAN_MAPPING.items():
         clean_df[clean] = clean_text_from_raw(stripped_df[raw]) if raw in stripped_df.columns else empty_series(stripped_df.index, "string")
@@ -668,7 +778,15 @@ def main() -> None:
     raw_it_invest_any_values = set(stripped_df["it_invest_any_raw"].dropna().unique()) if "it_invest_any_raw" in stripped_df.columns else set()
     invest_any_no_variance = raw_it_invest_any_values == {"1"}
     invest_share_failed = int((stripped_df.get("it_invest_share_raw", pd.Series("", index=stripped_df.index)).astype("string").str.strip() != "").sum() - clean_df["it_invest_share"].notna().sum())
-    capped_count = int((invest_share_numeric > 4).sum())
+    invest_share_std4_invalid = int(
+        (
+            stripped_df.get("it_invest_share_recoded_raw", pd.Series("", index=stripped_df.index))
+            .astype("string")
+            .str.strip()
+            != ""
+        ).sum()
+        - clean_df["it_invest_share_std4"].notna().sum()
+    )
 
     warnings = []
     for var, count in blank_to_na_vars.items():
@@ -688,10 +806,9 @@ def main() -> None:
             .all()
             .all()
         ),
-        "ai_use_zero_blanks_to_zero": all(
-            stats["blank_to_zero"] == stats["blank_total"]
-            for var, stats in blank_zero_stats.items()
-            if var.startswith("ai_") and stats["blank_total"] > 0
+        "parent_no_blanks_to_zero_or_parent_yes_na": all(
+            stats["blank_total"] == stats["blank_to_zero"] + stats["blank_to_na_warning"]
+            for stats in blank_zero_stats.values()
         ),
         "text_blanks_to_na": all(raw_df[column].isna().sum() == blank_counts.get(column, 0) for column in TEXT_RAW_COLUMNS if column in raw_df.columns),
         "clean_text_columns_created": all(clean in output_df.columns for clean in TEXT_CLEAN_MAPPING.values()),
@@ -699,13 +816,15 @@ def main() -> None:
         "effect_values_1_to_5": all(clean_df[clean].dropna().isin([1, 2, 3, 4, 5]).all() for clean in EFFECT_MAPPING.values()),
         "it_invest_share_numeric": pd.api.types.is_numeric_dtype(clean_df["it_invest_share"]),
         "it_invest_share_std4_valid": clean_df["it_invest_share_std4"].dropna().isin([1, 2, 3, 4]).all(),
-        "it_invest_share_std4_cap_applied": bool((clean_df.loc[invest_share_numeric > 4, "it_invest_share_std4"] == 4).all()),
+        "it_invest_share_std4_matches_recoded_raw": bool(
+            clean_df["it_invest_share_std4"].equals(invest_share_std4_expected.astype("Int64"))
+        ),
         "no_it_invest_share_pct": "it_invest_share_pct" not in output_df.columns,
         "raw_columns_preserved_after_clean": raw_columns_preserved,
         "output_utf8_readable": len(output_check.columns) == len(output_df.columns),
     }
 
-    kept_vars = list(EFFECT_MAPPING.values()) + ["year", "industry", "industry_size", "firm_size", "weight_raw"]
+    kept_vars = list(EFFECT_MAPPING.values()) + ["year", "industry", "industry_size", "firm_size", "region", "firm_type", "weight"]
     write_korean_log(
         input_shape=input_df.shape,
         output_shape=output_df.shape,
@@ -717,7 +836,7 @@ def main() -> None:
         kept_vars=kept_vars,
         invest_any_no_variance=invest_any_no_variance,
         invest_share_failed=invest_share_failed,
-        capped_count=capped_count,
+        invest_share_std4_invalid=invest_share_std4_invalid,
         validation=validation,
         warnings=warnings,
     )
@@ -726,7 +845,7 @@ def main() -> None:
         blank_zero_stats=blank_zero_stats,
         text_blank_counts=text_blank_counts,
         invest_any_no_variance=invest_any_no_variance,
-        capped_count=capped_count,
+        invest_share_std4_invalid=invest_share_std4_invalid,
     )
     summary_markdown = dataframe_to_markdown(summary_df)
     SUMMARY_PATH.write_text(summary_markdown + "\n", encoding="utf-8")

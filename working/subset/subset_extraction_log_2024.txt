@@ -1,9 +1,9 @@
 NIA 2024 subset 추출 로그
 
 [파일 경로]
-- input file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_raw.csv
-- output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/subset/nia_2024_subset.csv
-- codebook file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_codebook.csv
+- input file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_raw.csv
+- output file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/working/subset/nia_2024_subset.csv
+- codebook file path: /Users/yenarue/Downloads/ITM.89912(A)/연구 데이터/raw/nia_2024_codebook.csv
 
 [컬럼 추출 결과]
 - requested columns:
@@ -21,7 +21,48 @@ NIA 2024 subset 추출 로그
 - Q32_7
 - Q32_8
 - Q33
-- REQ33
+- Q33_RE
+- Q14
+- Q14_1
+- Q14_2
+- Q14_3
+- Q14_4
+- Q14_4_ETC
+- Q17
+- Q17_1
+- Q17_2
+- Q17_3
+- Q17_4
+- Q17_5
+- Q17_6
+- Q17_7
+- Q17_8
+- Q17_8_ETC
+- Q20
+- Q20_1
+- Q20_2
+- Q20_3
+- Q20_4
+- Q20_5
+- Q20_6
+- Q20_7
+- Q20_8
+- Q20_9
+- Q20_10
+- Q20_11
+- Q20_12
+- Q20_12_ETC
+- Q23
+- Q23_1
+- Q23_2
+- Q23_3
+- Q23_4
+- Q23_5
+- Q23_6
+- Q23_7
+- Q23_8
+- Q23_9
+- Q23_9_ETC
 - Q28
 - Q28_1
 - Q28_2
@@ -61,6 +102,8 @@ NIA 2024 subset 추출 로그
 - D_SIZE
 - D_IND
 - D_INDSIZE
+- D_ARA
+- D_TYPE
 - RIM_WT
 - extracted columns:
 - Q34
@@ -77,6 +120,48 @@ NIA 2024 subset 추출 로그
 - Q32_7
 - Q32_8
 - Q33
+- Q33_RE
+- Q14
+- Q14_1
+- Q14_2
+- Q14_3
+- Q14_4
+- Q14_4_ETC
+- Q17
+- Q17_1
+- Q17_2
+- Q17_3
+- Q17_4
+- Q17_5
+- Q17_6
+- Q17_7
+- Q17_8
+- Q17_8_ETC
+- Q20
+- Q20_1
+- Q20_2
+- Q20_3
+- Q20_4
+- Q20_5
+- Q20_6
+- Q20_7
+- Q20_8
+- Q20_9
+- Q20_10
+- Q20_11
+- Q20_12
+- Q20_12_ETC
+- Q23
+- Q23_1
+- Q23_2
+- Q23_3
+- Q23_4
+- Q23_5
+- Q23_6
+- Q23_7
+- Q23_8
+- Q23_9
+- Q23_9_ETC
 - Q28
 - Q28_1
 - Q28_2
@@ -116,15 +201,17 @@ NIA 2024 subset 추출 로그
 - D_SIZE
 - D_IND
 - D_INDSIZE
+- D_ARA
+- D_TYPE
 - RIM_WT
 - missing columns:
-- REQ33
+- 없음
 
 [행/열 개수]
 - original row count: 12203
 - output row count: 12203
 - original column count: 219
-- output column count: 55
+- output column count: 99
 
 [인코딩]
 - 사용한 인코딩(input): cp949
@@ -137,6 +224,11 @@ NIA 2024 subset 추출 로그
 [코드북 교차 확인(참고)]
 - 코드북에서 찾지 못한 요청 컬럼:
 - Q33
+- Q33_RE
+- Q14_4_ETC
+- Q17_8_ETC
+- Q20_12_ETC
+- Q23_9_ETC
 - Q28_10_ETC
 - Q29_10_ETC
 - Q30_6_ETC

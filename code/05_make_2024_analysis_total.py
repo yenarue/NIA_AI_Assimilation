@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""NIA 2024 cleaned 파일에서 분석용 total 데이터셋을 생성합니다.
+"""NIA 2024 featured 파일에서 분석용 total 데이터셋을 생성합니다.
 
 주의:
-- 입력 cleaned 파일은 수정하지 않습니다.
+- 입력 featured 파일은 수정하지 않습니다.
 - 새 파생변수는 만들지 않습니다.
-- cleaned 파일에 실제로 존재하는 변수만 사용합니다.
+- featured 파일에 실제로 존재하는 변수만 사용합니다.
 - 제외 규칙에 따라 raw/text/불필요 변수를 제거하고 열 순서만 정리합니다.
 """
 
@@ -26,14 +26,17 @@ EXACT_EXCLUDE = {"it_invest_any"}
 
 EXPECTED_ORDER = [
     "year",
+    "weight",
     "industry",
     "industry_size",
     "firm_size",
+    "region",
+    "firm_type",
     "it_org_any",
+    "it_org_type",
     "it_org_internal",
     "it_org_mixed",
     "it_org_outsource",
-    "it_org_type",
     "it_invest_sum",
     "it_invest_hardware",
     "it_invest_software",
@@ -46,6 +49,48 @@ EXPECTED_ORDER = [
     "it_invest_share",
     "it_invest_share_std4",
     "it_invest_high",
+    "mgmt_sys_any",
+    "mgmt_sys_sum",
+    "mgmt_sys_erp",
+    "mgmt_sys_crm",
+    "mgmt_sys_scm",
+    "mgmt_sys_other",
+    "iot_use_any",
+    "iot_use_sum",
+    "iot_use_security",
+    "iot_use_customer_service",
+    "iot_use_payment",
+    "iot_use_production_process",
+    "iot_use_logistics_inventory",
+    "iot_use_energy_management",
+    "iot_use_smart_building_office",
+    "iot_use_other",
+    "cloud_use_any",
+    "cloud_use_sum",
+    "cloud_use_email",
+    "cloud_use_office_software",
+    "cloud_use_finance_accounting_app",
+    "cloud_use_erp",
+    "cloud_use_crm",
+    "cloud_use_security_software",
+    "cloud_use_collaboration_software",
+    "cloud_use_database_hosting",
+    "cloud_use_file_storage",
+    "cloud_use_computing_capacity",
+    "cloud_use_app_dev_test_deploy",
+    "cloud_use_other",
+    "data_analysis_use_any",
+    "data_analysis_sum",
+    "data_analysis_public_data",
+    "data_analysis_transaction_data",
+    "data_analysis_customer_data",
+    "data_analysis_social_media_data",
+    "data_analysis_web_data",
+    "data_analysis_sensor_data",
+    "data_analysis_location_data",
+    "data_analysis_satellite_data",
+    "data_analysis_other",
+    "dmi",
     "ai_use",
     "ai_use_sum",
     "ai_use_doc_info_collect",
@@ -186,7 +231,7 @@ def build_analysis_summary(
         before = "raw 변수 존재" if column.endswith("_raw") else "text 변수 존재" if column.endswith("_other_text") else "clean 변수 존재"
         rows.append(
             {
-                "파일명": "nia_2024_cleaned.csv",
+                "파일명": "nia_2024_featured.csv",
                 "변수명": column,
                 "처리단계": "analysis_total",
                 "처리 전 상태": before,
@@ -216,7 +261,7 @@ def build_analysis_summary(
     for column in missing_expected_columns:
         rows.append(
             {
-                "파일명": "nia_2024_cleaned.csv",
+                "파일명": "nia_2024_featured.csv",
                 "변수명": column,
                 "처리단계": "analysis_total",
                 "처리 전 상태": "입력 파일에 없음",
@@ -224,7 +269,7 @@ def build_analysis_summary(
                 "처리 이유": "새 파생변수 생성 금지",
                 "처리 후 상태": "미포함",
                 "관측치 변화 (N)": "row 수 변화 없음",
-                "비고": "기대 변수지만 cleaned 파일에 없음",
+                "비고": "기대 변수지만 featured 파일에 없음",
             }
         )
 
@@ -323,9 +368,7 @@ def main() -> None:
     kept_core_columns = [column for column in EXPECTED_ORDER if column in output_df.columns]
     warnings = []
     if missing_expected_columns:
-        warnings.append("기대 변수 중 일부가 cleaned 파일에 없어 생성하지 않고 건너뛰었습니다.")
-    if "weight" in missing_expected_columns:
-        warnings.append("weight clean 변수는 현재 cleaned 파일에 없으며, weight_raw는 _raw 제외 규칙으로 제거되었습니다.")
+        warnings.append("기대 변수 중 일부가 featured 파일에 없어 생성하지 않고 건너뛰었습니다.")
 
     write_korean_log(
         input_shape=input_df.shape,

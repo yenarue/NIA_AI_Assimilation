@@ -3,7 +3,7 @@
 
 주의:
 - 입력 cleaned 파일은 수정하지 않습니다.
-- 기존 열은 유지하고, 파생변수 7개를 연관 변수 주변에 배치합니다.
+- 기존 열은 유지하고, 파생변수 12개를 연관 변수 주변에 배치합니다.
 - 단, 입력 파일에 같은 이름의 파생변수가 이미 있으면 중복 열을 만들지 않고
   규칙대로 다시 계산한 열을 지정 위치에 배치합니다.
 """
@@ -26,6 +26,11 @@ FEATURE_COLUMNS = [
     "it_org_type",
     "it_invest_sum",
     "it_invest_high",
+    "mgmt_sys_sum",
+    "iot_use_sum",
+    "cloud_use_sum",
+    "data_analysis_sum",
+    "dmi",
     "ai_use_sum",
     "ai_impl_sum",
     "ai_purpose_sum",
@@ -36,6 +41,11 @@ FEATURE_PLACEMENT = {
     "it_org_type": {"anchor": "it_org_any", "where": "after"},
     "it_invest_sum": {"anchor": "it_invest_any", "where": "after"},
     "it_invest_high": {"anchor": "it_invest_share_std4", "where": "after"},
+    "mgmt_sys_sum": {"anchor": "mgmt_sys_any", "where": "after"},
+    "iot_use_sum": {"anchor": "iot_use_any", "where": "after"},
+    "cloud_use_sum": {"anchor": "cloud_use_any", "where": "after"},
+    "data_analysis_sum": {"anchor": "data_analysis_use_any", "where": "after"},
+    "dmi": {"anchor": "data_analysis_other_text", "where": "after"},
     "ai_use_sum": {"anchor": "ai_use", "where": "after"},
     "ai_impl_sum": {"anchor": "ai_impl_inhouse_dev_raw", "where": "before"},
     "ai_purpose_sum": {"anchor": "ai_purpose_marketing_sales", "where": "before"},
@@ -52,6 +62,53 @@ IT_INVEST_COMPONENTS = [
     "it_invest_new_tech",
     "it_invest_rnd",
     "it_invest_tech_train",
+]
+MGMT_SYS_COMPONENTS = [
+    "mgmt_sys_erp",
+    "mgmt_sys_crm",
+    "mgmt_sys_scm",
+    "mgmt_sys_other",
+]
+IOT_USE_COMPONENTS = [
+    "iot_use_security",
+    "iot_use_customer_service",
+    "iot_use_payment",
+    "iot_use_production_process",
+    "iot_use_logistics_inventory",
+    "iot_use_energy_management",
+    "iot_use_smart_building_office",
+    "iot_use_other",
+]
+CLOUD_USE_COMPONENTS = [
+    "cloud_use_email",
+    "cloud_use_office_software",
+    "cloud_use_finance_accounting_app",
+    "cloud_use_erp",
+    "cloud_use_crm",
+    "cloud_use_security_software",
+    "cloud_use_collaboration_software",
+    "cloud_use_database_hosting",
+    "cloud_use_file_storage",
+    "cloud_use_computing_capacity",
+    "cloud_use_app_dev_test_deploy",
+    "cloud_use_other",
+]
+DATA_ANALYSIS_COMPONENTS = [
+    "data_analysis_public_data",
+    "data_analysis_transaction_data",
+    "data_analysis_customer_data",
+    "data_analysis_social_media_data",
+    "data_analysis_web_data",
+    "data_analysis_sensor_data",
+    "data_analysis_location_data",
+    "data_analysis_satellite_data",
+    "data_analysis_other",
+]
+DMI_COMPONENTS = [
+    "mgmt_sys_sum",
+    "iot_use_sum",
+    "cloud_use_sum",
+    "data_analysis_sum",
 ]
 AI_USE_COMPONENTS = [
     "ai_use_doc_info_collect",
@@ -205,6 +262,11 @@ def validate_feature_ranges(feature_df: pd.DataFrame, input_rows: int, output_ro
         "it_org_type_valid": feature_df["it_org_type"].dropna().isin([0, 1, 2, 3, 4]).all(),
         "it_invest_sum_range": feature_df["it_invest_sum"].dropna().between(0, 8).all(),
         "it_invest_high_valid": feature_df["it_invest_high"].dropna().isin([0, 1]).all(),
+        "mgmt_sys_sum_range": feature_df["mgmt_sys_sum"].dropna().between(0, 4).all(),
+        "iot_use_sum_range": feature_df["iot_use_sum"].dropna().between(0, 8).all(),
+        "cloud_use_sum_range": feature_df["cloud_use_sum"].dropna().between(0, 12).all(),
+        "data_analysis_sum_range": feature_df["data_analysis_sum"].dropna().between(0, 9).all(),
+        "dmi_range": feature_df["dmi"].dropna().between(0, 33).all(),
         "ai_use_sum_range": feature_df["ai_use_sum"].dropna().between(0, 10).all(),
         "ai_impl_sum_range": feature_df["ai_impl_sum"].dropna().between(0, 6).all(),
         "ai_purpose_sum_range": feature_df["ai_purpose_sum"].dropna().between(0, 10).all(),
@@ -269,6 +331,11 @@ def validate_feature_positions(output_df: pd.DataFrame) -> dict[str, bool]:
         "it_org_type_right_of_it_org_any": right_of("it_org_type", "it_org_any"),
         "it_invest_sum_right_of_it_invest_any": right_of("it_invest_sum", "it_invest_any"),
         "it_invest_high_right_of_it_invest_share_std4": right_of("it_invest_high", "it_invest_share_std4"),
+        "mgmt_sys_sum_right_of_mgmt_sys_any": right_of("mgmt_sys_sum", "mgmt_sys_any"),
+        "iot_use_sum_right_of_iot_use_any": right_of("iot_use_sum", "iot_use_any"),
+        "cloud_use_sum_right_of_cloud_use_any": right_of("cloud_use_sum", "cloud_use_any"),
+        "data_analysis_sum_right_of_data_analysis_use_any": right_of("data_analysis_sum", "data_analysis_use_any"),
+        "dmi_right_of_data_analysis_other_text": right_of("dmi", "data_analysis_other_text"),
         "ai_use_sum_right_of_ai_use": right_of("ai_use_sum", "ai_use"),
         "ai_impl_sum_left_of_ai_impl_inhouse_dev_raw": left_of("ai_impl_sum", "ai_impl_inhouse_dev_raw"),
         "ai_purpose_sum_left_of_ai_purpose_marketing_sales": left_of("ai_purpose_sum", "ai_purpose_marketing_sales"),
@@ -326,6 +393,61 @@ def build_feature_summary(missing_counts: dict[str, int], existing_notes: dict[s
             "처리 후 상태": "0/1/NA",
             "관측치 변화 (N)": "row 수 변화 없음",
             "비고": "it_invest_share_std4 사용 안 함",
+        },
+        {
+            "파일명": "nia_2024_featured.csv",
+            "변수명": "mgmt_sys_sum",
+            "처리단계": "feature engineering",
+            "처리 전 상태": "0/1 더미 4개",
+            "처리 내용": "mgmt_sys_any를 제외한 4개 경영정보시스템 하위항목 합계 변수 생성",
+            "처리 이유": "디지털 관리 인프라 이용 폭 측정",
+            "처리 후 상태": "0~4 정수",
+            "관측치 변화 (N)": "row 수 변화 없음",
+            "비고": f"하나라도 결측이면 NA; 결측 처리 {missing_counts['mgmt_sys_sum']}건",
+        },
+        {
+            "파일명": "nia_2024_featured.csv",
+            "변수명": "iot_use_sum",
+            "처리단계": "feature engineering",
+            "처리 전 상태": "0/1 더미 8개",
+            "처리 내용": "iot_use_any를 제외한 8개 IoT 이용유형 합계 변수 생성",
+            "처리 이유": "IoT 이용 폭 측정",
+            "처리 후 상태": "0~8 정수",
+            "관측치 변화 (N)": "row 수 변화 없음",
+            "비고": f"하나라도 결측이면 NA; 결측 처리 {missing_counts['iot_use_sum']}건",
+        },
+        {
+            "파일명": "nia_2024_featured.csv",
+            "변수명": "cloud_use_sum",
+            "처리단계": "feature engineering",
+            "처리 전 상태": "0/1 더미 12개",
+            "처리 내용": "cloud_use_any를 제외한 12개 클라우드 이용유형 합계 변수 생성",
+            "처리 이유": "클라우드 이용 폭 측정",
+            "처리 후 상태": "0~12 정수",
+            "관측치 변화 (N)": "row 수 변화 없음",
+            "비고": f"하나라도 결측이면 NA; 결측 처리 {missing_counts['cloud_use_sum']}건",
+        },
+        {
+            "파일명": "nia_2024_featured.csv",
+            "변수명": "data_analysis_sum",
+            "처리단계": "feature engineering",
+            "처리 전 상태": "0/1 더미 9개",
+            "처리 내용": "data_analysis_use_any를 제외한 9개 데이터 분석 유형 합계 변수 생성",
+            "처리 이유": "데이터 분석 활용 폭 측정",
+            "처리 후 상태": "0~9 정수",
+            "관측치 변화 (N)": "row 수 변화 없음",
+            "비고": f"하나라도 결측이면 NA; 결측 처리 {missing_counts['data_analysis_sum']}건",
+        },
+        {
+            "파일명": "nia_2024_featured.csv",
+            "변수명": "dmi",
+            "처리단계": "feature engineering",
+            "처리 전 상태": "mgmt_sys_sum, iot_use_sum, cloud_use_sum, data_analysis_sum",
+            "처리 내용": "네 개 디지털 관리/기술 활용 합계 변수를 합산",
+            "처리 이유": "Digital Management Infrastructure 종합 지표 생성",
+            "처리 후 상태": "0~33 정수",
+            "관측치 변화 (N)": "row 수 변화 없음",
+            "비고": f"하나라도 결측이면 NA; 결측 처리 {missing_counts['dmi']}건",
         },
         {
             "파일명": "nia_2024_featured.csv",
@@ -422,6 +544,11 @@ def write_korean_log(
         "- it_org_type: internal/mixed/outsource 세 변수를 조합. 2개 이상 1이면 4를 최우선 적용, 모두 0이면 0.",
         "- it_invest_sum: 투자 하위항목 8개가 모두 존재할 때만 합계 계산.",
         "- it_invest_high: it_invest_share <= 3이면 0, it_invest_share >= 4이면 1. it_invest_share_std4는 사용하지 않음.",
+        "- mgmt_sys_sum: mgmt_sys_any를 제외한 경영정보시스템 하위항목 4개가 모두 존재할 때만 합계 계산.",
+        "- iot_use_sum: iot_use_any를 제외한 IoT 이용유형 8개가 모두 존재할 때만 합계 계산.",
+        "- cloud_use_sum: cloud_use_any를 제외한 클라우드 이용유형 12개가 모두 존재할 때만 합계 계산.",
+        "- data_analysis_sum: data_analysis_use_any를 제외한 데이터 분석 유형 9개가 모두 존재할 때만 합계 계산.",
+        "- dmi: mgmt_sys_sum + iot_use_sum + cloud_use_sum + data_analysis_sum.",
         "- ai_use_sum: AI 이용 세부유형 10개가 모두 존재할 때만 합계 계산.",
         "- ai_impl_sum: AI 이용형태 6개가 모두 존재할 때만 합계 계산.",
         "- ai_purpose_sum: AI 이용목적 10개가 모두 존재할 때만 합계 계산.",
@@ -431,6 +558,11 @@ def write_korean_log(
         "- 파생변수 계산에 필요한 입력값 중 하나라도 결측이면 해당 파생변수는 NA로 둠.",
         "- it_org_type은 세 이진변수 조합으로 계산하되, 세 값 중 필요한 값이 결측이면 NA.",
         f"- it_invest_sum 결측 처리 건수: {missing_counts['it_invest_sum']}",
+        f"- mgmt_sys_sum 결측 처리 건수: {missing_counts['mgmt_sys_sum']}",
+        f"- iot_use_sum 결측 처리 건수: {missing_counts['iot_use_sum']}",
+        f"- cloud_use_sum 결측 처리 건수: {missing_counts['cloud_use_sum']}",
+        f"- data_analysis_sum 결측 처리 건수: {missing_counts['data_analysis_sum']}",
+        f"- dmi 결측 처리 건수: {missing_counts['dmi']}",
         f"- ai_use_sum 결측 처리 건수: {missing_counts['ai_use_sum']}",
         f"- ai_impl_sum 결측 처리 건수: {missing_counts['ai_impl_sum']}",
         f"- ai_purpose_sum 결측 처리 건수: {missing_counts['ai_purpose_sum']}",
@@ -459,6 +591,11 @@ def main() -> None:
     feature_df["it_org_type"] = make_it_org_type(df)
     feature_df["it_invest_sum"], invest_missing = safe_row_sum(df, IT_INVEST_COMPONENTS)
     feature_df["it_invest_high"], ambiguous_invest_high = make_it_invest_high(df)
+    feature_df["mgmt_sys_sum"], mgmt_missing = safe_row_sum(df, MGMT_SYS_COMPONENTS)
+    feature_df["iot_use_sum"], iot_missing = safe_row_sum(df, IOT_USE_COMPONENTS)
+    feature_df["cloud_use_sum"], cloud_missing = safe_row_sum(df, CLOUD_USE_COMPONENTS)
+    feature_df["data_analysis_sum"], data_analysis_missing = safe_row_sum(df, DATA_ANALYSIS_COMPONENTS)
+    feature_df["dmi"], dmi_missing = safe_row_sum(feature_df, DMI_COMPONENTS)
     feature_df["ai_use_sum"], ai_use_missing = safe_row_sum(df, AI_USE_COMPONENTS)
     feature_df["ai_impl_sum"], ai_impl_missing = safe_row_sum(df, AI_IMPL_COMPONENTS)
     feature_df["ai_purpose_sum"], ai_purpose_missing = safe_row_sum(df, AI_PURPOSE_COMPONENTS)
@@ -466,6 +603,11 @@ def main() -> None:
 
     missing_counts = {
         "it_invest_sum": invest_missing,
+        "mgmt_sys_sum": mgmt_missing,
+        "iot_use_sum": iot_missing,
+        "cloud_use_sum": cloud_missing,
+        "data_analysis_sum": data_analysis_missing,
+        "dmi": dmi_missing,
         "ai_use_sum": ai_use_missing,
         "ai_impl_sum": ai_impl_missing,
         "ai_purpose_sum": ai_purpose_missing,

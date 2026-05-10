@@ -6,14 +6,18 @@ NIA 2024 analysis_total 생성 로그
 
 [행/열 수]
 - 입력 행 수: 12203
-- 입력 열 수: 116
+- 입력 열 수: 209
 - 출력 행 수: 12203
-- 출력 열 수: 58
+- 출력 열 수: 103
 - 입력 인코딩: utf-8-sig
 - 출력 인코딩: utf-8
 
 [제거한 변수 목록]
 - it_invest_any: 정확히 제외할 변수
+- mgmt_sys_other_text: 이름이 _other_text로 끝나는 변수
+- iot_use_other_text: 이름이 _other_text로 끝나는 변수
+- cloud_use_other_text: 이름이 _other_text로 끝나는 변수
+- data_analysis_other_text: 이름이 _other_text로 끝나는 변수
 - ai_use_other_text: 이름이 _other_text로 끝나는 변수
 - ai_purpose_other_text: 이름이 _other_text로 끝나는 변수
 - ai_impl_other_text: 이름이 _other_text로 끝나는 변수
@@ -31,6 +35,48 @@ NIA 2024 analysis_total 생성 로그
 - it_invest_rnd_raw: 이름이 _raw로 끝나는 변수
 - it_invest_tech_train_raw: 이름이 _raw로 끝나는 변수
 - it_invest_share_raw: 이름이 _raw로 끝나는 변수
+- it_invest_share_recoded_raw: 이름이 _raw로 끝나는 변수
+- mgmt_sys_any_raw: 이름이 _raw로 끝나는 변수
+- mgmt_sys_erp_raw: 이름이 _raw로 끝나는 변수
+- mgmt_sys_crm_raw: 이름이 _raw로 끝나는 변수
+- mgmt_sys_scm_raw: 이름이 _raw로 끝나는 변수
+- mgmt_sys_other_raw: 이름이 _raw로 끝나는 변수
+- mgmt_sys_other_text_raw: 이름이 _raw로 끝나는 변수
+- iot_use_any_raw: 이름이 _raw로 끝나는 변수
+- iot_use_security_raw: 이름이 _raw로 끝나는 변수
+- iot_use_customer_service_raw: 이름이 _raw로 끝나는 변수
+- iot_use_payment_raw: 이름이 _raw로 끝나는 변수
+- iot_use_production_process_raw: 이름이 _raw로 끝나는 변수
+- iot_use_logistics_inventory_raw: 이름이 _raw로 끝나는 변수
+- iot_use_energy_management_raw: 이름이 _raw로 끝나는 변수
+- iot_use_smart_building_office_raw: 이름이 _raw로 끝나는 변수
+- iot_use_other_raw: 이름이 _raw로 끝나는 변수
+- iot_use_other_text_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_any_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_email_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_office_software_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_finance_accounting_app_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_erp_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_crm_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_security_software_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_collaboration_software_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_database_hosting_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_file_storage_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_computing_capacity_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_app_dev_test_deploy_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_other_raw: 이름이 _raw로 끝나는 변수
+- cloud_use_other_text_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_use_any_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_public_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_transaction_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_customer_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_social_media_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_web_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_sensor_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_location_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_satellite_data_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_other_raw: 이름이 _raw로 끝나는 변수
+- data_analysis_other_text_raw: 이름이 _raw로 끝나는 변수
 - ai_use_raw: 이름이 _raw로 끝나는 변수
 - ai_use_doc_info_collect_raw: 이름이 _raw로 끝나는 변수
 - ai_use_task_automation_raw: 이름이 _raw로 끝나는 변수
@@ -70,18 +116,23 @@ NIA 2024 analysis_total 생성 로그
 - firm_size_raw: 이름이 _raw로 끝나는 변수
 - industry_raw: 이름이 _raw로 끝나는 변수
 - industry_size_raw: 이름이 _raw로 끝나는 변수
+- region_raw: 이름이 _raw로 끝나는 변수
+- firm_type_raw: 이름이 _raw로 끝나는 변수
 - weight_raw: 이름이 _raw로 끝나는 변수
 
 [유지한 핵심 변수 목록]
 - year
+- weight
 - industry
 - industry_size
 - firm_size
+- region
+- firm_type
 - it_org_any
+- it_org_type
 - it_org_internal
 - it_org_mixed
 - it_org_outsource
-- it_org_type
 - it_invest_sum
 - it_invest_hardware
 - it_invest_software
@@ -94,6 +145,48 @@ NIA 2024 analysis_total 생성 로그
 - it_invest_share
 - it_invest_share_std4
 - it_invest_high
+- mgmt_sys_any
+- mgmt_sys_sum
+- mgmt_sys_erp
+- mgmt_sys_crm
+- mgmt_sys_scm
+- mgmt_sys_other
+- iot_use_any
+- iot_use_sum
+- iot_use_security
+- iot_use_customer_service
+- iot_use_payment
+- iot_use_production_process
+- iot_use_logistics_inventory
+- iot_use_energy_management
+- iot_use_smart_building_office
+- iot_use_other
+- cloud_use_any
+- cloud_use_sum
+- cloud_use_email
+- cloud_use_office_software
+- cloud_use_finance_accounting_app
+- cloud_use_erp
+- cloud_use_crm
+- cloud_use_security_software
+- cloud_use_collaboration_software
+- cloud_use_database_hosting
+- cloud_use_file_storage
+- cloud_use_computing_capacity
+- cloud_use_app_dev_test_deploy
+- cloud_use_other
+- data_analysis_use_any
+- data_analysis_sum
+- data_analysis_public_data
+- data_analysis_transaction_data
+- data_analysis_customer_data
+- data_analysis_social_media_data
+- data_analysis_web_data
+- data_analysis_sensor_data
+- data_analysis_location_data
+- data_analysis_satellite_data
+- data_analysis_other
+- dmi
 - ai_use
 - ai_use_sum
 - ai_use_doc_info_collect
@@ -134,8 +227,8 @@ NIA 2024 analysis_total 생성 로그
 
 [제외 규칙 적용 결과]
 - 정확히 제외한 변수 수: 1
-- _raw 패턴 제외 변수 수: 54
-- _other_text 패턴 제외 변수 수: 3
+- _raw 패턴 제외 변수 수: 98
+- _other_text 패턴 제외 변수 수: 7
 
 [기대 변수 중 입력 파일에 없어 건너뛴 변수]
 - 없음
