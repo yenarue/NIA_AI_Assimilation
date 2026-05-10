@@ -1,0 +1,12 @@
+﻿변수명,값,라벨,N,비율(%)
+it_org_type,0,미보유,5853,47.96
+it_org_type,1,내부 전담 인력 보유,1742,14.28
+it_org_type,2,겸직 인력 보유,3091,25.33
+it_org_type,3,외부 위탁,637,5.22
+it_org_type,4,"1, 2 ,3 복수 선택",880,7.21
+it_org_internal,0,미보유,10083,82.63
+it_org_internal,1,내부 전담 인력 보유,2120,17.37
+it_org_mixed,0,미보유,8349,68.42
+it_org_mixed,1,겸직 인력 보유,3854,31.58
+it_org_outsource,0,미보유,10831,88.76
+it_org_outsource,1,외부 위탁,1372,11.24
