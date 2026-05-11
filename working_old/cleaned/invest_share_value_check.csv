@@ -1,7 +1,0 @@
-﻿year,source_raw_column_used,source_cat_column_used,std4_non_missing_n,std4_value_1_n,std4_value_2_n,std4_value_3_n,std4_value_4_n,std4_missing_n,pct_non_missing_n,pct_missing_n,pct_min,pct_p25,pct_median,pct_p75,pct_max,notes
-2019,it_invest_share_raw,,12752,0,12289,285,178,704,0,13456,,,,,,2019~2020은 원값을 범주 코드로 간주하여 std4에 직접 매핑함
-2020,it_invest_share_raw,,12071,11312,562,154,43,28,0,12099,,,,,,2019~2020은 원값을 범주 코드로 간주하여 std4에 직접 매핑함
-2021,it_invest_share_raw,it_invest_share_cat_raw,11950,10874,648,306,122,1,11950,1,1.0,1.0,1.0,1.0,100.0,cat_raw 우선 사용
-2022,it_invest_share_raw,it_invest_share_cat_raw,12142,10812,821,355,154,0,12142,0,1.0,1.0,1.0,1.0,100.0,cat_raw 우선 사용
-2023,it_invest_share_raw,it_invest_share_cat_raw,12247,10327,952,453,515,0,12247,0,1.0,1.0,1.0,1.0,70.0,cat_raw 우선 사용
-2024,it_invest_share_raw,,12203,10434,898,673,198,0,12203,0,1.0,1.0,1.0,1.0,100.0,cat_raw 부재 또는 전부 결측이어서 raw 퍼센트에서 std4 직접 재코딩
