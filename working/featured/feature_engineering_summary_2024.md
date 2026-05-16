@@ -12,3 +12,4 @@
 | nia_2024_featured.csv | ai_impl_sum | feature engineering | 0/1 더미 6개 | 6개 AI 이용형태 합계 변수 생성 | 연구용 파생변수 추가 | 0~6 정수 | row 수 변화 없음 | 하나라도 결측이면 NA; 결측 처리 0건 |
 | nia_2024_featured.csv | ai_purpose_sum | feature engineering | 0/1 더미 10개 | 10개 AI 이용목적 합계 변수 생성 | 연구용 파생변수 추가 | 0~10 정수 | row 수 변화 없음 | 하나라도 결측이면 NA; 결측 처리 0건 |
 | nia_2024_featured.csv | effect_average | feature engineering | 1~5 리커트 6개 | 6개 효과 변수 평균 생성 | 연구용 파생변수 추가 | 1~5 평균값 | row 수 변화 없음 | 소수점 반올림 없음; 결측 처리 0건 |
+| nia_2024_featured.csv | effect_proc_improve_high | feature engineering | effect_proc_improve 1~5 리커트 | 1,2,3은 0; 4,5는 1; 그 외 값은 NA | 프로세스 개선 효과 인식의 high 이항 변수 생성 | 0/1/NA | row 수 변화 없음 | 결측/부적절 값 0건 NA 유지 |

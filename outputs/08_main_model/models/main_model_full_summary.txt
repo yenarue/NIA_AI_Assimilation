@@ -9,8 +9,8 @@ effect_proc_improve ~ ai_use_sum + firm_size + C(industry) + C(region) + C(firm_
 Dep. Variable:     effect_proc_improve   R-squared:                       0.112
 Model:                             OLS   Adj. R-squared:                  0.110
 Method:                  Least Squares   F-statistic:                     48.95
-Date:                 Mon, 11 May 2026   Prob (F-statistic):          6.41e-307
-Time:                         03:54:54   Log-Likelihood:                -13306.
+Date:                 Sat, 16 May 2026   Prob (F-statistic):               0.00
+Time:                         16:57:44   Log-Likelihood:                -13306.
 No. Observations:                12203   AIC:                         2.668e+04
 Df Residuals:                    12168   BIC:                         2.694e+04
 Df Model:                           34                                         
@@ -74,8 +74,8 @@ effect_proc_improve ~ ai_use_sum + it_org_any + ai_use_sum:it_org_any + firm_siz
 Dep. Variable:     effect_proc_improve   R-squared:                       0.125
 Model:                             OLS   Adj. R-squared:                  0.122
 Method:                  Least Squares   F-statistic:                     52.33
-Date:                 Mon, 11 May 2026   Prob (F-statistic):               0.00
-Time:                         03:54:54   Log-Likelihood:                -13222.
+Date:                 Sat, 16 May 2026   Prob (F-statistic):               0.00
+Time:                         16:57:44   Log-Likelihood:                -13222.
 No. Observations:                12203   AIC:                         2.652e+04
 Df Residuals:                    12166   BIC:                         2.679e+04
 Df Model:                           36                                         
@@ -141,8 +141,8 @@ effect_proc_improve ~ ai_use_sum + it_org_any + it_invest_sum + ai_use_sum:it_or
 Dep. Variable:     effect_proc_improve   R-squared:                       0.148
 Model:                             OLS   Adj. R-squared:                  0.145
 Method:                  Least Squares   F-statistic:                     62.61
-Date:                 Mon, 11 May 2026   Prob (F-statistic):               0.00
-Time:                         03:54:54   Log-Likelihood:                -13057.
+Date:                 Sat, 16 May 2026   Prob (F-statistic):               0.00
+Time:                         16:57:44   Log-Likelihood:                -13057.
 No. Observations:                12203   AIC:                         2.619e+04
 Df Residuals:                    12165   BIC:                         2.647e+04
 Df Model:                           37                                         
@@ -209,8 +209,8 @@ effect_proc_improve ~ ai_use_sum + dmi + ai_use_sum:dmi + firm_size + C(industry
 Dep. Variable:     effect_proc_improve   R-squared:                       0.126
 Model:                             OLS   Adj. R-squared:                  0.124
 Method:                  Least Squares   F-statistic:                     53.43
-Date:                 Mon, 11 May 2026   Prob (F-statistic):               0.00
-Time:                         03:54:54   Log-Likelihood:                -13210.
+Date:                 Sat, 16 May 2026   Prob (F-statistic):               0.00
+Time:                         16:57:44   Log-Likelihood:                -13210.
 No. Observations:                12203   AIC:                         2.649e+04
 Df Residuals:                    12166   BIC:                         2.677e+04
 Df Model:                           36                                         
@@ -276,8 +276,8 @@ effect_proc_improve ~ ai_use_sum + it_org_any + dmi + it_invest_sum + ai_use_sum
 Dep. Variable:     effect_proc_improve   R-squared:                       0.151
 Model:                             OLS   Adj. R-squared:                  0.148
 Method:                  Least Squares   F-statistic:                     61.41
-Date:                 Mon, 11 May 2026   Prob (F-statistic):               0.00
-Time:                         03:54:54   Log-Likelihood:                -13037.
+Date:                 Sat, 16 May 2026   Prob (F-statistic):               0.00
+Time:                         16:57:44   Log-Likelihood:                -13037.
 No. Observations:                12203   AIC:                         2.615e+04
 Df Residuals:                    12163   BIC:                         2.645e+04
 Df Model:                           39                                         

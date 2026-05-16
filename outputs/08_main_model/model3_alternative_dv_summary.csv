@@ -1,0 +1,3 @@
+﻿dv_name,model_name,N,R_squared,Adj_R_squared,ai_use_sum_coef,ai_use_sum_se,ai_use_sum_pvalue,ai_use_sum_sig,ai_use_sum_direction,interaction_coef,interaction_se,interaction_pvalue,interaction_sig,interaction_direction,headline_pattern 유지 여부
+effect_innov_outcome,Model 3 Alternative DV,12203,0.22178055798157414,0.21941359379294434,-0.03819963988765486,0.009216031690390905,3.3994430774951944e-05,***,-,0.09739774657194981,0.011169443991297994,2.781589047100073e-18,***,+,Maintained
+effect_decision_improve,Model 3 Alternative DV,12203,0.1766962182427917,0.17419212946967078,-0.035019349524729106,0.008145600340978927,1.7143619168560426e-05,***,-,0.08488542756316447,0.010370841239647079,2.722835894013783e-16,***,+,Maintained

@@ -1,0 +1,3 @@
+﻿model_name,estimator,N,status,converged,pseudo_R2_McFadden,log_likelihood,AIC,BIC,warnings,formula
+H2 Headline Binary Logit,"statsmodels Logit, HC3 robust SE",12203,ok,True,0.0952,-6245.8516,12567.7032,12849.2618,,effect_proc_improve_high ~ ai_use_sum + it_org_any + it_invest_sum + ai_use_sum:it_org_any + firm_size + C(industry) + C(region) + C(firm_type)
+Integrated Binary Logit,"statsmodels Logit, HC3 robust SE",12203,ok,True,0.0964,-6237.0995,12554.1991,12850.5766,,effect_proc_improve_high ~ ai_use_sum + it_org_any + dmi + it_invest_sum + ai_use_sum:it_org_any + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type)

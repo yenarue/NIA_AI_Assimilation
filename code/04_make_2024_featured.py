@@ -3,7 +3,7 @@
 
 주의:
 - 입력 cleaned 파일은 수정하지 않습니다.
-- 기존 열은 유지하고, 파생변수 12개를 연관 변수 주변에 배치합니다.
+- 기존 열은 유지하고, 파생변수 13개를 연관 변수 주변에 배치합니다.
 - 단, 입력 파일에 같은 이름의 파생변수가 이미 있으면 중복 열을 만들지 않고
   규칙대로 다시 계산한 열을 지정 위치에 배치합니다.
 """
@@ -34,6 +34,7 @@ FEATURE_COLUMNS = [
     "ai_use_sum",
     "ai_impl_sum",
     "ai_purpose_sum",
+    "effect_proc_improve_high",
     "effect_average",
 ]
 
@@ -49,6 +50,7 @@ FEATURE_PLACEMENT = {
     "ai_use_sum": {"anchor": "ai_use", "where": "after"},
     "ai_impl_sum": {"anchor": "ai_impl_inhouse_dev_raw", "where": "before"},
     "ai_purpose_sum": {"anchor": "ai_purpose_marketing_sales", "where": "before"},
+    "effect_proc_improve_high": {"anchor": "effect_proc_improve", "where": "after"},
     "effect_average": {"anchor": "effect_competitiveness", "where": "after"},
 }
 
@@ -245,6 +247,19 @@ def make_it_invest_high(df: pd.DataFrame) -> tuple[pd.Series, int]:
     return result, int(ambiguous.sum())
 
 
+def make_effect_proc_improve_high(df: pd.DataFrame) -> pd.Series:
+    """프로세스 개선 효과 인식 1~5 척도를 high 이항 변수로 변환합니다."""
+    proc_improve = (
+        to_numeric_safe(df["effect_proc_improve"])
+        if "effect_proc_improve" in df.columns
+        else pd.Series(pd.NA, index=df.index)
+    )
+    result = pd.Series(pd.NA, index=df.index, dtype="Int64")
+    result.loc[proc_improve.isin([1, 2, 3])] = 0
+    result.loc[proc_improve.isin([4, 5])] = 1
+    return result
+
+
 def compare_existing_feature(df: pd.DataFrame, feature_name: str, new_series: pd.Series) -> str:
     """이미 존재하는 파생변수와 새 계산 결과가 같은지 비교합니다."""
     if feature_name not in df.columns:
@@ -270,6 +285,7 @@ def validate_feature_ranges(feature_df: pd.DataFrame, input_rows: int, output_ro
         "ai_use_sum_range": feature_df["ai_use_sum"].dropna().between(0, 10).all(),
         "ai_impl_sum_range": feature_df["ai_impl_sum"].dropna().between(0, 6).all(),
         "ai_purpose_sum_range": feature_df["ai_purpose_sum"].dropna().between(0, 10).all(),
+        "effect_proc_improve_high_valid": feature_df["effect_proc_improve_high"].dropna().isin([0, 1]).all(),
         "effect_average_range": feature_df["effect_average"].dropna().between(1, 5).all(),
     }
     return {key: bool(value) for key, value in validations.items()}
@@ -339,6 +355,7 @@ def validate_feature_positions(output_df: pd.DataFrame) -> dict[str, bool]:
         "ai_use_sum_right_of_ai_use": right_of("ai_use_sum", "ai_use"),
         "ai_impl_sum_left_of_ai_impl_inhouse_dev_raw": left_of("ai_impl_sum", "ai_impl_inhouse_dev_raw"),
         "ai_purpose_sum_left_of_ai_purpose_marketing_sales": left_of("ai_purpose_sum", "ai_purpose_marketing_sales"),
+        "effect_proc_improve_high_right_of_effect_proc_improve": right_of("effect_proc_improve_high", "effect_proc_improve"),
         "effect_average_right_of_effect_competitiveness": right_of("effect_average", "effect_competitiveness"),
     }
 
@@ -356,6 +373,31 @@ def dataframe_to_markdown(df: pd.DataFrame) -> str:
     ]
     lines.extend("| " + " | ".join(row) + " |" for row in rows)
     return "\n".join(lines)
+
+
+def print_effect_proc_improve_high_checks(df: pd.DataFrame, feature_df: pd.DataFrame) -> None:
+    """effect_proc_improve_high 생성 결과를 콘솔에 검증 로그로 출력합니다."""
+    proc_improve = (
+        to_numeric_safe(df["effect_proc_improve"])
+        if "effect_proc_improve" in df.columns
+        else pd.Series(pd.NA, index=df.index)
+    )
+    high = feature_df["effect_proc_improve_high"]
+
+    print("")
+    print("[effect_proc_improve_high 검증]")
+    print("effect_proc_improve value counts:")
+    print(proc_improve.value_counts(dropna=False).sort_index())
+    print("")
+    print("effect_proc_improve_high value counts:")
+    print(high.value_counts(dropna=False).sort_index())
+    print("")
+    print("effect_proc_improve x effect_proc_improve_high crosstab:")
+    proc_improve_label = proc_improve.astype("string").fillna("<NA>")
+    high_label = high.astype("string").fillna("<NA>")
+    print(pd.crosstab(proc_improve_label, high_label, dropna=False))
+    print("")
+    print("effect_proc_improve_high 결측치 개수:", int(high.isna().sum()))
 
 
 def build_feature_summary(missing_counts: dict[str, int], existing_notes: dict[str, str]) -> pd.DataFrame:
@@ -493,6 +535,17 @@ def build_feature_summary(missing_counts: dict[str, int], existing_notes: dict[s
             "관측치 변화 (N)": "row 수 변화 없음",
             "비고": f"소수점 반올림 없음; 결측 처리 {missing_counts['effect_average']}건",
         },
+        {
+            "파일명": "nia_2024_featured.csv",
+            "변수명": "effect_proc_improve_high",
+            "처리단계": "feature engineering",
+            "처리 전 상태": "effect_proc_improve 1~5 리커트",
+            "처리 내용": "1,2,3은 0; 4,5는 1; 그 외 값은 NA",
+            "처리 이유": "프로세스 개선 효과 인식의 high 이항 변수 생성",
+            "처리 후 상태": "0/1/NA",
+            "관측치 변화 (N)": "row 수 변화 없음",
+            "비고": f"결측/부적절 값 {missing_counts['effect_proc_improve_high']}건 NA 유지",
+        },
     ]
     columns = [
         "파일명",
@@ -552,6 +605,7 @@ def write_korean_log(
         "- ai_use_sum: AI 이용 세부유형 10개가 모두 존재할 때만 합계 계산.",
         "- ai_impl_sum: AI 이용형태 6개가 모두 존재할 때만 합계 계산.",
         "- ai_purpose_sum: AI 이용목적 10개가 모두 존재할 때만 합계 계산.",
+        "- effect_proc_improve_high: effect_proc_improve를 numeric 변환 후 1~3은 0, 4~5는 1, 그 외 값은 NA.",
         "- effect_average: 효과 변수 6개가 모두 존재할 때만 평균 계산. 반올림하지 않음.",
         "",
         "[결측 처리 규칙]",
@@ -566,6 +620,7 @@ def write_korean_log(
         f"- ai_use_sum 결측 처리 건수: {missing_counts['ai_use_sum']}",
         f"- ai_impl_sum 결측 처리 건수: {missing_counts['ai_impl_sum']}",
         f"- ai_purpose_sum 결측 처리 건수: {missing_counts['ai_purpose_sum']}",
+        f"- effect_proc_improve_high 결측/부적절 값 NA 처리 건수: {missing_counts['effect_proc_improve_high']}",
         f"- effect_average 결측 처리 건수: {missing_counts['effect_average']}",
         f"- it_invest_high에서 3초과 4미만이라 규칙상 NA 처리된 건수: {ambiguous_invest_high}",
         "",
@@ -599,7 +654,9 @@ def main() -> None:
     feature_df["ai_use_sum"], ai_use_missing = safe_row_sum(df, AI_USE_COMPONENTS)
     feature_df["ai_impl_sum"], ai_impl_missing = safe_row_sum(df, AI_IMPL_COMPONENTS)
     feature_df["ai_purpose_sum"], ai_purpose_missing = safe_row_sum(df, AI_PURPOSE_COMPONENTS)
+    feature_df["effect_proc_improve_high"] = make_effect_proc_improve_high(df)
     feature_df["effect_average"], effect_missing = safe_row_mean(df, EFFECT_COMPONENTS)
+    effect_proc_improve_high_missing = int(feature_df["effect_proc_improve_high"].isna().sum())
 
     missing_counts = {
         "it_invest_sum": invest_missing,
@@ -611,6 +668,7 @@ def main() -> None:
         "ai_use_sum": ai_use_missing,
         "ai_impl_sum": ai_impl_missing,
         "ai_purpose_sum": ai_purpose_missing,
+        "effect_proc_improve_high": effect_proc_improve_high_missing,
         "effect_average": effect_missing,
     }
     existing_notes = {
@@ -633,6 +691,8 @@ def main() -> None:
         na_filter=False,
         low_memory=False,
     )
+    assert "effect_proc_improve_high" in output_df.columns, "output_df에 effect_proc_improve_high가 없습니다."
+    assert "effect_proc_improve_high" in output_check.columns, "저장된 featured 파일에 effect_proc_improve_high가 없습니다."
 
     validations = validate_feature_ranges(feature_df, len(df), len(output_df))
     validations["all_existing_columns_preserved_except_feature_reposition"] = all(
@@ -649,6 +709,8 @@ def main() -> None:
         warnings.append(f"it_invest_high: it_invest_share가 3초과 4미만인 {ambiguous_invest_high}건은 명시 규칙 밖이라 NA로 처리했습니다.")
     for feature, note in existing_notes.items():
         warnings.append(f"{feature}: 입력 파일에 이미 존재하여 재계산 후 지정 위치로 재배치했습니다. {note}.")
+
+    print_effect_proc_improve_high_checks(df, feature_df)
 
     write_korean_log(
         input_shape=df.shape,

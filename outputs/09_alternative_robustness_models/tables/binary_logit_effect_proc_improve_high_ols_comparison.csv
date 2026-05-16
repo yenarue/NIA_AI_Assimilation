@@ -1,0 +1,4 @@
+﻿term,OLS_reference_pattern,OLS_expected_direction,logit_direction,logit_p_value,logit_significance,comparison
+ai_use_sum,기존 integrated OLS에서 AI 활용 범위 단독항은 음(-),-,-,3.521244817025967e-05,통계적으로 유의함,방향성 유지
+ai_use_sum:it_org_any,기존 Model 3/integrated OLS에서 AI 활용 범위 × IT 조직 보유 항은 양(+),+,+,0.002912786571564386,통계적으로 유의함,방향성 유지
+ai_use_sum:dmi,기존 integrated OLS에서 AI 활용 범위 × DMI 항은 약하거나 불안정,-,-,0.8715816115478865,통계적으로 뚜렷하지 않음,약하거나 불안정한 패턴 유지
