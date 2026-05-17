@@ -1,0 +1,7 @@
+| Outcome | DV | ai_use_sum | ai_use_sum × it_org_any | ai_use_sum × dmi | R² | N | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Process improvement | effect_proc_improve | -0.0295** (0.0103) | 0.0601*** (0.0119) | -0.0015† (0.0008) | 0.151 | 12203 |  |
+| Product/service innovation | effect_innov_outcome | -0.0845*** (0.0105) | 0.0854*** (0.0123) | -0.0007 (0.0008) | 0.249 | 12203 |  |
+| Decision-making improvement | effect_decision_improve | -0.0585*** (0.0098) | 0.0821*** (0.0114) | -0.0014† (0.0008) | 0.191 | 12203 |  |
+
+Manuscript interpretation: Across the three alternative outcomes, the AI × IT-organization complementarity is consistently positive and statistically significant, indicating that the core complementarity pattern is not limited to process improvement. The AI × DMI interaction is not consistently positive or conventionally significant: it is marginally negative for process improvement and decision-making improvement, and statistically non-significant for product/service innovation. Thus, the results can be generalized beyond process improvement for the AI × IT-organization pattern, but not for a broad AI × DMI moderation claim.

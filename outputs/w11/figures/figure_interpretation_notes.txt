@@ -1,0 +1,8 @@
+Figure 1 interpretation draft:
+Figure 1 plots predicted process-improvement effects from an unweighted OLS model with HC3 robust SEs, holding controls at modal categories and mean IT-investment scope. The predicted slope of AI use is -0.023 when it_org_any=0 and 0.035 when it_org_any=1; the AI × IT-organization interaction is 0.058*** (p=0.0000). The figure therefore visualizes whether IT-organization capability amplifies the association between AI use scope and perceived process improvement.
+
+Figure 2 model recommendation:
+Integrated model is recommended for manuscript Figure 2 because it estimates the AI × DMI pattern while holding the IT-organization complementarity term constant, matching the manuscript v1 primary-model logic.
+
+Figure 2 interpretation draft:
+Figure 2 uses the integrated primary-model specification to show the marginal effect of AI use scope at P10, P25, P50, P75, and P90 of DMI. The AI × DMI coefficient is -0.001 (p=0.1218), indicating a weak or statistically indistinct moderation pattern rather than a strong active moderator if the confidence intervals overlap zero. Substantively, the plotted estimates should be read as conditional associations, not causal effects.

@@ -1,0 +1,31 @@
+# Table 4. Firm-size heterogeneity in AI complementarity patterns
+
+| row | SME, firm_size 1-2 | Large proxy, firm_size 3-4 | Difference test, large_proxy interaction p-value |
+| --- | --- | --- | --- |
+| ai_use_sum | -0.030* (0.014) | -0.029 (0.027) | — |
+| it_org_any | 0.011 (0.019) | 0.014 (0.050) | — |
+| dmi | 0.024*** (0.003) | -0.005 (0.004) | — |
+| it_invest_sum | 0.072*** (0.007) | 0.156*** (0.013) | — |
+| ai_use_sum × it_org_any | 0.041** (0.013) | 0.090** (0.029) | p = 0.0932† |
+| ai_use_sum × dmi | -0.001 (0.002) | -0.001 (0.001) | p = 0.6109 |
+| R² | 0.119 | 0.235 | — |
+| Adj. R² | 0.115 | 0.224 | — |
+| N | 9,450 | 2,753 | — |
+
+Note: Cells report coefficient (HC3 robust SE). All models are unweighted OLS. SME is defined as firm_size categories 1-2. Large_proxy is defined as firm_size categories 3-4, corresponding to firms with 250 or more employees. Subgroup models exclude firm_size because it defines the subgroup. The difference-test column reports pooled interaction difference test p-values from a pooled 3-way interaction model where available; it is not a Chow test. † p < .10, * p < .05, ** p < .01, *** p < .001.
+
+## Firm_size category counts
+
+| firm_size | definition | N | share | percent |
+| --- | --- | --- | --- | --- |
+| 1 | 10-49 employees | 5666 | 0.4643120544128493 | 46.43120544128493 |
+| 2 | 50-249 employees | 3784 | 0.3100876833565517 | 31.00876833565517 |
+| 3 | 250-999 employees | 2113 | 0.1731541424239941 | 17.31541424239941 |
+| 4 | 1000+ employees | 640 | 0.052446119806604935 | 5.244611980660493 |
+
+## Firm-size subgroup counts
+
+| size_group | definition | N | share | percent |
+| --- | --- | --- | --- | --- |
+| SME | firm_size categories 1-2, firms with 10-249 employees | 9450 | 0.774399737769401 | 77.43997377694009 |
+| Large_proxy | firm_size categories 3-4, firms with 250 or more employees | 2753 | 0.22560026223059904 | 22.560026223059904 |

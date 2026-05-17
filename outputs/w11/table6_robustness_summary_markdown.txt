@@ -1,0 +1,15 @@
+| Specification | AI variable | ai_use or alternative AI standalone coefficient | AI × IT-organization coefficient | AI × DMI or AI × digital component coefficient | Model type | N | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| A. Main unweighted OLS | ai_use_sum | -0.0295** | 0.0601*** | -0.0015† | OLS HC3 | 12203 |  |
+| B. Weighted OLS robustness | ai_use_sum | -0.0227 | 0.0517** | -0.0003 | WLS HC3 | 12203 | weight=weight |
+| C. Binary Logit | ai_use_sum | -0.1389*** | 0.1155** | -0.0005 | Logit HC3 | 12203 | effect_proc_improve_high generated as effect_proc_improve >= 4 |
+| D. Ordered Logit | ai_use_sum | -0.1102*** | 0.1851*** | -0.0014 | Ordered Logit, full controls | 12203 |  |
+| E. Alternative AI measure: binary ai_use | ai_use | -0.0700* | 0.1572*** | -0.0089* | OLS HC3 | 12203 |  |
+| F. Alternative AI measure: ai_purpose_sum | ai_purpose_sum | -0.0122 | 0.0463*** | -0.0012 | OLS HC3 | 12203 |  |
+| G. IT-organization type decomposition | ai_use_sum |  | 0.0317** |  | OLS HC3 | 12203 | Strongest org-type interaction: ai_use_sum:it_org_mixed |
+| H. DMI component decomposition: mgmt_sys_sum | ai_use_sum |  |  | -0.0122* | OLS HC3 | 12203 | Component interaction from separate model |
+| H. DMI component decomposition: cloud_use_sum | ai_use_sum |  |  | 0.0007 | OLS HC3 | 12203 | Component interaction from separate model |
+| H. DMI component decomposition: data_analysis_sum | ai_use_sum |  |  | -0.0045† | OLS HC3 | 12203 | Component interaction from separate model |
+| H. DMI component decomposition: iot_use_sum | ai_use_sum |  |  | -0.0044 | OLS HC3 | 12203 | Component interaction from separate model |
+| I. IT investment comparison: without it_invest_sum | ai_use_sum | -0.0172† | 0.0613*** | -0.0015† | OLS HC3 | 12203 |  |
+| I. IT investment comparison: with it_invest_sum | ai_use_sum | -0.0295** | 0.0601*** | -0.0015† | OLS HC3 | 12203 |  |

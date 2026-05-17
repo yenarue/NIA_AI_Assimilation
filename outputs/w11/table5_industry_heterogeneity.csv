@@ -1,0 +1,6 @@
+﻿row,Manufacturing,Services,Information,"Difference test vs Manufacturing, if available"
+ai_use_sum,-0.103*** (0.022),-0.024 (0.016),-0.051 (0.037),—
+ai_use_sum × it_org_any,0.095*** (0.024),0.066*** (0.017),0.081† (0.047),Services p = 0.2568; Information p = 0.5400
+ai_use_sum × dmi,-0.000 (0.002),-0.003† (0.001),-0.002 (0.002),Services p = 0.0410*; Information p = 0.2554
+N,"2,769","6,441",785,—
+R²,0.239,0.107,0.176,—

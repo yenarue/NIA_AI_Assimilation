@@ -1,0 +1,3 @@
+﻿source,row,term,model,previous_or_manuscript_value,w11_recalculated_value
+outputs/08_main_model/tables/main_model_results_wide.csv,ai_use_sum × dmi,ai_use_sum:dmi,Model 5 Integrated,-0.001 (0.001),-0.001† (0.001)
+outputs/08_main_model/tables/main_model_results_wide.csv,Adj. R²,Adj. R²,Model 1 H1 Baseline,0.11,0.110

@@ -1,0 +1,18 @@
+| Specification | AI variable used | AI standalone coefficient | AI × IT-organization coefficient | AI × DMI or AI × digital component coefficient | Model type | N | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| H2 headline OLS (Table 3 Model 3) | ai_use_sum | -0.0237** | 0.0575*** | Not included | OLS HC3 | 12203 | Table 3 Model 3; excludes dmi and ai_use_sum × dmi |
+| Integrated OLS robustness | ai_use_sum | -0.0295** | 0.0601*** | -0.0015† | OLS HC3 | 12203 |  |
+| B. Weighted OLS robustness | ai_use_sum | -0.0227 | 0.0517** | -0.0003 | WLS HC3 | 12203 | weight=weight |
+| C. Binary Logit | ai_use_sum | -0.1389*** | 0.1155** | -0.0005 | Logit HC3 | 12203 | effect_proc_improve_high generated as effect_proc_improve >= 4 |
+| D. Ordered Logit | ai_use_sum | -0.1102*** | 0.1851*** | -0.0014 | Ordered Logit, full controls | 12203 |  |
+| E. Alternative AI measure: binary ai_use | ai_use | -0.0700* | 0.1572*** | -0.0089* | OLS HC3 | 12203 |  |
+| F. Alternative AI measure: ai_purpose_sum | ai_purpose_sum | -0.0122 | 0.0463*** | -0.0012 | OLS HC3 | 12203 |  |
+| G. IT-organization type decomposition | ai_use_sum |  | 0.0317** |  | OLS HC3 | 12203 | Strongest org-type interaction: ai_use_sum:it_org_mixed |
+| H. DMI component decomposition: mgmt_sys_sum | ai_use_sum |  |  | -0.0122* | OLS HC3 | 12203 | Component interaction from separate model |
+| H. DMI component decomposition: cloud_use_sum | ai_use_sum |  |  | 0.0007 | OLS HC3 | 12203 | Component interaction from separate model |
+| H. DMI component decomposition: data_analysis_sum | ai_use_sum |  |  | -0.0045† | OLS HC3 | 12203 | Component interaction from separate model |
+| H. DMI component decomposition: iot_use_sum | ai_use_sum |  |  | -0.0044 | OLS HC3 | 12203 | Component interaction from separate model |
+| I. IT investment comparison: without it_invest_sum | ai_use_sum | -0.0172† | 0.0613*** | -0.0015† | OLS HC3 | 12203 |  |
+| I. IT investment comparison: with it_invest_sum (Integrated) | ai_use_sum | -0.0295** | 0.0601*** | -0.0015† | OLS HC3 | 12203 |  |
+
+Manuscript interpretation: Table 3의 H2 headline coefficient는 Model 3에서 추정한 ai_use_sum 단독항 -0.024, ai_use_sum × it_org_any 상호작용항 0.057이다. Table 6의 integrated robustness에서는 dmi와 ai_use_sum × dmi를 함께 포함한 Model 5 기준으로 ai_use_sum 단독항이 -0.0295, ai_use_sum × it_org_any가 0.0601로 나타난다. 따라서 -0.0295는 main headline coefficient가 아니라 integrated robustness coefficient로 해석해야 한다. 두 specification 모두 AI standalone coefficient가 음(-)이고 AI × IT-organization coefficient가 양(+)이라는 동일한 패턴을 보여, AI 활용의 성과 관련성이 IT 조직 보유 조건에서 더 긍정적으로 나타난다는 핵심 headline을 지지한다.

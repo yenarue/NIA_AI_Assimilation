@@ -1,0 +1,18 @@
+﻿row,Model 1 H1 Baseline,Model 2 H2 Basic,Model 3 H2 Headline,Model 4 H3,Model 5 Integrated
+ai_use_sum,0.052*** (0.006),0.009 (0.009),-0.024** (0.009),0.002 (0.010),-0.029** (0.010)
+it_org_any,,0.116*** (0.017),0.011 (0.017),,0.011 (0.018)
+dmi,,,,0.028*** (0.002),0.015*** (0.002)
+it_invest_sum,,,0.108*** (0.006),,0.094*** (0.006)
+ai_use_sum × it_org_any,,0.064*** (0.011),0.057*** (0.011),,0.060*** (0.012)
+ai_use_sum × dmi,,,,0.000 (0.001),-0.001† (0.001)
+firm_size,0.116*** (0.008),0.087*** (0.009),0.052*** (0.009),0.085*** (0.009),0.044*** (0.009)
+Core controls,Yes,Yes,Yes,Yes,Yes
+Industry FE,Yes,Yes,Yes,Yes,Yes
+Region FE,Yes,Yes,Yes,Yes,Yes
+Firm type FE,Yes,Yes,Yes,Yes,Yes
+Investment control,No,No,Yes,No,Yes
+NIA sample weight,No,No,No,No,No
+Robust SE,HC3,HC3,HC3,HC3,HC3
+R²,0.112,0.125,0.148,0.126,0.151
+Adj. R²,0.110,0.122,0.145,0.124,0.148
+N,"12,203","12,203","12,203","12,203","12,203"

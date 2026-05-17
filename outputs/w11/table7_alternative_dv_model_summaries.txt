@@ -1,0 +1,214 @@
+W11_Table7_Alternative_DV_DMI_Interactions
+Data: working/analysis/nia_2024_analysis_total.csv
+Model: unweighted OLS + HC3 robust SE
+RHS: ai_use_sum + it_org_any + dmi + ai_use_sum:it_org_any + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type) + it_invest_sum
+Controls: ['firm_size', 'C(industry)', 'C(region)', 'C(firm_type)', 'it_invest_sum']
+
+
+===== Process improvement (effect_proc_improve) =====
+Formula: effect_proc_improve ~ ai_use_sum + it_org_any + dmi + ai_use_sum:it_org_any + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type) + it_invest_sum
+Complete-case N before estimation: 12203
+
+                             OLS Regression Results                            
+===============================================================================
+Dep. Variable:     effect_proc_improve   R-squared:                       0.151
+Model:                             OLS   Adj. R-squared:                  0.148
+Method:                  Least Squares   F-statistic:                     61.41
+Date:                 Sun, 17 May 2026   Prob (F-statistic):               0.00
+Time:                         17:09:41   Log-Likelihood:                -13037.
+No. Observations:                12203   AIC:                         2.615e+04
+Df Residuals:                    12163   BIC:                         2.645e+04
+Df Model:                           39                                         
+Covariance Type:                   HC3                                         
+=========================================================================================
+                            coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+Intercept                 3.5862      0.044     82.141      0.000       3.501       3.672
+C(industry)[T.2]         -0.0550      0.036     -1.512      0.130      -0.126       0.016
+C(industry)[T.3]         -0.0380      0.061     -0.625      0.532      -0.157       0.081
+C(industry)[T.4]         -0.0501      0.039     -1.277      0.202      -0.127       0.027
+C(industry)[T.5]         -0.0354      0.041     -0.868      0.385      -0.115       0.044
+C(industry)[T.6]          0.1932      0.041      4.667      0.000       0.112       0.274
+C(industry)[T.7]         -0.0318      0.052     -0.608      0.543      -0.134       0.071
+C(industry)[T.8]          0.2312      0.043      5.362      0.000       0.147       0.316
+C(industry)[T.9]          0.0469      0.053      0.886      0.375      -0.057       0.151
+C(industry)[T.10]        -0.1771      0.051     -3.495      0.000      -0.276      -0.078
+C(industry)[T.11]         0.0955      0.040      2.372      0.018       0.017       0.174
+C(industry)[T.12]        -0.1846      0.043     -4.287      0.000      -0.269      -0.100
+C(industry)[T.13]         0.0973      0.062      1.573      0.116      -0.024       0.218
+C(industry)[T.14]         0.1437      0.045      3.209      0.001       0.056       0.231
+C(industry)[T.15]         0.1485      0.045      3.290      0.001       0.060       0.237
+C(industry)[T.16]         0.0360      0.058      0.619      0.536      -0.078       0.150
+C(region)[T.2]           -0.1635      0.029     -5.557      0.000      -0.221      -0.106
+C(region)[T.3]           -0.2650      0.038     -7.041      0.000      -0.339      -0.191
+C(region)[T.4]           -0.2366      0.034     -6.926      0.000      -0.304      -0.170
+C(region)[T.5]           -0.3853      0.049     -7.838      0.000      -0.482      -0.289
+C(region)[T.6]           -0.1570      0.046     -3.380      0.001      -0.248      -0.066
+C(region)[T.7]           -0.2401      0.045     -5.394      0.000      -0.327      -0.153
+C(region)[T.8]            0.2282      0.091      2.518      0.012       0.051       0.406
+C(region)[T.9]           -0.1507      0.019     -8.013      0.000      -0.188      -0.114
+C(region)[T.10]          -0.0942      0.052     -1.821      0.069      -0.196       0.007
+C(region)[T.11]          -0.0760      0.034     -2.210      0.027      -0.143      -0.009
+C(region)[T.12]          -0.1575      0.038     -4.162      0.000      -0.232      -0.083
+C(region)[T.13]          -0.4458      0.046     -9.708      0.000      -0.536      -0.356
+C(region)[T.14]          -0.4400      0.039    -11.233      0.000      -0.517      -0.363
+C(region)[T.15]          -0.1948      0.033     -5.934      0.000      -0.259      -0.130
+C(region)[T.16]          -0.2353      0.030     -7.821      0.000      -0.294      -0.176
+C(region)[T.17]           0.0634      0.060      1.058      0.290      -0.054       0.181
+C(firm_type)[T.2]         0.0574      0.025      2.333      0.020       0.009       0.106
+ai_use_sum               -0.0295      0.010     -2.854      0.004      -0.050      -0.009
+it_org_any                0.0107      0.018      0.599      0.549      -0.024       0.046
+dmi                       0.0151      0.002      6.160      0.000       0.010       0.020
+ai_use_sum:it_org_any     0.0601      0.012      5.067      0.000       0.037       0.083
+ai_use_sum:dmi           -0.0015      0.001     -1.838      0.066      -0.003    9.66e-05
+firm_size                 0.0442      0.009      5.003      0.000       0.027       0.062
+it_invest_sum             0.0941      0.006     14.861      0.000       0.082       0.106
+==============================================================================
+Omnibus:                      220.234   Durbin-Watson:                   1.756
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              231.919
+Skew:                          -0.333   Prob(JB):                     4.36e-51
+Kurtosis:                       3.108   Cond. No.                         432.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+
+===== Product/service innovation (effect_innov_outcome) =====
+Formula: effect_innov_outcome ~ ai_use_sum + it_org_any + dmi + ai_use_sum:it_org_any + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type) + it_invest_sum
+Complete-case N before estimation: 12203
+
+                             OLS Regression Results                             
+================================================================================
+Dep. Variable:     effect_innov_outcome   R-squared:                       0.249
+Model:                              OLS   Adj. R-squared:                  0.246
+Method:                   Least Squares   F-statistic:                     115.6
+Date:                  Sun, 17 May 2026   Prob (F-statistic):               0.00
+Time:                          17:09:41   Log-Likelihood:                -13327.
+No. Observations:                 12203   AIC:                         2.673e+04
+Df Residuals:                     12163   BIC:                         2.703e+04
+Df Model:                            39                                         
+Covariance Type:                    HC3                                         
+=========================================================================================
+                            coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+Intercept                 2.5967      0.042     61.335      0.000       2.514       2.680
+C(industry)[T.2]          0.2707      0.035      7.780      0.000       0.202       0.339
+C(industry)[T.3]          0.0767      0.057      1.345      0.179      -0.035       0.188
+C(industry)[T.4]          0.0484      0.038      1.269      0.204      -0.026       0.123
+C(industry)[T.5]          0.1091      0.039      2.766      0.006       0.032       0.186
+C(industry)[T.6]          0.1894      0.043      4.447      0.000       0.106       0.273
+C(industry)[T.7]          0.0020      0.048      0.041      0.967      -0.092       0.096
+C(industry)[T.8]          0.8248      0.044     18.837      0.000       0.739       0.911
+C(industry)[T.9]          0.0258      0.049      0.528      0.597      -0.070       0.121
+C(industry)[T.10]         0.0544      0.053      1.026      0.305      -0.049       0.158
+C(industry)[T.11]         0.2737      0.041      6.758      0.000       0.194       0.353
+C(industry)[T.12]        -0.1658      0.041     -4.061      0.000      -0.246      -0.086
+C(industry)[T.13]         0.0656      0.064      1.027      0.305      -0.060       0.191
+C(industry)[T.14]         0.2926      0.046      6.420      0.000       0.203       0.382
+C(industry)[T.15]         0.3535      0.047      7.513      0.000       0.261       0.446
+C(industry)[T.16]         0.1096      0.055      2.008      0.045       0.003       0.217
+C(region)[T.2]            0.0887      0.031      2.887      0.004       0.029       0.149
+C(region)[T.3]            0.0491      0.043      1.150      0.250      -0.035       0.133
+C(region)[T.4]           -0.2172      0.034     -6.300      0.000      -0.285      -0.150
+C(region)[T.5]           -0.2661      0.046     -5.810      0.000      -0.356      -0.176
+C(region)[T.6]            0.1490      0.051      2.914      0.004       0.049       0.249
+C(region)[T.7]            0.0883      0.049      1.805      0.071      -0.008       0.184
+C(region)[T.8]            0.5768      0.108      5.358      0.000       0.366       0.788
+C(region)[T.9]           -0.0616      0.020     -3.119      0.002      -0.100      -0.023
+C(region)[T.10]          -0.2219      0.047     -4.731      0.000      -0.314      -0.130
+C(region)[T.11]           0.2346      0.034      6.997      0.000       0.169       0.300
+C(region)[T.12]           0.0727      0.039      1.881      0.060      -0.003       0.149
+C(region)[T.13]          -0.0948      0.035     -2.689      0.007      -0.164      -0.026
+C(region)[T.14]          -0.2474      0.035     -7.010      0.000      -0.317      -0.178
+C(region)[T.15]           0.0177      0.036      0.492      0.623      -0.053       0.088
+C(region)[T.16]           0.0886      0.031      2.854      0.004       0.028       0.149
+C(region)[T.17]          -0.1588      0.067     -2.364      0.018      -0.291      -0.027
+C(firm_type)[T.2]         0.0756      0.024      3.115      0.002       0.028       0.123
+ai_use_sum               -0.0845      0.010     -8.058      0.000      -0.105      -0.064
+it_org_any                0.0061      0.018      0.339      0.734      -0.029       0.041
+dmi                       0.0468      0.002     18.708      0.000       0.042       0.052
+ai_use_sum:it_org_any     0.0854      0.012      6.964      0.000       0.061       0.109
+ai_use_sum:dmi           -0.0007      0.001     -0.818      0.414      -0.002       0.001
+firm_size                -0.0070      0.009     -0.787      0.431      -0.024       0.010
+it_invest_sum             0.0850      0.007     12.764      0.000       0.072       0.098
+==============================================================================
+Omnibus:                        8.041   Durbin-Watson:                   1.738
+Prob(Omnibus):                  0.018   Jarque-Bera (JB):                8.255
+Skew:                          -0.045   Prob(JB):                       0.0161
+Kurtosis:                       3.091   Cond. No.                         432.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+
+===== Decision-making improvement (effect_decision_improve) =====
+Formula: effect_decision_improve ~ ai_use_sum + it_org_any + dmi + ai_use_sum:it_org_any + ai_use_sum:dmi + firm_size + C(industry) + C(region) + C(firm_type) + it_invest_sum
+Complete-case N before estimation: 12203
+
+                               OLS Regression Results                              
+===================================================================================
+Dep. Variable:     effect_decision_improve   R-squared:                       0.191
+Model:                                 OLS   Adj. R-squared:                  0.188
+Method:                      Least Squares   F-statistic:                     75.97
+Date:                     Sun, 17 May 2026   Prob (F-statistic):               0.00
+Time:                             17:09:41   Log-Likelihood:                -12404.
+No. Observations:                    12203   AIC:                         2.489e+04
+Df Residuals:                        12163   BIC:                         2.518e+04
+Df Model:                               39                                         
+Covariance Type:                       HC3                                         
+=========================================================================================
+                            coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+Intercept                 2.9548      0.042     70.661      0.000       2.873       3.037
+C(industry)[T.2]          0.0651      0.035      1.851      0.064      -0.004       0.134
+C(industry)[T.3]          0.0987      0.055      1.803      0.071      -0.009       0.206
+C(industry)[T.4]          0.1196      0.038      3.170      0.002       0.046       0.193
+C(industry)[T.5]          0.1254      0.039      3.216      0.001       0.049       0.202
+C(industry)[T.6]          0.0919      0.041      2.256      0.024       0.012       0.172
+C(industry)[T.7]         -0.0306      0.047     -0.655      0.512      -0.122       0.061
+C(industry)[T.8]          0.4452      0.041     10.739      0.000       0.364       0.526
+C(industry)[T.9]          0.2366      0.048      4.966      0.000       0.143       0.330
+C(industry)[T.10]        -0.0257      0.047     -0.543      0.587      -0.119       0.067
+C(industry)[T.11]         0.1507      0.040      3.796      0.000       0.073       0.228
+C(industry)[T.12]        -0.0504      0.040     -1.252      0.211      -0.129       0.028
+C(industry)[T.13]         0.1427      0.059      2.417      0.016       0.027       0.258
+C(industry)[T.14]         0.2483      0.044      5.696      0.000       0.163       0.334
+C(industry)[T.15]         0.1975      0.046      4.299      0.000       0.107       0.288
+C(industry)[T.16]         0.1573      0.055      2.873      0.004       0.050       0.265
+C(region)[T.2]            0.0870      0.029      3.022      0.003       0.031       0.143
+C(region)[T.3]            0.1366      0.036      3.759      0.000       0.065       0.208
+C(region)[T.4]           -0.1452      0.032     -4.561      0.000      -0.208      -0.083
+C(region)[T.5]           -0.1643      0.042     -3.942      0.000      -0.246      -0.083
+C(region)[T.6]           -0.2140      0.046     -4.669      0.000      -0.304      -0.124
+C(region)[T.7]            0.0526      0.042      1.254      0.210      -0.030       0.135
+C(region)[T.8]            0.4975      0.120      4.146      0.000       0.262       0.733
+C(region)[T.9]           -0.1196      0.018     -6.705      0.000      -0.155      -0.085
+C(region)[T.10]          -0.1528      0.044     -3.455      0.001      -0.240      -0.066
+C(region)[T.11]          -0.0087      0.033     -0.260      0.795      -0.074       0.057
+C(region)[T.12]          -0.1749      0.039     -4.526      0.000      -0.251      -0.099
+C(region)[T.13]          -0.2306      0.036     -6.395      0.000      -0.301      -0.160
+C(region)[T.14]          -0.2417      0.033     -7.352      0.000      -0.306      -0.177
+C(region)[T.15]           0.0184      0.033      0.565      0.572      -0.045       0.082
+C(region)[T.16]           0.0345      0.028      1.221      0.222      -0.021       0.090
+C(region)[T.17]          -0.2317      0.071     -3.277      0.001      -0.370      -0.093
+C(firm_type)[T.2]         0.0798      0.023      3.421      0.001       0.034       0.125
+ai_use_sum               -0.0585      0.010     -5.970      0.000      -0.078      -0.039
+it_org_any                0.0172      0.017      1.024      0.306      -0.016       0.050
+dmi                       0.0312      0.002     13.105      0.000       0.027       0.036
+ai_use_sum:it_org_any     0.0821      0.011      7.225      0.000       0.060       0.104
+ai_use_sum:dmi           -0.0014      0.001     -1.711      0.087      -0.003       0.000
+firm_size                 0.0337      0.008      3.979      0.000       0.017       0.050
+it_invest_sum             0.0751      0.006     12.157      0.000       0.063       0.087
+==============================================================================
+Omnibus:                       10.141   Durbin-Watson:                   1.781
+Prob(Omnibus):                  0.006   Jarque-Bera (JB):               10.693
+Skew:                          -0.043   Prob(JB):                      0.00477
+Kurtosis:                       3.116   Cond. No.                         432.
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity robust (HC3)
+
+Manuscript interpretation: Across the three alternative outcomes, the AI × IT-organization complementarity is consistently positive and statistically significant, indicating that the core complementarity pattern is not limited to process improvement. The AI × DMI interaction is not consistently positive or conventionally significant: it is marginally negative for process improvement and decision-making improvement, and statistically non-significant for product/service innovation. Thus, the results can be generalized beyond process improvement for the AI × IT-organization pattern, but not for a broad AI × DMI moderation claim.

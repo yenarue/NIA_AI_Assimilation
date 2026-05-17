@@ -1,0 +1,10 @@
+﻿row,"SME, firm_size 1-2","Large proxy, firm_size 3-4","Difference test, large_proxy interaction p-value"
+ai_use_sum,-0.030* (0.014),-0.029 (0.027),—
+it_org_any,0.011 (0.019),0.014 (0.050),—
+dmi,0.024*** (0.003),-0.005 (0.004),—
+it_invest_sum,0.072*** (0.007),0.156*** (0.013),—
+ai_use_sum × it_org_any,0.041** (0.013),0.090** (0.029),p = 0.0932†
+ai_use_sum × dmi,-0.001 (0.002),-0.001 (0.001),p = 0.6109
+R²,0.119,0.235,—
+Adj. R²,0.115,0.224,—
+N,"9,450","2,753",—

@@ -1,0 +1,41 @@
+# Table 5. Industry heterogeneity in AI complementarity patterns
+
+| row | Manufacturing | Services | Information | Difference test vs Manufacturing, if available |
+| --- | --- | --- | --- | --- |
+| ai_use_sum | -0.103*** (0.022) | -0.024 (0.016) | -0.051 (0.037) | — |
+| ai_use_sum × it_org_any | 0.095*** (0.024) | 0.066*** (0.017) | 0.081† (0.047) | Services p = 0.2568; Information p = 0.5400 |
+| ai_use_sum × dmi | -0.000 (0.002) | -0.003† (0.001) | -0.002 (0.002) | Services p = 0.0410*; Information p = 0.2554 |
+| N | 2,769 | 6,441 | 785 | — |
+| R² | 0.239 | 0.107 | 0.176 | — |
+
+Note: Cells report coefficient (HC3 robust SE). All models are unweighted OLS. Manufacturing is defined as industry == 2, Information as industry == 8, and Services as industries 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, and 16. Industries 1, 3, and 4 are excluded from subgroup regressions but included in the group-count table. Subgroup models exclude C(industry) because industry defines the subgroup. The difference-test column reports pooled interaction p-values versus Manufacturing where available. † p < .10, * p < .05, ** p < .01, *** p < .001.
+
+## Industry group counts
+
+| industry_group | definition | N | share | percent |
+| --- | --- | --- | --- | --- |
+| manufacturing | industry == 2 | 2769 | 0.22691141522576416 | 22.691141522576416 |
+| services | industry in [5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16] | 6441 | 0.52782102761616 | 52.782102761616 |
+| information | industry == 8 | 785 | 0.06432844382528886 | 6.432844382528886 |
+| other/excluded | industry in [1, 3, 4], excluded from subgroup regressions | 2208 | 0.18093911333278703 | 18.093911333278704 |
+
+## Industry code counts
+
+| industry | definition | included_in_table5_regressions | N | share | percent |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Agriculture/fishing/mining | No | 477 | 0.03908874866836024 | 3.9088748668360243 |
+| 2 | Manufacturing | Yes | 2769 | 0.22691141522576416 | 22.691141522576416 |
+| 3 | Electricity/raw-material recycling | No | 224 | 0.018356141932311727 | 1.8356141932311727 |
+| 4 | Construction | No | 1507 | 0.12349422273211505 | 12.349422273211506 |
+| 5 | Wholesale/retail | Yes | 1237 | 0.1013685159387036 | 10.13685159387036 |
+| 6 | Transport/storage | Yes | 634 | 0.05195443743341801 | 5.195443743341801 |
+| 7 | Accommodation/food | Yes | 451 | 0.036958125051216914 | 3.6958125051216912 |
+| 8 | Information | Yes | 785 | 0.06432844382528886 | 6.432844382528886 |
+| 9 | Finance/insurance | Yes | 446 | 0.03654838974022781 | 3.654838974022781 |
+| 10 | Real estate | Yes | 295 | 0.024174383348356962 | 2.4174383348356963 |
+| 11 | Professional/scientific/technical services | Yes | 705 | 0.057772678849463244 | 5.777267884946324 |
+| 12 | Business facility management/support services | Yes | 1197 | 0.09809063345079079 | 9.809063345079078 |
+| 13 | Education services | Yes | 231 | 0.01892977136769647 | 1.8929771367696469 |
+| 14 | Health/social welfare | Yes | 635 | 0.05203638449561583 | 5.203638449561583 |
+| 15 | Arts/sports/leisure | Yes | 350 | 0.028681471769237073 | 2.8681471769237072 |
+| 16 | Repair/personal services | Yes | 260 | 0.021306236171433256 | 2.1306236171433257 |
