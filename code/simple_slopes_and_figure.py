@@ -57,17 +57,17 @@ import statsmodels.api as sm
 # -----------------------------------------------------------------------------
 # Configuration
 # -----------------------------------------------------------------------------
-DATA_PATH = Path("data/working/nia2024_analysis.csv")     # <-- adjust
-OUTPUT_DIR = Path("outputs/simple_slopes")
+DATA_PATH = Path("working/analysis/nia_2024_analysis_total.csv")
+OUTPUT_DIR = Path("outputs/w12/simple_slopes")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 COLS_REQUIRED = [
     "effect_proc_improve",   # DV: perceived process improvement (1-5)
     "ai_use_sum",            # IV: AI use breadth (count of AI types, 0-10)
     "it_org_any",            # Moderator: 1 if IT-organization present, else 0
-    "dmi_sum",               # Continuous moderator: digital maturity count
+    "dmi",               # Continuous moderator: digital maturity count
     "it_invest_sum",         # Control: IT investment breadth (count)
-    "firm_size_cat",         # Control: firm-size category (1-4)
+    "firm_size",         # Control: firm-size category (1-4)
     "industry",              # Control: KSIC industry category (1-16)
     "region",                # Control: Korean region (1-17)
     "firm_type",             # Control: 1=individual, 2=corporation
@@ -114,18 +114,18 @@ def build_design(df: pd.DataFrame, itorg_flip: bool = False) -> Tuple[pd.DataFra
     if itorg_flip:
         work["it_org_any"] = 1 - work["it_org_any"]
     work["ai_x_itorg"] = work["ai_use_sum"] * work["it_org_any"]
-    work["ai_x_dmi"]   = work["ai_use_sum"] * work["dmi_sum"]
+    work["ai_x_dmi"]   = work["ai_use_sum"] * work["dmi"]
 
     # Fixed-effect dummies (drop first to avoid collinearity)
     fe = pd.get_dummies(
-        work[["industry", "region", "firm_type", "firm_size_cat"]].astype(int),
+        work[["industry", "region", "firm_type", "firm_size"]].astype("category"),
         prefix=["ind", "reg", "ftype", "fsize"],
         drop_first=True,
     ).astype(float)
 
     focal = work[[
         "ai_use_sum", "it_org_any", "ai_x_itorg",
-        "dmi_sum", "ai_x_dmi",
+        "dmi", "ai_x_dmi",
         "it_invest_sum",
     ]].astype(float)
 
@@ -211,7 +211,7 @@ def predicted_with_ci(fit, X: pd.DataFrame, ai_grid: np.ndarray, itorg_value: in
         row["ai_use_sum"]  = ai
         row["it_org_any"]  = float(itorg_value)
         row["ai_x_itorg"]  = ai * itorg_value
-        row["ai_x_dmi"]    = ai * mean_row["dmi_sum"]
+        row["ai_x_dmi"]    = ai * mean_row["dmi"]
         rows.append(row)
     Xnew = pd.DataFrame(rows)[X.columns]
 

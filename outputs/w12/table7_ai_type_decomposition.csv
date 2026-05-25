@@ -1,0 +1,11 @@
+AI type,Q28 item,Prevalence (%),N,β_AI alone,β_AI × ITorg,Simple slope at ITorg=1,R²
+Document creation and information retrieval,ai_use_doc_info_collect,13.1,12203,-0.0437 (0.0624),+0.0692 (0.0556),+0.0255 (0.0704),0.115
+Task automation support,ai_use_task_automation,10.5,12203,-0.1028 (0.0723),+0.1447* (0.0642),+0.0419 (0.0834),0.115
+Decision support,ai_use_decision_support,20.7,12203,-0.0827 (0.0536),+0.1455** (0.0504),+0.0628 (0.0661),0.116
+Speech-to-machine-readable conversion (STT),ai_use_speech_to_text,3.0,12203,+0.0394 (0.1409),+0.2043 (0.1331),+0.2437 (0.1698),0.115
+Generative AI (text / image / audio),ai_use_gen_summarize_edit,7.5,12203,+0.0989 (0.0926),+0.1386 (0.1039),+0.2375* (0.1190),0.115
+Computer vision (object / person identification),ai_use_image_video_recognition,25.9,12203,-0.0855† (0.0478),+0.1316** (0.0450),+0.0461 (0.0582),0.116
+Machine learning for data analytics,ai_use_ml_data_analysis,3.8,12203,+0.0080 (0.1261),+0.0579 (0.1234),+0.0659 (0.1653),0.115
+Natural language processing (text analysis),ai_use_text_language_analysis,1.8,12203,-0.0650 (0.1618),-0.0586 (0.1482),-0.1235 (0.1943),0.114
+Autonomous mobility AI (autonomous vehicles / robotics),ai_use_autonomous_mobility,1.0,12203,+0.3899** (0.1324),+0.0408 (0.2026),+0.4307 (0.2625),0.115
+Other AI applications,ai_use_other,0.3,12203,+0.5616* (0.2540),+0.1442 (0.0954),+0.7058** (0.2206),0.116

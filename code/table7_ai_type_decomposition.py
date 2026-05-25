@@ -37,8 +37,8 @@ Inputs
 
 Outputs
 -------
-    outputs/table7_ai_type_decomposition.csv
-    outputs/table7_ai_type_decomposition.xlsx
+    outputs/w12/table7_ai_type_decomposition.csv
+    outputs/w12/table7_ai_type_decomposition.xlsx
 
 Dependencies
 ------------
@@ -62,32 +62,32 @@ import statsmodels.api as sm
 # -----------------------------------------------------------------------------
 # Configuration
 # -----------------------------------------------------------------------------
-DATA_PATH = Path("data/working/nia2024_analysis.csv")     # <-- adjust
-OUTPUT_DIR = Path("outputs/table7")
+DATA_PATH = Path("working/analysis/nia_2024_analysis_total.csv")
+OUTPUT_DIR = Path("outputs/w12")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Labels for the ten Q28 sub-items.  NOTE: confirm these against the 2024 NIA
 # codebook before publication; the labels below are taken from the codebook
 # preview shipped with the 2024 release and may require minor wording edits.
 AI_TYPE_LABELS: Dict[str, str] = {
-    "ai_use_q28_1":  "Predictive analytics / decision support",
-    "ai_use_q28_2":  "Natural language processing",
-    "ai_use_q28_3":  "Generative AI (text / image)",
-    "ai_use_q28_4":  "Computer vision / image recognition",
-    "ai_use_q28_5":  "Speech recognition",
-    "ai_use_q28_6":  "Recommendation / personalization",
-    "ai_use_q28_7":  "Automation / process robotics",
-    "ai_use_q28_8":  "Anomaly / fraud detection",
-    "ai_use_q28_9":  "Chatbots / virtual assistants",
-    "ai_use_q28_10": "Other AI applications",
+    "ai_use_doc_info_collect":  "Document creation and information retrieval",   # 문서작성 및 정보 수집
+    "ai_use_task_automation":  "Task automation support",                        # 업무자동화 지원
+    "ai_use_decision_support":  "Decision support",                               # 의사 결정 지원
+    "ai_use_speech_to_text":  "Speech-to-machine-readable conversion (STT)",    # 음성→기계 형식 변환
+    "ai_use_gen_summarize_edit":  "Generative AI (text / image / audio)",           # 생성·요약·편집 AI
+    "ai_use_image_video_recognition":  "Computer vision (object / person identification)", # 이미지·영상 기반 식별
+    "ai_use_ml_data_analysis":  "Machine learning for data analytics",            # 데이터 분석 머신러닝
+    "ai_use_text_language_analysis":  "Natural language processing (text analysis)",    # 문자 언어 분석 AI
+    "ai_use_autonomous_mobility":  "Autonomous mobility AI (autonomous vehicles / robotics)", # 자율이동 AI
+    "ai_use_other": "Other AI applications",                          # 기타
 }
 
 COLS_BASE = [
     "effect_proc_improve",   # DV
     "it_org_any",            # focal moderator
-    "dmi_sum",               # continuous moderator
+    "dmi",               # continuous moderator
     "it_invest_sum",         # control
-    "firm_size_cat",         # control
+    "firm_size",         # control
     "industry",              # control
     "region",                # control
     "firm_type",             # control
@@ -114,17 +114,17 @@ def fit_type_specific(df: pd.DataFrame, ai_col: str) -> sm.regression.linear_mod
     work = df.copy()
     work["ai_focal"]  = work[ai_col].astype(float)
     work["ai_x_org"]  = work["ai_focal"] * work["it_org_any"].astype(float)
-    work["ai_x_dmi"]  = work["ai_focal"] * work["dmi_sum"].astype(float)
+    work["ai_x_dmi"]  = work["ai_focal"] * work["dmi"].astype(float)
 
     fe = pd.get_dummies(
-        work[["industry", "region", "firm_type", "firm_size_cat"]].astype(int),
+        work[["industry", "region", "firm_type", "firm_size"]].astype("category"),
         prefix=["ind", "reg", "ftype", "fsize"],
         drop_first=True,
     ).astype(float)
 
     focal = work[[
         "ai_focal", "it_org_any", "ai_x_org",
-        "dmi_sum", "ai_x_dmi", "it_invest_sum",
+        "dmi", "ai_x_dmi", "it_invest_sum",
     ]].astype(float)
 
     X = pd.concat([focal, fe], axis=1)
