@@ -111,6 +111,7 @@ def alt_outcomes(df):
 
 def subgroups(df):
     rows = []
+    service_industries = [11, 12, 13, 14, 15]
 
     def add(name, sub, fe=FE):
         rhs = f"ai_use_sum + it_org_any + ai_use_sum:it_org_any + dmi + it_invest_sum + firm_size + {fe}"
@@ -119,14 +120,15 @@ def subgroups(df):
                          AIxITorg=cell(m, "ai_use_sum:it_org_any")))
     add("Large (firm_size>=3)", df[df.firm_size >= 3])
     add("SME (firm_size<=2)",   df[df.firm_size <= 2])
-    add("Information",        df[df.industry == 8], fe="C(region) + C(firm_type)")
-    add("Manufacturing",        df[df.industry == 2], fe="C(region) + C(firm_type)")
-    add("Other",        df[df.industry == 16], fe="C(region) + C(firm_type)")
-    add("Services - 전문,과학 및 기술서비스업",        df[df.industry == 11], fe="C(region) + C(firm_type)")
-    add("Services - 사업시설관리, 사업지원 및 서비스업",        df[df.industry == 12], fe="C(region) + C(firm_type)")
-    add("Services - 교육 서비스업",        df[df.industry == 13], fe="C(region) + C(firm_type)")
-    add("Services - 보건업 및 사회복지서비스업",        df[df.industry == 14], fe="C(region) + C(firm_type)")
-    add("Services - 예술, 스포츠 및 여가관련 서비스업",        df[df.industry == 15], fe="C(region) + C(firm_type)")
+    add("Information (industry=8)",        df[df.industry == 8], fe="C(region) + C(firm_type)")
+    add("Manufacturing (industry=2)",        df[df.industry == 2], fe="C(region) + C(firm_type)")
+    add("Other (industry=16)",        df[df.industry == 16], fe="C(region) + C(firm_type)")
+    add("Services (industry=11,12,13,14,15)",        df[df.industry.isin(service_industries)], fe="C(region) + C(firm_type)")
+    add("Services - 전문,과학 및 기술서비스업 (industry=11)",        df[df.industry == 11], fe="C(region) + C(firm_type)")
+    add("Services - 사업시설관리, 사업지원 및 서비스업 (industry=12)",        df[df.industry == 12], fe="C(region) + C(firm_type)")
+    add("Services - 교육 서비스업 (industry=13)",        df[df.industry == 13], fe="C(region) + C(firm_type)")
+    add("Services - 보건업 및 사회복지서비스업 (industry=14)",        df[df.industry == 14], fe="C(region) + C(firm_type)")
+    add("Services - 예술, 스포츠 및 여가관련 서비스업 (industry=15)",        df[df.industry == 15], fe="C(region) + C(firm_type)")
     return pd.DataFrame(rows)
 
 
@@ -134,7 +136,7 @@ def main():
     df = pd.read_csv(DATA_PATH)
     t3, ss, t4, sg = table3(df), simple_slopes(df), alt_outcomes(df), subgroups(df)
     for name, tbl in [("table3_main", t3), ("simple_slopes", ss),
-                      ("table4_alt_outcomes", t4), ("subgroup", sg)]:
+                      ("table4_alt_outcomes", t4), ("table6_subgroup", sg)]:
         print(f"\n===== {name} =====")
         print(tbl.to_string())
         tbl.to_csv(OUT / f"{name}.csv")
