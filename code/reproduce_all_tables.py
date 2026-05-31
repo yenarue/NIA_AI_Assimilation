@@ -44,6 +44,18 @@ OUT = Path("outputs/w13/canonical"); OUT.mkdir(parents=True, exist_ok=True)
 
 FE = "C(industry) + C(region) + C(firm_type)"
 RHS_FULL = f"ai_use_sum + it_org_any + ai_use_sum:it_org_any + dmi + it_invest_sum + firm_size + {FE}"
+AI_TYPE_LABELS = {
+    "ai_use_doc_info_collect": "Document creation and information retrieval",
+    "ai_use_task_automation": "Task automation support",
+    "ai_use_decision_support": "Decision support",
+    "ai_use_speech_to_text": "Speech-to-machine-readable conversion (STT)",
+    "ai_use_gen_summarize_edit": "Generative AI (text / image / audio)",
+    "ai_use_image_video_recognition": "Computer vision (object / person identification)",
+    "ai_use_ml_data_analysis": "Machine learning for data analytics",
+    "ai_use_text_language_analysis": "Natural language processing (text analysis)",
+    "ai_use_autonomous_mobility": "Autonomous mobility AI (autonomous vehicles / robotics)",
+    "ai_use_other": "Other AI applications",
+}
 
 
 def stars(p):
@@ -58,6 +70,20 @@ def cell(m, term):
     if term not in m.params.index:
         return ""
     return f"{m.params[term]:+.3f}{stars(m.pvalues[term])} ({m.bse[term]:.3f})"
+
+
+def linear_combo_stats(m, terms, weights=None):
+    if weights is None:
+        weights = [1.0] * len(terms)
+    contrast = np.zeros(len(m.params))
+    for term, weight in zip(terms, weights):
+        contrast[m.params.index.get_loc(term)] = weight
+    test = m.t_test(contrast)
+    beta = float(np.squeeze(test.effect))
+    se = float(np.squeeze(test.sd))
+    t = float(np.squeeze(test.tvalue))
+    p = float(np.squeeze(test.pvalue))
+    return beta, se, t, p
 
 
 def table3(df):
@@ -132,11 +158,42 @@ def subgroups(df):
     return pd.DataFrame(rows)
 
 
+def table7_ai_type_decomposition(df):
+    rows = []
+    n_total = int(len(df))
+    for ai_col, label in AI_TYPE_LABELS.items():
+        if ai_col not in df.columns:
+            continue
+        formula = (
+            f"effect_proc_improve ~ {ai_col} + it_org_any + {ai_col}:it_org_any "
+            f"+ dmi + it_invest_sum + firm_size + {FE}"
+        )
+        m = wls(formula, df)
+        interaction = f"{ai_col}:it_org_any"
+        slope_beta, slope_se, _, slope_p = linear_combo_stats(m, [ai_col, interaction])
+        rows.append({
+            "AI type": label,
+            "Q28 item": ai_col,
+            "Prevalence (%)": round(100 * df[ai_col].mean(), 1),
+            "N": n_total,
+            "β_AI alone": cell(m, ai_col),
+            "β_AI × ITorg": cell(m, interaction),
+            "Simple slope at ITorg=1": f"{slope_beta:+.3f}{stars(slope_p)} ({slope_se:.3f})",
+            "R-squared": round(m.rsquared, 3),
+        })
+    return pd.DataFrame(rows)
+
+
 def main():
     df = pd.read_csv(DATA_PATH)
-    t3, ss, t4, sg = table3(df), simple_slopes(df), alt_outcomes(df), subgroups(df)
+    t3 = table3(df)
+    ss = simple_slopes(df)
+    t4 = alt_outcomes(df)
+    sg = subgroups(df)
+    t7 = table7_ai_type_decomposition(df)
     for name, tbl in [("table3_main", t3), ("simple_slopes", ss),
-                      ("table4_alt_outcomes", t4), ("table6_subgroup", sg)]:
+                      ("table4_alt_outcomes", t4), ("table6_subgroup", sg),
+                      ("table7_ai_type_decomposition", t7)]:
         print(f"\n===== {name} =====")
         print(tbl.to_string())
         tbl.to_csv(OUT / f"{name}.csv")
