@@ -1,11 +1,13 @@
 """
 reproduce_all_tables.py
 ================================================================================
-Single source of truth for the IMDS manuscript's quantitative results.
+Single source of truth for the IMDS manuscript's quantitative results
+(rev10 replication package).
 
 ONE canonical specification is used everywhere so that Table 3, the section-4.2
-simple slopes, Figure 1, the alternative-outcome table and the subgroup table
-are mutually consistent and reproduce to the third decimal.
+simple slopes, Figure 1, the alternative-outcome table (Table 4), the subgroup
+table (Table 6) and the AI-type decomposition (Table 7) are mutually consistent
+and reproduce to the third decimal.
 
 Canonical headline specification (Model 5)
 ------------------------------------------
@@ -19,18 +21,24 @@ Canonical headline specification (Model 5)
     estimator : WLS, weights = weight (NIA RIM_WT)
     cov_type  : HC3
 
-Design decisions (relative to v1):
-  * Model 5 is WEIGHTED (v1's headline was unweighted).
+Design decisions:
+  * Model 5 is WEIGHTED.
   * The ai_use_sum:dmi interaction is NOT in the headline model; DMI is treated
-    as a readiness condition (main effect only). AI x DMI is reported separately
-    as an exploratory robustness row, never inside the headline simple slopes.
-  * firm_size enters linearly (one coefficient), matching Table 3's single
-    "Firm size category" row.
+    as a readiness condition (main effect only). AI x DMI is reported ONLY as an
+    exploratory row in the comprehensive robustness table (manuscript Table 5),
+    never in Table 3, Table 4, Table 6 or Table 7.
+  * firm_size enters linearly (one coefficient).
 
-This is what makes Table 3, 4.2 and Figure 1 agree. v1 differs because it was
-unweighted AND carried ai_use_sum:dmi in Model 5; that is the entire source of
-the v1 -> rev6 number change (the change-log note "Table 3 unchanged from v1"
-referred only to the qualitative sign pattern, not the point estimates).
+Table 6 industry-group definition (KSIC 16-sector scheme, exhaustive 4-way split)
+---------------------------------------------------------------------------------
+    Manufacturing  : industry == 2                                  (N = 2,769)
+    Information    : industry == 8                                  (N =   785)
+    Services       : industry in {5,6,7,9,10,11,12,13,14,15,16}     (N = 6,441)
+    Other          : industry in {1,3,4}                            (N = 2,208)
+  Single-industry groups (Manufacturing, Information) use region + firm-type
+  fixed effects only; multi-industry groups (Services, Other) additionally
+  include industry fixed effects. This is the exact grouping behind the
+  manuscript's Table 6 numbers.
 ================================================================================
 """
 from __future__ import annotations
@@ -40,10 +48,19 @@ import pandas as pd
 import statsmodels.formula.api as smf
 
 DATA_PATH = Path("working/analysis/nia_2024_analysis_total.csv")  # <-- adjust
-OUT = Path("outputs/w13/canonical"); OUT.mkdir(parents=True, exist_ok=True)
+OUT = Path("outputs/w14/canonical"); OUT.mkdir(parents=True, exist_ok=True)
 
 FE = "C(industry) + C(region) + C(firm_type)"
 RHS_FULL = f"ai_use_sum + it_org_any + ai_use_sum:it_org_any + dmi + it_invest_sum + firm_size + {FE}"
+
+# Exhaustive 4-way industry partition used in manuscript Table 6
+INDUSTRY_GROUPS = {
+    "Manufacturing": [2],
+    "Information":    [8],
+    "Services":       [5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16],
+    "Other":          [1, 3, 4],
+}
+
 AI_TYPE_LABELS = {
     "ai_use_doc_info_collect": "Document creation and information retrieval",
     "ai_use_task_automation": "Task automation support",
@@ -89,11 +106,11 @@ def linear_combo_stats(m, terms, weights=None):
 def table3(df):
     """Nested M1-M5; M1-M4 unweighted baselines, M5 weighted headline."""
     specs = {
-        "M1 AI only":       ("effect_proc_improve ~ ai_use_sum + firm_size + " + FE, False),
-        "M2 +ITorg":        ("effect_proc_improve ~ ai_use_sum + it_org_any + ai_use_sum:it_org_any + firm_size + " + FE, False),
-        "M3 +investment":   ("effect_proc_improve ~ ai_use_sum + it_org_any + ai_use_sum:it_org_any + it_invest_sum + firm_size + " + FE, False),
-        "M4 +DMI":          ("effect_proc_improve ~ " + RHS_FULL, False),
-        "M5 weighted":      ("effect_proc_improve ~ " + RHS_FULL, True),
+        "M1 AI only":     ("effect_proc_improve ~ ai_use_sum + firm_size + " + FE, False),
+        "M2 +ITorg":      ("effect_proc_improve ~ ai_use_sum + it_org_any + ai_use_sum:it_org_any + firm_size + " + FE, False),
+        "M3 +investment": ("effect_proc_improve ~ ai_use_sum + it_org_any + ai_use_sum:it_org_any + it_invest_sum + firm_size + " + FE, False),
+        "M4 +DMI":        ("effect_proc_improve ~ " + RHS_FULL, False),
+        "M5 weighted":    ("effect_proc_improve ~ " + RHS_FULL, True),
     }
     terms = ["ai_use_sum", "it_org_any", "ai_use_sum:it_org_any", "dmi", "it_invest_sum", "firm_size"]
     rows = {t: {} for t in terms}; r2 = {}; n = {}
@@ -123,6 +140,7 @@ def simple_slopes(df):
 
 
 def alt_outcomes(df):
+    """Table 4. Headline spec on alternative DVs. NO AI x DMI column (by design)."""
     dvs = {"effect_average": "Average effect", "effect_innov_outcome": "Product/service innovation",
            "effect_decision_improve": "Decision-making", "effect_competitiveness": "Competitiveness",
            "effect_stakeholders": "External stakeholders"}
@@ -136,25 +154,25 @@ def alt_outcomes(df):
 
 
 def subgroups(df):
+    """Table 6 heterogeneity. Exhaustive firm-size and industry partitions."""
     rows = []
-    service_industries = [11, 12, 13, 14, 15]
 
-    def add(name, sub, fe=FE):
+    def add(split, group, sub, fe):
         rhs = f"ai_use_sum + it_org_any + ai_use_sum:it_org_any + dmi + it_invest_sum + firm_size + {fe}"
         m = wls("effect_proc_improve ~ " + rhs, sub)
-        rows.append(dict(Subgroup=name, N=int(m.nobs), AI=cell(m, "ai_use_sum"),
-                         AIxITorg=cell(m, "ai_use_sum:it_org_any")))
-    add("Large (firm_size>=3)", df[df.firm_size >= 3])
-    add("SME (firm_size<=2)",   df[df.firm_size <= 2])
-    add("Information (industry=8)",        df[df.industry == 8], fe="C(region) + C(firm_type)")
-    add("Manufacturing (industry=2)",        df[df.industry == 2], fe="C(region) + C(firm_type)")
-    add("Other (industry=16)",        df[df.industry == 16], fe="C(region) + C(firm_type)")
-    add("Services (industry=11,12,13,14,15)",        df[df.industry.isin(service_industries)], fe="C(region) + C(firm_type)")
-    add("Services - 전문,과학 및 기술서비스업 (industry=11)",        df[df.industry == 11], fe="C(region) + C(firm_type)")
-    add("Services - 사업시설관리, 사업지원 및 서비스업 (industry=12)",        df[df.industry == 12], fe="C(region) + C(firm_type)")
-    add("Services - 교육 서비스업 (industry=13)",        df[df.industry == 13], fe="C(region) + C(firm_type)")
-    add("Services - 보건업 및 사회복지서비스업 (industry=14)",        df[df.industry == 14], fe="C(region) + C(firm_type)")
-    add("Services - 예술, 스포츠 및 여가관련 서비스업 (industry=15)",        df[df.industry == 15], fe="C(region) + C(firm_type)")
+        rows.append(dict(Split=split, Group=group, N=int(m.nobs),
+                         AI=cell(m, "ai_use_sum"), AIxITorg=cell(m, "ai_use_sum:it_org_any")))
+
+    # Firm-size split
+    add("firm_large", "Large_250plus", df[df.firm_size >= 3], "C(industry) + C(region) + C(firm_type)")
+    add("firm_large", "SME_10_249",    df[df.firm_size <= 2], "C(industry) + C(region) + C(firm_type)")
+
+    # Industry split (exhaustive 4-way). Industry FE only when group spans >1 code.
+    base = "C(region) + C(firm_type)"
+    for group in ["Information", "Manufacturing", "Other", "Services"]:
+        codes = INDUSTRY_GROUPS[group]
+        fe = ("C(industry) + " + base) if len(codes) > 1 else base
+        add("industry_group", group, df[df.industry.isin(codes)], fe)
     return pd.DataFrame(rows)
 
 
@@ -176,8 +194,8 @@ def table7_ai_type_decomposition(df):
             "Q28 item": ai_col,
             "Prevalence (%)": round(100 * df[ai_col].mean(), 1),
             "N": n_total,
-            "β_AI alone": cell(m, ai_col),
-            "β_AI × ITorg": cell(m, interaction),
+            "beta_AI alone": cell(m, ai_col),
+            "beta_AI x ITorg": cell(m, interaction),
             "Simple slope at ITorg=1": f"{slope_beta:+.3f}{stars(slope_p)} ({slope_se:.3f})",
             "R-squared": round(m.rsquared, 3),
         })
@@ -186,17 +204,17 @@ def table7_ai_type_decomposition(df):
 
 def main():
     df = pd.read_csv(DATA_PATH)
-    t3 = table3(df)
-    ss = simple_slopes(df)
-    t4 = alt_outcomes(df)
-    sg = subgroups(df)
-    t7 = table7_ai_type_decomposition(df)
-    for name, tbl in [("table3_main", t3), ("simple_slopes", ss),
-                      ("table4_alt_outcomes", t4), ("table6_subgroup", sg),
-                      ("table7_ai_type_decomposition", t7)]:
+    tables = [
+        ("table3_main", table3(df)),
+        ("simple_slopes", simple_slopes(df)),
+        ("table4_alt_outcomes", alt_outcomes(df)),
+        ("table6_subgroup", subgroups(df)),
+        ("table7_ai_type_decomposition", table7_ai_type_decomposition(df)),
+    ]
+    for name, tbl in tables:
         print(f"\n===== {name} =====")
         print(tbl.to_string())
-        tbl.to_csv(OUT / f"{name}.csv")
+        tbl.to_csv(OUT / f"{name}.csv", index=False)
     print(f"\nAll tables written to {OUT.resolve()}")
 
 

@@ -46,7 +46,7 @@ import pandas as pd
 import statsmodels.api as sm
 
 DATA_PATH = Path("working/analysis/nia_2024_analysis_total.csv")  # <-- adjust
-OUTPUT_DIR = Path("outputs/w14/simple_slopes")
+OUTPUT_DIR = Path("outputs/w13/simple_slopes")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # NOTE: the analytical file ships dmi as `dmi` (not `dmi_sum`).

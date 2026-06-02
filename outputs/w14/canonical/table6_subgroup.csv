@@ -1,0 +1,7 @@
+Split,Group,N,AI,AIxITorg
+firm_large,Large_250plus,2753,-0.026 (0.026),+0.066* (0.027)
+firm_large,SME_10_249,9450,-0.024* (0.012),+0.050** (0.016)
+industry_group,Information,785,-0.084* (0.040),+0.016 (0.054)
+industry_group,Manufacturing,2769,-0.070** (0.023),+0.103*** (0.030)
+industry_group,Other,2208,+0.005 (0.032),+0.060 (0.039)
+industry_group,Services,6441,-0.006 (0.017),+0.033 (0.022)

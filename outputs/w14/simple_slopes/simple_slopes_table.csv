@@ -1,0 +1,4 @@
+Condition,Simple slope (beta_AI),HC3 SE,t,p-value,95% CI lower,95% CI upper
+ITorg = 0 (no IT organization),-0.0248,0.0117,-2.115,0.0344,-0.0478,-0.0018
+ITorg = 1 (with IT organization),0.0262,0.012,2.183,0.029,0.0027,0.0498
+Slope difference (AI x ITorg interaction),0.0511,0.0153,3.345,0.0008,0.0211,0.081
